@@ -1,150 +1,195 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bảng Từ Vựng Tiếng Trung - Spa & Massage</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #fef9e7 0%, #fcf3cf 100%); min-height: 100vh; padding: 10px; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
-        .header { background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%); padding: 20px; border-bottom: 4px solid #b8860b; }
-        .logo-section { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .logo-css { width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); border: 3px solid #d4af37; flex-shrink: 0; }
-        .brand-info h1 { font-size: 24px; margin-bottom: 8px; color: #8b0000; font-weight: bold; }
-        .contact-info { font-size: 14px; color: #5c3317; line-height: 1.6; }
-        .title-section { background: #8b0000; color: white; padding: 15px 20px; font-size: 20px; font-weight: bold; }
-        .notice { background: #e8f5e9; color: #1b5e20; padding: 10px 20px; font-size: 13px; border-bottom: 2px solid #a5d6a7; text-align: center; }
-        .table-container { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 900px; }
-        thead { background: #d4af37; color: #8b0000; }
-        th { padding: 12px; text-align: left; font-weight: bold; border-bottom: 3px solid #b8860b; }
-        td { padding: 12px; border-bottom: 1px solid #e0e0e0; text-align: left; vertical-align: middle; }
-        tbody tr:nth-child(even) { background: #fefcf3; }
-        tbody tr:hover { background: #fcf3cf; }
-        .chinese-text { font-family: "SimSun","STSong",serif; font-size: 18px; color: #c41e3a; font-weight: bold; }
-        .pinyin { color: #2c3e50; font-style: italic; font-size: 14px; }
-        .example { white-space: nowrap; font-size: 14px; }
-        .ex-cn { font-family: "SimSun","STSong",serif; color: #c41e3a; font-weight: bold; }
-        .ex-py { color: #555; font-style: italic; margin: 0 4px; }
-        .ex-vi { color: #2c3e50; }
-        .stt { font-weight: bold; color: #8b0000; background: #f9e79f; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
-        .audio-btn {
-            background: #d4af37; border: none; width: 44px; height: 44px; border-radius: 50%;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            -webkit-tap-highlight-color: transparent; touch-action: manipulation;
-            text-decoration: none; transition: background 0.15s, transform 0.1s;
-        }
-        .audio-btn:active { transform: scale(0.9); background: #b8860b; }
-        .audio-btn svg { width: 22px; height: 22px; fill: white; pointer-events: none; }
-        @media (max-width: 768px) {
-            body { padding: 5px; }
-            .logo-css { width: 60px; height: 60px; font-size: 30px; }
-            .brand-info h1 { font-size: 18px; }
-            .title-section { font-size: 16px; }
-            table { font-size: 13px; min-width: 800px; }
-            th, td { padding: 10px 8px; }
-            .chinese-text { font-size: 16px; }
-            .example { font-size: 12px; }
-            .audio-btn { width: 44px; height: 44px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Từ Vựng Spa & Massage - Tiếng Trung</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#fef9e7,#fcf3cf);min-height:100vh;padding:10px}
+.container{max-width:1200px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.1);overflow:hidden}
+.header{background:linear-gradient(135deg,#d4af37,#f4d03f);padding:20px;border-bottom:4px solid #b8860b}
+.logo-section{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.logo-css{width:80px;height:80px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;box-shadow:0 2px 10px rgba(0,0,0,.2);border:3px solid #d4af37;flex-shrink:0}
+.brand-info h1{font-size:24px;margin-bottom:8px;color:#8b0000;font-weight:700}
+.contact-info{font-size:14px;color:#5c3317;line-height:1.6}
+.title-section{background:#8b0000;color:#fff;padding:15px 20px;font-size:20px;font-weight:700}
+.table-container{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:900px}
+thead{background:#d4af37;color:#8b0000}
+th{padding:12px;text-align:left;font-weight:700;border-bottom:3px solid #b8860b}
+td{padding:12px;border-bottom:1px solid #e0e0e0;text-align:left;vertical-align:middle}
+tbody tr:nth-child(even){background:#fefcf3}
+tbody tr:hover{background:#fcf3cf}
+.cn{font-family:"SimSun","STSong",serif;font-size:18px;color:#c41e3a;font-weight:700}
+.py{color:#2c3e50;font-style:italic;font-size:14px}
+.ex{white-space:nowrap;font-size:14px}
+.ex-cn{font-family:"SimSun","STSong",serif;color:#c41e3a;font-weight:700}
+.ex-py{color:#555;font-style:italic;margin:0 4px}
+.ex-vi{color:#2c3e50}
+.stt{font-weight:700;color:#8b0000;background:#f9e79f;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.btn{background:#d4af37;border:none;width:46px;height:46px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;outline:none}
+.btn:active{transform:scale(.88)}
+.btn.on{background:#c41e3a}
+.btn svg{width:22px;height:22px;fill:#fff;pointer-events:none}
+@media(max-width:768px){
+  body{padding:5px}
+  .logo-css{width:60px;height:60px;font-size:30px}
+  .brand-info h1{font-size:18px}
+  .title-section{font-size:16px}
+  table{font-size:13px;min-width:800px}
+  th,td{padding:10px 8px}
+  .cn{font-size:16px}
+  .ex{font-size:12px}
+}
+</style>
 </head>
 <body>
 <div class="container">
-    <div class="notice">🔊 Nhấn nút âm thanh → trình duyệt mở Google Translate và đọc tiếng Trung</div>
-    <div class="header">
-        <div class="logo-section">
-            <div class="logo-css">📚</div>
-            <div class="brand-info">
-                <h1>GIA SƯ HOA NGỮ TÂN AN</h1>
-                <div class="contact-info">
-                    <div>📍 9/1 Bạch Văn Tư, Tân An, Long An</div>
-                    <div>📱 Zalo: <strong>0839.889.772</strong></div>
-                </div>
-            </div>
+  <div class="header">
+    <div class="logo-section">
+      <div class="logo-css">📚</div>
+      <div class="brand-info">
+        <h1>GIA SƯ HOA NGỮ TÂN AN</h1>
+        <div class="contact-info">
+          <div>📍 9/1 Bạch Văn Tư, Tân An, Long An</div>
+          <div>📱 Zalo: <strong>0839.889.772</strong></div>
         </div>
+      </div>
     </div>
-    <div class="title-section">📚 BẢNG TỪ VỰNG CHỦ ĐỀ SPA & MASSAGE</div>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th style="width:50px">STT</th>
-                    <th style="width:130px">Tiếng Việt</th>
-                    <th style="width:110px">Tiếng Trung</th>
-                    <th style="width:120px">Phiên âm</th>
-                    <th style="width:56px">🔊</th>
-                    <th>Ví dụ (Câu - Phiên âm - Nghĩa)</th>
-                </tr>
-            </thead>
-            <tbody id="vocab-body"></tbody>
-        </table>
-    </div>
+  </div>
+  <div class="title-section">📚 BẢNG TỪ VỰNG CHỦ ĐỀ SPA & MASSAGE</div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:50px">STT</th>
+          <th style="width:130px">Tiếng Việt</th>
+          <th style="width:110px">Tiếng Trung</th>
+          <th style="width:120px">Phiên âm</th>
+          <th style="width:56px">🔊</th>
+          <th>Ví dụ (Câu - Phiên âm - Nghĩa)</th>
+        </tr>
+      </thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
 </div>
 
 <script>
-var data = [
-    ["洗头","xǐ tóu","Gội đầu","我想洗头。","Wǒ xiǎng xǐ tóu.","Tôi muốn gội đầu."],
-    ["造型","zào xíng","Tạo kiểu / sấy kiểu","我要做造型。","Wǒ yào zuò zào xíng.","Tôi muốn làm tóc."],
-    ["洗脸","xǐ liǎn","Rửa mặt","请先洗脸。","Qǐng xiān xǐ liǎn.","Vui lòng rửa mặt trước."],
-    ["去角质","qù jiǎo zhì","Tẩy da chết","可以去角质吗？","Kěyǐ qù jiǎo zhì ma?","Có thể tẩy da chết không?"],
-    ["面部按摩","miàn bù àn mó","Massage mặt","我做面部按摩。","Wǒ zuò miàn bù àn mó.","Tôi làm massage mặt."],
-    ["面膜","miàn mó","Đắp mặt nạ","我要敷面膜。","Wǒ yào fū miàn mó.","Tôi muốn đắp mặt nạ."],
-    ["颈部按摩","jǐng bù àn mó","Massage cổ","请按摩颈部。","Qǐng àn mó jǐng bù.","Vui lòng massage cổ."],
-    ["肩部按摩","jiān bù àn mó","Massage vai","按摩肩部很好。","Àn mó jiān bù hěn hǎo.","Massage vai rất tốt."],
-    ["背部按摩","bèi bù àn mó","Massage lưng","我想按摩背部。","Wǒ xiǎng àn mó bèi bù.","Tôi muốn massage lưng."],
-    ["手部按摩","shǒu bù àn mó","Massage tay","请做手部按摩。","Qǐng zuò shǒu bù àn mó.","Vui lòng làm massage tay."],
-    ["采耳","cǎi ěr","Lấy ráy tai","我要采耳。","Wǒ yào cǎi ěr.","Tôi muốn lấy ráy tai."],
-    ["刮胡子","guā hú zi","Cạo râu","他在刮胡子。","Tā zài guā hú zi.","Anh ấy đang cạo râu."],
-    ["拔罐疗法","bá guàn liáo fǎ","Giác hơi","我想做拔罐。","Wǒ xiǎng zuò bá guàn.","Tôi muốn làm giác hơi."],
-    ["刮痧","guā shā","Cạo gió","刮痧可以吗？","Guā shā kěyǐ ma?","Cạo gió được không?"],
-    ["套餐","tào cān","Combo / gói dịch vụ","我选这个套餐。","Wǒ xuǎn zhège tào cān.","Tôi chọn gói này."],
-    ["基础护理","jī chǔ hù lǐ","Chăm sóc da cơ bản","我做基础护理。","Wǒ zuò jī chǔ hù lǐ.","Tôi làm chăm sóc cơ bản."],
-    ["深层护理","shēn céng hù lǐ","Chăm sóc da chuyên sâu","深层护理很好。","Shēn céng hù lǐ hěn hǎo.","Chăm sóc chuyên sâu rất tốt."],
-    ["祛痘护理","qū dòu hù lǐ","Trị mụn","我要祛痘护理。","Wǒ yào qū dòu hù lǐ.","Tôi muốn trị mụn."],
-    ["蒸脸","zhēng liǎn","Xông hơi mặt","可以蒸脸吗？","Kěyǐ zhēng liǎn ma?","Có thể xông hơi mặt không?"],
-    ["清黑头","qīng hēi tóu","Hút mụn đầu đen","我想清黑头。","Wǒ xiǎng qīng hēi tóu.","Tôi muốn hút mụn đầu đen."],
-    ["清痘","qīng dòu","Lấy nhân mụn","可以清痘吗？","Kěyǐ qīng dòu ma?","Có thể lấy nhân mụn không?"],
-    ["精华导入","jīng huá dǎo rù","Tinh chất","做精华导入。","Zuò jīng huá dǎo rù.","Làm đưa tinh chất vào."],
-    ["消炎光疗","xiāo yán guāng liáo","Ánh sáng khử trùng","做光疗。","Zuò guāng liáo.","Làm trị liệu ánh sáng."],
-    ["VIP房间","VIP fáng jiān","Phòng VIP","我订VIP房间。","Wǒ dìng VIP fáng jiān.","Tôi đặt phòng VIP."],
-    ["上门按摩","shàng mén àn mó","Massage tại nhà","可以上门按摩吗？","Kěyǐ shàng mén àn mó ma?","Có thể massage tại nhà không?"],
-    ["全身按摩","quán shēn àn mó","Massage toàn thân","我做全身按摩。","Wǒ zuò quán shēn àn mó.","Tôi làm massage toàn thân."],
-    ["热石","rè shí","Đá nóng","热石按摩很好。","Rè shí àn mó hěn hǎo.","Massage đá nóng rất tốt."],
-    ["草药包","cǎo yào bāo","Thảo dược","用草药包。","Yòng cǎo yào bāo.","Dùng túi thảo dược."],
-    ["泰式按摩","tài shì àn mó","Massage Thái","我做泰式按摩。","Wǒ zuò tài shì àn mó.","Tôi làm massage Thái."],
-    ["四手按摩","sì shǒu àn mó","Massage 4 tay","四手按摩很舒服。","Sì shǒu àn mó hěn shūfu.","Massage 4 tay rất thoải mái."],
-    ["两位技师","liǎng wèi jì shī","Hai kỹ thuật viên","有两位技师。","Yǒu liǎng wèi jì shī.","Có hai kỹ thuật viên."],
-    ["手足护理","shǒu zú hù lǐ","Chăm sóc tay chân","做手足护理。","Zuò shǒu zú hù lǐ.","Làm chăm sóc tay chân."],
-    ["咖啡","kā fēi","Cà phê","我喝咖啡。","Wǒ hē kā fēi.","Tôi uống cà phê."],
-    ["水果","shuǐ guǒ","Trái cây","吃水果。","Chī shuǐ guǒ.","Ăn trái cây."]
+var rows=[
+  ["洗头","xǐ tóu","Gội đầu","我想洗头。","Wǒ xiǎng xǐ tóu.","Tôi muốn gội đầu."],
+  ["造型","zào xíng","Tạo kiểu / sấy kiểu","我要做造型。","Wǒ yào zuò zào xíng.","Tôi muốn làm tóc."],
+  ["洗脸","xǐ liǎn","Rửa mặt","请先洗脸。","Qǐng xiān xǐ liǎn.","Vui lòng rửa mặt trước."],
+  ["去角质","qù jiǎo zhì","Tẩy da chết","可以去角质吗？","Kěyǐ qù jiǎo zhì ma?","Có thể tẩy da chết không?"],
+  ["面部按摩","miàn bù àn mó","Massage mặt","我做面部按摩。","Wǒ zuò miàn bù àn mó.","Tôi làm massage mặt."],
+  ["面膜","miàn mó","Đắp mặt nạ","我要敷面膜。","Wǒ yào fū miàn mó.","Tôi muốn đắp mặt nạ."],
+  ["颈部按摩","jǐng bù àn mó","Massage cổ","请按摩颈部。","Qǐng àn mó jǐng bù.","Vui lòng massage cổ."],
+  ["肩部按摩","jiān bù àn mó","Massage vai","按摩肩部很好。","Àn mó jiān bù hěn hǎo.","Massage vai rất tốt."],
+  ["背部按摩","bèi bù àn mó","Massage lưng","我想按摩背部。","Wǒ xiǎng àn mó bèi bù.","Tôi muốn massage lưng."],
+  ["手部按摩","shǒu bù àn mó","Massage tay","请做手部按摩。","Qǐng zuò shǒu bù àn mó.","Vui lòng làm massage tay."],
+  ["采耳","cǎi ěr","Lấy ráy tai","我要采耳。","Wǒ yào cǎi ěr.","Tôi muốn lấy ráy tai."],
+  ["刮胡子","guā hú zi","Cạo râu","他在刮胡子。","Tā zài guā hú zi.","Anh ấy đang cạo râu."],
+  ["拔罐疗法","bá guàn liáo fǎ","Giác hơi","我想做拔罐。","Wǒ xiǎng zuò bá guàn.","Tôi muốn làm giác hơi."],
+  ["刮痧","guā shā","Cạo gió","刮痧可以吗？","Guā shā kěyǐ ma?","Cạo gió được không?"],
+  ["套餐","tào cān","Combo / gói dịch vụ","我选这个套餐。","Wǒ xuǎn zhège tào cān.","Tôi chọn gói này."],
+  ["基础护理","jī chǔ hù lǐ","Chăm sóc da cơ bản","我做基础护理。","Wǒ zuò jī chǔ hù lǐ.","Tôi làm chăm sóc cơ bản."],
+  ["深层护理","shēn céng hù lǐ","Chăm sóc da chuyên sâu","深层护理很好。","Shēn céng hù lǐ hěn hǎo.","Chăm sóc chuyên sâu rất tốt."],
+  ["祛痘护理","qū dòu hù lǐ","Trị mụn","我要祛痘护理。","Wǒ yào qū dòu hù lǐ.","Tôi muốn trị mụn."],
+  ["蒸脸","zhēng liǎn","Xông hơi mặt","可以蒸脸吗？","Kěyǐ zhēng liǎn ma?","Có thể xông hơi mặt không?"],
+  ["清黑头","qīng hēi tóu","Hút mụn đầu đen","我想清黑头。","Wǒ xiǎng qīng hēi tóu.","Tôi muốn hút mụn đầu đen."],
+  ["清痘","qīng dòu","Lấy nhân mụn","可以清痘吗？","Kěyǐ qīng dòu ma?","Có thể lấy nhân mụn không?"],
+  ["精华导入","jīng huá dǎo rù","Tinh chất","做精华导入。","Zuò jīng huá dǎo rù.","Làm đưa tinh chất vào."],
+  ["消炎光疗","xiāo yán guāng liáo","Ánh sáng khử trùng","做光疗。","Zuò guāng liáo.","Làm trị liệu ánh sáng."],
+  ["VIP房间","VIP fáng jiān","Phòng VIP","我订VIP房间。","Wǒ dìng VIP fáng jiān.","Tôi đặt phòng VIP."],
+  ["上门按摩","shàng mén àn mó","Massage tại nhà","可以上门按摩吗？","Kěyǐ shàng mén àn mó ma?","Có thể massage tại nhà không?"],
+  ["全身按摩","quán shēn àn mó","Massage toàn thân","我做全身按摩。","Wǒ zuò quán shēn àn mó.","Tôi làm massage toàn thân."],
+  ["热石","rè shí","Đá nóng","热石按摩很好。","Rè shí àn mó hěn hǎo.","Massage đá nóng rất tốt."],
+  ["草药包","cǎo yào bāo","Thảo dược","用草药包。","Yòng cǎo yào bāo.","Dùng túi thảo dược."],
+  ["泰式按摩","tài shì àn mó","Massage Thái","我做泰式按摩。","Wǒ zuò tài shì àn mó.","Tôi làm massage Thái."],
+  ["四手按摩","sì shǒu àn mó","Massage 4 tay","四手按摩很舒服。","Sì shǒu àn mó hěn shūfu.","Massage 4 tay rất thoải mái."],
+  ["两位技师","liǎng wèi jì shī","Hai kỹ thuật viên","有两位技师。","Yǒu liǎng wèi jì shī.","Có hai kỹ thuật viên."],
+  ["手足护理","shǒu zú hù lǐ","Chăm sóc tay chân","做手足护理。","Zuò shǒu zú hù lǐ.","Làm chăm sóc tay chân."],
+  ["咖啡","kā fēi","Cà phê","我喝咖啡。","Wǒ hē kā fēi.","Tôi uống cà phê."],
+  ["水果","shuǐ guǒ","Trái cây","吃水果。","Chī shuǐ guǒ.","Ăn trái cây."]
 ];
 
-var ICON = '<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
-
-var tbody = document.getElementById('vocab-body');
-data.forEach(function(row, i) {
-    var cn = row[0];
-    var encoded = encodeURIComponent(cn);
-    // Link mở Google Translate trang web với text và tự phát âm
-    var ttsUrl = 'https://translate.google.com/?sl=zh-CN&tl=vi&text=' + encoded + '&op=translate';
-    var tr = document.createElement('tr');
-    tr.innerHTML =
-        '<td><div class="stt">'+(i+1)+'</div></td>'+
-        '<td>'+row[2]+'</td>'+
-        '<td class="chinese-text">'+cn+'</td>'+
-        '<td class="pinyin">'+row[1]+'</td>'+
-        '<td style="text-align:center">'+
-            '<a class="audio-btn" href="'+ttsUrl+'" target="_blank" rel="noopener" title="Nghe phát âm">'+ICON+'</a>'+
-        '</td>'+
-        '<td class="example">'+
-            '<span class="ex-cn">'+row[3]+'</span> '+
-            '<span class="ex-py">('+row[4]+')</span> '+
-            '<span class="ex-vi">'+row[5]+'</span>'+
-        '</td>';
-    tbody.appendChild(tr);
+var ICO='<svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
+var tb=document.getElementById('tb');
+rows.forEach(function(r,i){
+  var tr=document.createElement('tr');
+  tr.innerHTML='<td><div class="stt">'+(i+1)+'</div></td>'+
+    '<td>'+r[2]+'</td>'+
+    '<td class="cn">'+r[0]+'</td>'+
+    '<td class="py">'+r[1]+'</td>'+
+    '<td style="text-align:center"><button class="btn" onclick="say(this,\''+r[0]+'\')">'+ICO+'</button></td>'+
+    '<td class="ex"><span class="ex-cn">'+r[3]+'</span> <span class="ex-py">('+r[4]+')</span> <span class="ex-vi">'+r[5]+'</span></td>';
+  tb.appendChild(tr);
 });
+
+/* ---- TTS ---- */
+var SS=window.speechSynthesis;
+var cur=null;
+var curBtn=null;
+var zhV=null;
+var ready=false;
+
+function pickVoice(){
+  if(!SS) return;
+  var vv=SS.getVoices();
+  if(!vv||vv.length===0) return;
+  var pref=['zh-CN','zh_CN','cmn-Hans-CN','zh-TW','zh-HK','zh'];
+  for(var p=0;p<pref.length;p++){
+    for(var v=0;v<vv.length;v++){
+      if(vv[v].lang===pref[p]||vv[v].lang.startsWith(pref[p])){
+        zhV=vv[v]; ready=true; return;
+      }
+    }
+  }
+  // không tìm thấy giọng zh nhưng vẫn thử phát với lang='zh-CN'
+  ready=true;
+}
+
+if(SS){
+  pickVoice();
+  SS.onvoiceschanged=pickVoice;
+  setTimeout(pickVoice,300);
+  setTimeout(pickVoice,1000);
+  setTimeout(pickVoice,2000);
+}
+
+function say(btn,text){
+  if(!SS){ alert('Trình duyệt không hỗ trợ TTS. Dùng Chrome hoặc Safari.'); return; }
+
+  // Nếu đang phát cùng từ → dừng
+  if(curBtn===btn){
+    SS.cancel();
+    btn.classList.remove('on');
+    curBtn=null; cur=null;
+    return;
+  }
+  // Dừng từ trước
+  SS.cancel();
+  if(curBtn){ curBtn.classList.remove('on'); }
+
+  // Gọi lại pickVoice lần cuối (iOS gesture unlock)
+  pickVoice();
+
+  var u=new SpeechSynthesisUtterance(text);
+  u.lang='zh-CN';
+  u.rate=0.85;
+  u.pitch=1.0;
+  u.volume=1.0;
+  if(zhV) u.voice=zhV;
+
+  u.onstart=function(){ btn.classList.add('on'); curBtn=btn; };
+  u.onend=function(){ btn.classList.remove('on'); if(curBtn===btn){curBtn=null;} };
+  u.onerror=function(e){ btn.classList.remove('on'); if(curBtn===btn){curBtn=null;} };
+
+  cur=u;
+  // setTimeout 100ms: bắt buộc trên iOS Safari để không bị bỏ qua
+  setTimeout(function(){ SS.speak(u); }, 100);
+}
 </script>
 </body>
 </html>
