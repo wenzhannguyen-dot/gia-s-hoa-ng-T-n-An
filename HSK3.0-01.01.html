@@ -366,15 +366,16 @@
         }
 
         .play-btn {
-            width: 50px; height: 50px; border-radius: 50%; background-color: #8e44ad;
+            width: 50px; height: 50px; border-radius: 50%; background-color: #e74c3c;
             color: white; border: none; cursor: pointer; display: flex;
             align-items: center; justify-content: center; font-size: 20px; transition: all 0.2s;
+            flex-shrink: 0;
         }
-        .play-btn:hover { background-color: #7d3c98; transform: scale(1.05); }
+        .play-btn:hover { background-color: #c0392b; transform: scale(1.05); }
         .play-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
         .audio-progress { flex: 1; height: 6px; background-color: #ddd; border-radius: 3px; overflow: hidden; }
-        .audio-progress-bar { height: 100%; width: 0%; background-color: #8e44ad; transition: width 0.3s; }
+        .audio-progress-bar { height: 100%; width: 0%; background-color: #e74c3c; transition: width 0.3s; }
 
         .question-container {
             background-color: white; padding: 20px; margin-bottom: 20px;
@@ -566,12 +567,12 @@
         .char-input:focus { outline: none; box-shadow: 0 0 0 3px rgba(142,68,173,0.2); }
 
         .check-btn { 
-            background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; border: none; padding: 10px 25px; 
+            background: #e74c3c; color: white; border: none; padding: 10px 25px; 
             border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; 
             margin-top: 15px; display: inline-flex; align-items: center; gap: 8px; font-family: Arial, sans-serif;
             transition: all 0.2s;
         }
-        .check-btn:hover { background: #7d3c98; transform: translateY(-1px); }
+        .check-btn:hover { background: #c0392b; transform: translateY(-1px); }
 
         .result-message { 
             margin-top: 15px; padding: 12px; border-radius: 6px; 
@@ -579,7 +580,7 @@
         }
         .result-message.show { display: block; }
         .result-message.correct { background: #d4edda; color: #155724; border: 1px solid #27ae60; }
-        .result-message.incorrect { background: #f8d7da; color: #721c24; border: 1px solid #8e44ad; }
+        .result-message.incorrect { background: #f8d7da; color: #721c24; border: 1px solid #e74c3c; }
 
         .nav-buttons { 
             display: flex; justify-content: space-between; margin-top: 30px; 
@@ -677,7 +678,6 @@
             display: none !important;
         }
     </style>
-<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -1050,72 +1050,162 @@
                     </div>
 
                     <div id="listening" class="exercise-content active">
-                        <div class="section-header-exercise">一、听力 (6 câu)</div>
+                        <!-- Phần 1: Bài khóa 1 -->
+                        <div class="part-header" style="background-color: #f39c12; color: white; padding: 12px 15px; margin: 20px 0 15px 0; border-radius: 5px; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; gap: 8px;">
+                            <i class="bi bi-headphones"></i> 第一部分 - 根据课文 1 选择正确答案 (Câu 1-2)
+                        </div>
                         
-                        <div class="part-header">第一部分 - 听对话，选择正确答案 (Câu 1-3)</div>
-                        
+                        <div class="audio-player" style="display: flex; align-items: center; gap: 15px; margin: 15px 0; padding: 15px; background-color: #f0f0f0; border-radius: 8px;">
+                            <button class="play-btn" onclick="speakAllText('text1')" style="width: 50px; height: 50px; border-radius: 50%; background-color: #e74c3c; color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; transition: all 0.2s; flex-shrink: 0;">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="audio-progress" style="flex: 1; height: 6px; background-color: #ddd; border-radius: 3px; overflow: hidden;">
+                                <div class="audio-progress-bar" style="height: 100%; width: 0%; background-color: #e74c3c; transition: width 0.3s;"></div>
+                            </div>
+                            <span style="font-family: Arial, sans-serif; color: #666; font-size: 14px;">开学第一天 - Nghe bài khóa 1</span>
+                        </div>
+
                         <div class="question-container">
                             <div class="question-text">1. 王一飞对小语说什么？</div>
-                            <div class="radio-group">
-                                <label class="radio-item"><input type="radio" name="q1" value="A"> A 老师好</label>
-                                <label class="radio-item"><input type="radio" name="q1" value="B"> B AI小语，你好</label>
-                                <label class="radio-item"><input type="radio" name="q1" value="C"> C 同学们好</label>
+                            <div class="radio-group" style="display: flex; flex-direction: row; gap: 25px; margin-top: 10px; flex-wrap: wrap;">
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q1" value="A" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> A 老师好
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q1" value="B" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> B AI小语，你好
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q1" value="C" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> C 同学们好
+                                </label>
                             </div>
-                            <button class="check-btn" onclick="checkAnswer('q1', 'B', 'result1')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
+                            <button class="check-btn" onclick="checkAnswer('q1', 'B', 'result1')" style="background: #e74c3c; margin-top: 15px;">
+                                <i class="bi bi-check-circle"></i> Kiểm tra
+                            </button>
                             <div class="result-message" id="result1"></div>
                         </div>
 
                         <div class="question-container">
-                            <div class="question-text">2. 学生们对老师说什么？</div>
-                            <div class="radio-group">
-                                <label class="radio-item"><input type="radio" name="q2" value="A"> A 你好</label>
-                                <label class="radio-item"><input type="radio" name="q2" value="B"> B 您好</label>
-                                <label class="radio-item"><input type="radio" name="q2" value="C"> C 再见</label>
+                            <div class="question-text">2. 小语对王一飞说什么？</div>
+                            <div class="radio-group" style="display: flex; flex-direction: row; gap: 25px; margin-top: 10px; flex-wrap: wrap;">
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q2" value="A" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> A 王老师，您好
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q2" value="B" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> B 你好
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q2" value="C" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> C 再见
+                                </label>
                             </div>
-                            <button class="check-btn" onclick="checkAnswer('q2', 'B', 'result2')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
+                            <button class="check-btn" onclick="checkAnswer('q2', 'A', 'result2')" style="background: #e74c3c; margin-top: 15px;">
+                                <i class="bi bi-check-circle"></i> Kiểm tra
+                            </button>
                             <div class="result-message" id="result2"></div>
                         </div>
 
-                        <div class="question-container">
-                            <div class="question-text">3. 小语对学生说什么？</div>
-                            <div class="radio-group">
-                                <label class="radio-item"><input type="radio" name="q3" value="A"> A 大家好</label>
-                                <label class="radio-item"><input type="radio" name="q3" value="B"> B 你们好</label>
-                                <label class="radio-item"><input type="radio" name="q3" value="C"> C 老师好</label>
+                        <!-- Phần 2: Bài khóa 2 -->
+                        <div class="part-header" style="background-color: #f39c12; color: white; padding: 12px 15px; margin: 30px 0 15px 0; border-radius: 5px; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; gap: 8px;">
+                            <i class="bi bi-headphones"></i> 第二部分 - 根据课文 2 选择正确答案 (Câu 3-4)
+                        </div>
+                        
+                        <div class="audio-player" style="display: flex; align-items: center; gap: 15px; margin: 15px 0; padding: 15px; background-color: #f0f0f0; border-radius: 8px;">
+                            <button class="play-btn" onclick="speakAllText('text2')" style="width: 50px; height: 50px; border-radius: 50%; background-color: #e74c3c; color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; transition: all 0.2s; flex-shrink: 0;">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="audio-progress" style="flex: 1; height: 6px; background-color: #ddd; border-radius: 3px; overflow: hidden;">
+                                <div class="audio-progress-bar" style="height: 100%; width: 0%; background-color: #e74c3c; transition: width 0.3s;"></div>
                             </div>
-                            <button class="check-btn" onclick="checkAnswer('q3', 'B', 'result3')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
+                            <span style="font-family: Arial, sans-serif; color: #666; font-size: 14px;">在课堂上 - Nghe bài khóa 2</span>
+                        </div>
+
+                        <div class="question-container">
+                            <div class="question-text">3. 老师对学生们说什么？</div>
+                            <div class="radio-group" style="display: flex; flex-direction: row; gap: 25px; margin-top: 10px; flex-wrap: wrap;">
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q3" value="A" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> A 你们好
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q3" value="B" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> B 大家好
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q3" value="C" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> C 你好
+                                </label>
+                            </div>
+                            <button class="check-btn" onclick="checkAnswer('q3', 'B', 'result3')" style="background: #e74c3c; margin-top: 15px;">
+                                <i class="bi bi-check-circle"></i> Kiểm tra
+                            </button>
                             <div class="result-message" id="result3"></div>
                         </div>
 
-                        <div class="part-header">第二部分 - 听句子，判断正误 (Câu 4-6)</div>
-
                         <div class="question-container">
-                            <div class="question-text">4. "老师，您好"是对老师表示尊敬。</div>
-                            <div class="radio-group">
-                                <label class="radio-item"><input type="radio" name="q4" value="A"> A 正确</label>
-                                <label class="radio-item"><input type="radio" name="q4" value="B"> B 错误</label>
+                            <div class="question-text">4. 学生们对老师说什么？</div>
+                            <div class="radio-group" style="display: flex; flex-direction: row; gap: 25px; margin-top: 10px; flex-wrap: wrap;">
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q4" value="A" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> A 你好
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q4" value="B" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> B 您好
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q4" value="C" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> C 再见
+                                </label>
                             </div>
-                            <button class="check-btn" onclick="checkAnswer('q4', 'A', 'result4')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
+                            <button class="check-btn" onclick="checkAnswer('q4', 'B', 'result4')" style="background: #e74c3c; margin-top: 15px;">
+                                <i class="bi bi-check-circle"></i> Kiểm tra
+                            </button>
                             <div class="result-message" id="result4"></div>
                         </div>
 
-                        <div class="question-container">
-                            <div class="question-text">5. "不客气"是表示感谢。</div>
-                            <div class="radio-group">
-                                <label class="radio-item"><input type="radio" name="q5" value="A"> A 正确</label>
-                                <label class="radio-item"><input type="radio" name="q5" value="B"> B 错误</label>
+                        <!-- Phần 3: Bài khóa 3 -->
+                        <div class="part-header" style="background-color: #f39c12; color: white; padding: 12px 15px; margin: 30px 0 15px 0; border-radius: 5px; font-weight: bold; font-family: Arial, sans-serif; display: flex; align-items: center; gap: 8px;">
+                            <i class="bi bi-headphones"></i> 第三部分 - 根据课文 3 选择正确答案 (Câu 5-6)
+                        </div>
+                        
+                        <div class="audio-player" style="display: flex; align-items: center; gap: 15px; margin: 15px 0; padding: 15px; background-color: #f0f0f0; border-radius: 8px;">
+                            <button class="play-btn" onclick="speakAllText('text3')" style="width: 50px; height: 50px; border-radius: 50%; background-color: #e74c3c; color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; transition: all 0.2s; flex-shrink: 0;">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <div class="audio-progress" style="flex: 1; height: 6px; background-color: #ddd; border-radius: 3px; overflow: hidden;">
+                                <div class="audio-progress-bar" style="height: 100%; width: 0%; background-color: #e74c3c; transition: width 0.3s;"></div>
                             </div>
-                            <button class="check-btn" onclick="checkAnswer('q5', 'B', 'result5')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
+                            <span style="font-family: Arial, sans-serif; color: #666; font-size: 14px;">致谢与告别 - Nghe bài khóa 3</span>
+                        </div>
+
+                        <div class="question-container">
+                            <div class="question-text">5. 学生们对小语说什么？</div>
+                            <div class="radio-group" style="display: flex; flex-direction: row; gap: 25px; margin-top: 10px; flex-wrap: wrap;">
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q5" value="A" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> A 谢谢
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q5" value="B" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> B 不客气
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q5" value="C" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> C 再见
+                                </label>
+                            </div>
+                            <button class="check-btn" onclick="checkAnswer('q5', 'A', 'result5')" style="background: #e74c3c; margin-top: 15px;">
+                                <i class="bi bi-check-circle"></i> Kiểm tra
+                            </button>
                             <div class="result-message" id="result5"></div>
                         </div>
 
                         <div class="question-container">
-                            <div class="question-text">6. "再见"用于告别。</div>
-                            <div class="radio-group">
-                                <label class="radio-item"><input type="radio" name="q6" value="A"> A 正确</label>
-                                <label class="radio-item"><input type="radio" name="q6" value="B"> B 错误</label>
+                            <div class="question-text">6. 小语回答什么？</div>
+                            <div class="radio-group" style="display: flex; flex-direction: row; gap: 25px; margin-top: 10px; flex-wrap: wrap;">
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q6" value="A" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> A 谢谢
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q6" value="B" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> B 不客气
+                                </label>
+                                <label class="radio-item" style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 18px; font-family: 'SimSun', serif;">
+                                    <input type="radio" name="q6" value="C" style="width: 18px; height: 18px; cursor: pointer; accent-color: #8e44ad;"> C 再见
+                                </label>
                             </div>
-                            <button class="check-btn" onclick="checkAnswer('q6', 'A', 'result6')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
+                            <button class="check-btn" onclick="checkAnswer('q6', 'B', 'result6')" style="background: #e74c3c; margin-top: 15px;">
+                                <i class="bi bi-check-circle"></i> Kiểm tra
+                            </button>
                             <div class="result-message" id="result6"></div>
                         </div>
                     </div>
@@ -1792,7 +1882,7 @@
         } else {
             resultDiv.textContent = `✗ Sai! Đáp án đúng là: ${correctChar}`;
             resultDiv.className = 'result-message show incorrect';
-            input.style.borderColor = '#8e44ad';
+            input.style.borderColor = '#e74c3c';
         }
     }
 
