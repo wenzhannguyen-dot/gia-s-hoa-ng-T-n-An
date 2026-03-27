@@ -815,6 +815,9 @@
                         <button class="vocab-tab" onclick="filterVocab('pref', this)">Tiền tố</button>
                         <button class="vocab-tab" onclick="filterVocab('suf', this)">Hậu tố</button>
                         <button class="vocab-tab" onclick="filterVocab('m', this)">Lượng từ</button>
+                        <button class="vocab-tab" onclick="filterVocab('text1', this)">课文 1</button>
+                        <button class="vocab-tab" onclick="filterVocab('text2', this)">课文 2</button>
+                        <button class="vocab-tab" onclick="filterVocab('text3', this)">课文 3</button>
                     </div>
                     <div class="vocab-grid" id="vocab-grid"></div>
                 </div>
@@ -951,13 +954,17 @@
                 <div class="grammar-container">
                     <div class="grammar-tabs">
                         <button class="grammar-tab active" onclick="showGrammar(0, this)">
-                            <i class="bi bi-house"></i> 存现句 (1)
+                            <i class="bi bi-geo-alt"></i> 存现句 (1)
                         </button>
                         <button class="grammar-tab" onclick="showGrammar(1, this)">
+                            <i class="bi bi-clock"></i> Thời gian &amp; Địa điểm
+                        </button>
+                        <button class="grammar-tab" onclick="showGrammar(2, this)">
                             <i class="bi bi-sort-numeric-down"></i> 第
                         </button>
                     </div>
 
+                    <!-- PANEL 0: 存现句 -->
                     <div class="grammar-panel active" id="grammar-panel-0">
                         <div class="grammar-item">
                             <div class="grammar-header">
@@ -986,10 +993,8 @@
                                 <div class="example-pinyin pinyin-text">Zhuōzi shàng méiyǒu xiǎo māo.</div>
                                 <div class="example-vietnamese">Trên bàn không có mèo con.</div>
                             </div>
-
                             <div class="grammar-practice">
                                 <div class="practice-title"><i class="bi bi-pencil-square"></i> Bài tập vận dụng (Câu 1-3)</div>
-                                
                                 <div class="practice-question">
                                     <div class="practice-sentence">1. 椅子上有（ ）</div>
                                     <div class="practice-options">
@@ -1000,7 +1005,6 @@
                                     <button class="check-btn" onclick="checkAnswer('gq1', 'A', 'gresult1')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
                                     <div class="result-message" id="gresult1"></div>
                                 </div>
-
                                 <div class="practice-question">
                                     <div class="practice-sentence">2. 完成对话：A：你们今天下午两点（ ）上课？ B：在学校。</div>
                                     <div class="practice-options">
@@ -1011,7 +1015,6 @@
                                     <button class="check-btn" onclick="checkAnswer('gq2', 'A', 'gresult2')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
                                     <div class="result-message" id="gresult2"></div>
                                 </div>
-
                                 <div class="practice-question">
                                     <div class="practice-sentence">3. 电影院的（ ）是一家超市。</div>
                                     <div class="practice-options">
@@ -1024,7 +1027,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- PANEL 1: Thời gian & Địa điểm -->
+                    <div class="grammar-panel" id="grammar-panel-1">
                         <div class="grammar-item">
                             <div class="grammar-header">
                                 <div class="grammar-number">2</div>
@@ -1049,7 +1055,8 @@
                         </div>
                     </div>
 
-                    <div class="grammar-panel" id="grammar-panel-1">
+                    <!-- PANEL 2: 第 -->
+                    <div class="grammar-panel" id="grammar-panel-2">
                         <div class="grammar-item">
                             <div class="grammar-header">
                                 <div class="grammar-number">3</div>
@@ -1075,10 +1082,8 @@
                                 <div class="example-pinyin pinyin-text">Zhè shì wǒ de dì èr běn Zhōngwén shū.</div>
                                 <div class="example-vietnamese">Đây là quyển sách tiếng Trung thứ hai của tôi.</div>
                             </div>
-                            
                             <div class="grammar-practice">
                                 <div class="practice-title"><i class="bi bi-pencil-square"></i> Bài tập vận dụng (Câu 4-6)</div>
-                                
                                 <div class="practice-question">
                                     <div class="practice-sentence">4. "第二"的意思是：</div>
                                     <div class="practice-options">
@@ -1089,7 +1094,6 @@
                                     <button class="check-btn" onclick="checkAnswer('gq4', 'B', 'gresult4')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
                                     <div class="result-message" id="gresult4"></div>
                                 </div>
-
                                 <div class="practice-question">
                                     <div class="practice-sentence">5. 填写：这是我的（ ）本书。</div>
                                     <div class="practice-options">
@@ -1100,7 +1104,6 @@
                                     <button class="check-btn" onclick="checkAnswer('gq5', 'B', 'gresult5')"><i class="bi bi-check-circle"></i> Kiểm tra</button>
                                     <div class="result-message" id="gresult5"></div>
                                 </div>
-
                                 <div class="practice-question">
                                     <div class="practice-sentence">6. 杨同乐是（ ）个说话的？</div>
                                     <div class="practice-options">
@@ -1579,7 +1582,7 @@
     const toggleStates = { pinyin: false, vietnamese: false };
 
     let currentGrammarIndex = 0;
-    const GRAMMAR_TOTAL = 2;
+    const GRAMMAR_TOTAL = 3;
 
     function setAudioSpeed(speed) {
         audioSpeed = parseFloat(speed);
@@ -1733,6 +1736,7 @@
         });
         grid.innerHTML = '';
         const filtered = (filter === 'all') ? vocabulary
+            : (filter.startsWith('text')) ? vocabulary.filter(v => v.lesson === filter)
             : vocabulary.filter(v => v.category === filter);
         filtered.forEach(item => {
             const card = document.createElement('div');
@@ -1754,7 +1758,6 @@
                     <div id="writer-${item.id}" class="writer-container"></div>
                     <div class="animation-controls">
                         <button class="anim-btn" onclick="replayAnimation(${item.id})" title="Viết lại"><i class="bi bi-arrow-clockwise"></i></button>
-                        <button class="anim-btn" onclick="showCharacter(${item.id})" title="Hiện chữ"><i class="bi bi-eye"></i></button>
                     </div>
                 </div>
             `;
