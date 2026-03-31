@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bài 1: 你好 - 301 Tiếng Hán Nhập Môn</title>
     <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.3.0/dist/hanzi-writer.min.js"></script>
     <style>
@@ -22,7 +22,7 @@
             --light-gray: #E0E0E0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: Arial, sans-serif;
@@ -30,6 +30,7 @@
             color: var(--ink);
             font-size: 20px;
             line-height: 1.5;
+            touch-action: manipulation;
         }
 
         .zh { font-family: SimSun, serif; }
@@ -84,24 +85,25 @@
             font-weight: 500; 
         }
 
-        /* Nút soạn thảo trên header */
         .editor-btn {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border: 1px solid rgba(255,255,255,0.3);
             background: transparent;
             color: #fff;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
             margin-left: 8px;
+            -webkit-touch-callout: none;
+            user-select: none;
         }
 
-        .editor-btn:hover {
+        .editor-btn:hover, .editor-btn:active {
             background: var(--red);
             border-color: var(--red);
         }
@@ -149,6 +151,7 @@
             scrollbar-width: thin;
             scrollbar-color: var(--red) transparent;
             padding: 0 8px;
+            -webkit-overflow-scrolling: touch;
         }
 
         .tab-bar::-webkit-scrollbar { height: 3px; }
@@ -156,7 +159,7 @@
 
         .tab-btn {
             font-family: Arial, sans-serif;
-            padding: 10px 16px;
+            padding: 12px 16px;
             background: transparent;
             border: none;
             cursor: pointer;
@@ -168,11 +171,13 @@
             position: relative;
             text-align: center;
             min-width: auto;
+            -webkit-touch-callout: none;
+            user-select: none;
         }
 
-        .tab-btn:hover { 
+        .tab-btn:hover, .tab-btn:active { 
             color: #fff; 
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.1);
         }
         
         .tab-btn.active { 
@@ -202,7 +207,7 @@
 
         .sub-tab-btn {
             font-family: Arial, sans-serif;
-            padding: 8px 16px;
+            padding: 10px 16px;
             background: #fff;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -212,11 +217,15 @@
             color: var(--gray);
             transition: all 0.2s;
             white-space: nowrap;
+            -webkit-touch-callout: none;
+            user-select: none;
+            min-height: 44px;
         }
 
-        .sub-tab-btn:hover {
+        .sub-tab-btn:hover, .sub-tab-btn:active {
             border-color: var(--red);
             color: var(--red);
+            background: #fafafa;
         }
 
         .sub-tab-btn.active {
@@ -250,6 +259,9 @@
             gap: 8px;
             cursor: pointer;
             flex-wrap: wrap;
+            -webkit-touch-callout: none;
+            user-select: none;
+            min-height: 44px;
         }
 
         .card-title .hanzi-title {
@@ -267,22 +279,25 @@
 
         .toggle-btn-inline {
             font-family: Arial, sans-serif;
-            padding: 6px 10px;
+            padding: 8px 12px;
             background: #f5f5f5;
             border: 1px solid #ddd;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--gray);
             transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             white-space: nowrap;
+            -webkit-touch-callout: none;
+            user-select: none;
+            min-height: 36px;
         }
 
-        .toggle-btn-inline:hover {
+        .toggle-btn-inline:hover, .toggle-btn-inline:active {
             background: #eee;
             border-color: #ccc;
         }
@@ -294,29 +309,67 @@
         }
 
         .toggle-btn-inline svg {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
         }
 
+        /* Nút âm thanh - TĂNG KÍCH THƯỚC CHO DỄ BẤM */
         .header-audio {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: transparent;
             color: #fff;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.4);
             cursor: pointer;
-            font-size: 14px;
+            font-size: 16px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
-            margin-left: 6px;
+            margin-left: 8px;
+            -webkit-touch-callout: none;
+            user-select: none;
+            position: relative;
         }
 
-        .header-audio:hover { 
+        .header-audio:hover, .header-audio:active { 
             background: var(--red); 
             border-color: var(--red);
+            transform: scale(1.1);
+        }
+
+        .header-audio.playing {
+            animation: pulse 1.5s infinite;
+            background: var(--red);
+            border-color: var(--red);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(192, 57, 43, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0); }
+        }
+
+        /* Thông báo âm thanh */
+        .audio-toast {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 14px;
+            z-index: 1000;
+            display: none;
+            white-space: nowrap;
+        }
+
+        .audio-toast.show {
+            display: block;
+            animation: fadeIn 0.3s;
         }
 
         .vocab-grid {
@@ -332,10 +385,11 @@
             background: #fff;
             transition: all 0.2s;
             position: relative;
+            -webkit-touch-callout: none;
         }
 
-        .vocab-card:hover {
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        .vocab-card:hover, .vocab-card:active {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-color: #ccc;
         }
 
@@ -414,21 +468,23 @@
         }
 
         .replay-btn {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border: none;
             background: transparent;
             color: var(--gray);
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
             padding: 0;
+            -webkit-touch-callout: none;
+            user-select: none;
         }
 
-        .replay-btn:hover {
+        .replay-btn:hover, .replay-btn:active {
             color: var(--red);
         }
 
@@ -457,11 +513,18 @@
             cursor: pointer;
             transition: all 0.2s;
             border: 1px solid #e8e8e8;
+            -webkit-touch-callout: none;
+            position: relative;
         }
 
-        .dialogue-line:hover {
+        .dialogue-line:hover, .dialogue-line:active {
             background: #f5f5f5;
             border-color: #d0d0d0;
+        }
+
+        .dialogue-line.playing {
+            background: #FFF8E1;
+            border-color: var(--gold);
         }
 
         .speaker {
@@ -549,6 +612,7 @@
             border-radius: 4px;
             font-size: 20px;
             font-family: SimSun, serif;
+            -webkit-appearance: none;
         }
 
         .translation-input:focus {
@@ -577,9 +641,12 @@
             font-weight: 600;
             white-space: nowrap;
             min-height: 44px;
+            -webkit-touch-callout: none;
+            user-select: none;
+            -webkit-appearance: none;
         }
 
-        .check-btn:hover {
+        .check-btn:hover, .check-btn:active {
             background: var(--red);
         }
 
@@ -693,7 +760,7 @@
             margin-bottom: 4px; 
         }
 
-        /* Modal Soạn thảo */
+        /* Modal Editor */
         .editor-modal {
             display: none;
             position: fixed;
@@ -743,20 +810,21 @@
         }
 
         .editor-close {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border: none;
             background: transparent;
             color: #fff;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 4px;
+            -webkit-touch-callout: none;
         }
 
-        .editor-close:hover {
+        .editor-close:hover, .editor-close:active {
             background: var(--red);
         }
 
@@ -768,10 +836,12 @@
             gap: 6px;
             flex-wrap: wrap;
             align-items: center;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .tool-btn {
-            padding: 6px 12px;
+            padding: 8px 12px;
             background: #fff;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -779,14 +849,17 @@
             font-size: 14px;
             color: var(--ink);
             transition: all 0.2s;
-            min-width: 32px;
-            height: 32px;
+            min-width: 36px;
+            height: 36px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            -webkit-touch-callout: none;
+            user-select: none;
+            -webkit-appearance: none;
         }
 
-        .tool-btn:hover {
+        .tool-btn:hover, .tool-btn:active {
             background: #e0e0e0;
             border-color: #999;
         }
@@ -812,6 +885,7 @@
             line-height: 1.6;
             outline: none;
             background: #fff;
+            -webkit-overflow-scrolling: touch;
         }
 
         .editor-content:focus {
@@ -835,21 +909,24 @@
         }
 
         .editor-btn-secondary {
-            padding: 8px 16px;
+            padding: 10px 16px;
             background: #fff;
             border: 1px solid #ccc;
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
             color: var(--gray);
+            -webkit-touch-callout: none;
+            -webkit-appearance: none;
+            min-height: 40px;
         }
 
-        .editor-btn-secondary:hover {
+        .editor-btn-secondary:hover, .editor-btn-secondary:active {
             background: #e0e0e0;
         }
 
         .editor-btn-primary {
-            padding: 8px 16px;
+            padding: 10px 16px;
             background: var(--ink);
             color: #fff;
             border: none;
@@ -857,15 +934,19 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
+            -webkit-touch-callout: none;
+            -webkit-appearance: none;
+            min-height: 40px;
         }
 
-        .editor-btn-primary:hover {
+        .editor-btn-primary:hover, .editor-btn-primary:active {
             background: var(--red);
         }
 
         select.tool-btn {
             padding: 6px 8px;
-            height: 32px;
+            height: 36px;
+            min-width: 80px;
         }
 
         @media (max-width: 768px) {
@@ -873,12 +954,18 @@
             
             .header-main {
                 padding: 6px 12px;
-                min-height: 48px;
+                min-height: 52px;
             }
             
-            .logo-section img { width: 28px; height: 28px; }
+            .logo-section img { width: 32px; height: 32px; }
             .brand-name { font-size: 11px; }
             .brand-sub { font-size: 9px; }
+            
+            .editor-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
             
             .lesson-info { font-size: 14px; gap: 6px; }
             .lesson-info .zh { font-size: 18px; }
@@ -886,14 +973,8 @@
             
             .contact-info { display: none; }
             
-            .editor-btn {
-                width: 28px;
-                height: 28px;
-                font-size: 14px;
-            }
-            
             .tab-btn {
-                padding: 8px 12px;
+                padding: 12px 14px;
                 font-size: 13px;
             }
             
@@ -903,8 +984,15 @@
             .card-title {
                 font-size: 16px;
                 padding-bottom: 8px;
+                min-height: 40px;
             }
             .card-title .hanzi-title { font-size: 20px; }
+            
+            .header-audio {
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
+            }
             
             .toggle-bar-inline {
                 width: 100%;
@@ -912,30 +1000,53 @@
                 margin-top: 8px;
             }
             
-            .chinese-text { font-size: 20px; }
-            .pinyin-text, .vietnamese-text { font-size: 14px; }
+            .toggle-btn-inline {
+                padding: 10px 14px;
+                font-size: 14px;
+                flex: 1;
+                justify-content: center;
+            }
+            
+            .chinese-text { font-size: 22px; }
+            .pinyin-text, .vietnamese-text { font-size: 15px; }
             
             .vocab-hanzi { font-size: 28px; }
-            .vocab-pinyin { font-size: 14px; }
+            .vocab-pinyin { font-size: 15px; }
+            
+            .dialogue-line {
+                padding: 20px 16px;
+            }
 
             .editor-container {
-                height: 90vh;
+                height: 100vh;
                 border-radius: 0;
+                max-width: 100%;
             }
 
             .editor-toolbar {
-                padding: 6px;
+                padding: 8px;
             }
 
             .tool-btn {
-                padding: 4px 8px;
+                padding: 10px;
+                font-size: 15px;
+                height: 40px;
+                min-width: 40px;
+            }
+            
+            .audio-toast {
+                bottom: 20px;
                 font-size: 13px;
-                height: 28px;
+                padding: 10px 20px;
             }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
+
+<!-- Audio Toast Notification -->
+<div class="audio-toast" id="audioToast">Đang phát âm...</div>
 
 <!-- HEADER -->
 <div class="header">
@@ -946,8 +1057,7 @@
                 <div class="brand-name">GIA SƯ HOA NGỮ TÂN AN</div>
                 <div class="brand-sub">Giáo trình 301 Câu</div>
             </div>
-            <!-- Nút mở trình soạn thảo -->
-            <button class="editor-btn" onclick="openEditor()" title="Mở trình soạn thảo văn bản">✎</button>
+            <button class="editor-btn" onclick="openEditor()" title="Mở trình soạn thảo">✎</button>
         </div>
         
         <div class="lesson-info">
@@ -972,8 +1082,8 @@
     </div>
 </div>
 
-<!-- Modal Soạn thảo -->
-<div class="editor-modal" id="editorModal">
+<!-- Editor Modal -->
+<div class="editor-modal" id="editorModal" onclick="if(event.target === this) closeEditor()">
     <div class="editor-container">
         <div class="editor-header">
             <div class="editor-title">
@@ -1000,25 +1110,24 @@
             </select>
             
             <select class="tool-btn" onchange="formatDoc('foreColor', this.value); this.value=''" title="Màu chữ">
-                <option value="" selected>Màu chữ</option>
+                <option value="" selected>Màu</option>
                 <option value="#000000">Đen</option>
                 <option value="#C0392B">Đỏ</option>
-                <option value="#1565C0">Xanh dương</option>
-                <option value="#27AE60">Xanh lá</option>
+                <option value="#1565C0">Xanh</option>
+                <option value="#27AE60">Lá</option>
                 <option value="#E67E22">Cam</option>
-                <option value="#7B1FA2">Tím</option>
             </select>
             
             <div class="tool-separator"></div>
             
-            <button class="tool-btn" onclick="formatDoc('justifyLeft')" title="Căn trái">⬅</button>
-            <button class="tool-btn" onclick="formatDoc('justifyCenter')" title="Căn giữa">↔</button>
-            <button class="tool-btn" onclick="formatDoc('justifyRight')" title="Căn phải">➡</button>
+            <button class="tool-btn" onclick="formatDoc('justifyLeft')" title="Trái">⬅</button>
+            <button class="tool-btn" onclick="formatDoc('justifyCenter')" title="Giữa">↔</button>
+            <button class="tool-btn" onclick="formatDoc('justifyRight')" title="Phải">➡</button>
             
             <div class="tool-separator"></div>
             
-            <button class="tool-btn" onclick="formatDoc('insertUnorderedList')" title="Danh sách">•</button>
-            <button class="tool-btn" onclick="formatDoc('insertOrderedList')" title="Danh sách số">1.</button>
+            <button class="tool-btn" onclick="formatDoc('insertUnorderedList')" title="•">•</button>
+            <button class="tool-btn" onclick="formatDoc('insertOrderedList')" title="1.">1.</button>
             
             <div class="tool-separator"></div>
             
@@ -1085,10 +1194,10 @@
     <!-- TỪ VỰNG -->
     <div id="tuvung" class="tab-content">
         <div class="card">
-            <div class="card-title" onclick="speakSequential(['你','我','你们','她','他','他们','我们','爸爸','妈妈','好','来','很','也','都','吗','大卫','玛丽','王兰','刘京'], 500)">
+            <div class="card-title" onclick="speakText('你 我 你们 她 他 他们 我们 爸爸 妈妈 好 来 很 也 都 吗 大卫 玛丽 王兰 刘京', true)">
                 <span class="hanzi-title zh">生词</span>
                 <span class="latin">TỪ VỰNG BÀI 1</span>
-                <button class="header-audio" title="Phát âm toàn bộ">▶</button>
+                <button class="header-audio" data-text="你 我 你们 她 他 他们 我们 爸爸 妈妈 好 来 很 也 都 吗 大卫 玛丽 王兰 刘京" data-seq="true" onclick="event.stopPropagation(); speakText('你 我 你们 她 他 他们 我们 爸爸 妈妈 好 来 很 也 都 吗 大卫 玛丽 王兰 刘京', true)" title="Phát âm toàn bộ">▶</button>
             </div>
 
             <div class="sub-tab-bar">
@@ -1102,7 +1211,7 @@
             </div>
 
             <div class="vocab-grid" id="vocabContainer">
-                <div class="vocab-card" data-type="daitu" data-char="你">
+                <div class="vocab-card" data-type="daitu" data-char="你" onclick="speakText('你')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">你</div>
                         <span class="vocab-type latin daitu">Đại từ</span>
@@ -1111,11 +1220,11 @@
                     <div class="vocab-meaning latin">Anh, chị, ông, bà, bạn...</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-你"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('你')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('你')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="daitu" data-char="我">
+                <div class="vocab-card" data-type="daitu" data-char="我" onclick="speakText('我')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">我</div>
                         <span class="vocab-type latin daitu">Đại từ</span>
@@ -1124,11 +1233,11 @@
                     <div class="vocab-meaning latin">Tôi</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-我"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('我')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('我')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="daitu" data-char="你们">
+                <div class="vocab-card" data-type="daitu" data-char="你们" onclick="speakText('你们')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">你们</div>
                         <span class="vocab-type latin daitu">Đại từ</span>
@@ -1137,11 +1246,11 @@
                     <div class="vocab-meaning latin">Các ông (bà, anh, chị, bạn...)</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-你们"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('你们')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('你们')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="daitu" data-char="她">
+                <div class="vocab-card" data-type="daitu" data-char="她" onclick="speakText('她')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">她</div>
                         <span class="vocab-type latin daitu">Đại từ</span>
@@ -1150,11 +1259,11 @@
                     <div class="vocab-meaning latin">Bà ấy (cô ấy, chị ấy...)</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-她"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('她')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('她')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="daitu" data-char="他">
+                <div class="vocab-card" data-type="daitu" data-char="他" onclick="speakText('他')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">他</div>
                         <span class="vocab-type latin daitu">Đại từ</span>
@@ -1163,11 +1272,11 @@
                     <div class="vocab-meaning latin">Ông ấy (chú ấy, anh ấy...)</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-他"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('他')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('他')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="daitu" data-char="他们">
+                <div class="vocab-card" data-type="daitu" data-char="他们" onclick="speakText('他们')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">他们</div>
                         <span class="vocab-type latin daitu">Đại từ</span>
@@ -1176,11 +1285,11 @@
                     <div class="vocab-meaning latin">Họ, chúng nó</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-他们"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('他们')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('他们')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="daitu" data-char="我们">
+                <div class="vocab-card" data-type="daitu" data-char="我们" onclick="speakText('我们')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">我们</div>
                         <span class="vocab-type latin daitu">Đại từ</span>
@@ -1189,11 +1298,11 @@
                     <div class="vocab-meaning latin">Chúng tôi, chúng ta</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-我们"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('我们')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('我们')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="danhtu" data-char="爸爸">
+                <div class="vocab-card" data-type="danhtu" data-char="爸爸" onclick="speakText('爸爸')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">爸爸</div>
                         <span class="vocab-type latin danhtu">Danh từ</span>
@@ -1202,11 +1311,11 @@
                     <div class="vocab-meaning latin">Ba, cha</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-爸爸"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('爸爸')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('爸爸')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="danhtu" data-char="妈妈">
+                <div class="vocab-card" data-type="danhtu" data-char="妈妈" onclick="speakText('妈妈')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">妈妈</div>
                         <span class="vocab-type latin danhtu">Danh từ</span>
@@ -1215,11 +1324,11 @@
                     <div class="vocab-meaning latin">Mẹ, má</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-妈妈"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('妈妈')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('妈妈')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="tinhtu" data-char="好">
+                <div class="vocab-card" data-type="tinhtu" data-char="好" onclick="speakText('好')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">好</div>
                         <span class="vocab-type latin tinhtu">Tính từ</span>
@@ -1228,11 +1337,11 @@
                     <div class="vocab-meaning latin">Tốt, khỏe</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-好"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('好')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('好')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="dongtu" data-char="来">
+                <div class="vocab-card" data-type="dongtu" data-char="来" onclick="speakText('来')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">来</div>
                         <span class="vocab-type latin dongtu">Động từ</span>
@@ -1241,11 +1350,11 @@
                     <div class="vocab-meaning latin">Lại, đến</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-来"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('来')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('来')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="photu" data-char="很">
+                <div class="vocab-card" data-type="photu" data-char="很" onclick="speakText('很')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">很</div>
                         <span class="vocab-type latin photu">Phó từ</span>
@@ -1254,11 +1363,11 @@
                     <div class="vocab-meaning latin">Rất</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-很"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('很')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('很')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="photu" data-char="也">
+                <div class="vocab-card" data-type="photu" data-char="也" onclick="speakText('也')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">也</div>
                         <span class="vocab-type latin photu">Phó từ</span>
@@ -1267,11 +1376,11 @@
                     <div class="vocab-meaning latin">Cũng</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-也"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('也')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('也')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="photu" data-char="都">
+                <div class="vocab-card" data-type="photu" data-char="都" onclick="speakText('都')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">都</div>
                         <span class="vocab-type latin photu">Phó từ</span>
@@ -1280,11 +1389,11 @@
                     <div class="vocab-meaning latin">Đều</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-都"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('都')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('都')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-type="trutu" data-char="吗">
+                <div class="vocab-card" data-type="trutu" data-char="吗" onclick="speakText('吗')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">吗</div>
                         <span class="vocab-type latin trutu">Trợ từ</span>
@@ -1293,20 +1402,20 @@
                     <div class="vocab-meaning latin">Không (từ dùng để hỏi)</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-吗"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('吗')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('吗')" title="Xem lại">↺</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <div class="card-title" onclick="speakSequential(['大卫','玛丽','王兰','刘京'], 500)">
+            <div class="card-title" onclick="speakText('大卫 玛丽 王兰 刘京', true)">
                 <span class="hanzi-title zh">专名</span>
                 <span class="latin">DANH TỪ RIÊNG</span>
-                <button class="header-audio" title="Phát âm">▶</button>
+                <button class="header-audio" data-text="大卫 玛丽 王兰 刘京" data-seq="true" onclick="event.stopPropagation(); speakText('大卫 玛丽 王兰 刘京', true)" title="Phát âm">▶</button>
             </div>
             <div class="vocab-grid">
-                <div class="vocab-card" data-char="大卫">
+                <div class="vocab-card" data-char="大卫" onclick="speakText('大卫')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">大卫</div>
                         <span class="vocab-type latin chuyendanh">Chuyên danh</span>
@@ -1315,11 +1424,11 @@
                     <div class="vocab-meaning latin">David - Đại Vệ</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-大卫"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('大卫')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('大卫')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-char="玛丽">
+                <div class="vocab-card" data-char="玛丽" onclick="speakText('玛丽')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">玛丽</div>
                         <span class="vocab-type latin chuyendanh">Chuyên danh</span>
@@ -1328,11 +1437,11 @@
                     <div class="vocab-meaning latin">Mary - Mã Lệ</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-玛丽"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('玛丽')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('玛丽')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-char="王兰">
+                <div class="vocab-card" data-char="王兰" onclick="speakText('王兰')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">王兰</div>
                         <span class="vocab-type latin chuyendanh">Chuyên danh</span>
@@ -1341,11 +1450,11 @@
                     <div class="vocab-meaning latin">Vương Lan</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-王兰"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('王兰')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('王兰')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
-                <div class="vocab-card" data-char="刘京">
+                <div class="vocab-card" data-char="刘京" onclick="speakText('刘京')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">刘京</div>
                         <span class="vocab-type latin chuyendanh">Chuyên danh</span>
@@ -1354,7 +1463,7 @@
                     <div class="vocab-meaning latin">Lưu Kinh</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-刘京"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('刘京')" title="Xem lại cách viết">↺</button>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('刘京')" title="Xem lại">↺</button>
                     </div>
                 </div>
             </div>
@@ -1364,20 +1473,20 @@
     <!-- MẪU CÂU -->
     <div id="maucau" class="tab-content">
         <div class="card">
-            <div class="card-title" onclick="speakSequential(['你好','你好吗','很好','我也很好'], 800)">
+            <div class="card-title" onclick="speakText('你好 你好吗 很好 我也很好', true)">
                 <span class="hanzi-title zh">句子</span>
                 <span class="latin">MẪU CÂU</span>
                 
                 <div class="toggle-bar-inline">
                     <button class="toggle-btn-inline active" onclick="toggleVisibility('maucau', 'pinyin', this); event.stopPropagation();">
-                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;">
+                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                             <circle cx="12" cy="12" r="3"></circle>
                         </svg>
                         Phiên âm
                     </button>
                     <button class="toggle-btn-inline active" onclick="toggleVisibility('maucau', 'vietnamese', this); event.stopPropagation();">
-                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;">
+                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                             <circle cx="12" cy="12" r="3"></circle>
                         </svg>
@@ -1385,29 +1494,29 @@
                     </button>
                 </div>
                 
-                <button class="header-audio" title="Phát âm tuần tự">▶</button>
+                <button class="header-audio" data-text="你好 你好吗 很好 我也很好" data-seq="true" onclick="event.stopPropagation(); speakText('你好 你好吗 很好 我也很好', true)" title="Phát âm tuần tự">▶</button>
             </div>
             
             <div class="dialogue-box" id="boxMauCau">
-                <div class="dialogue-line" onclick="speakText('你好')">
+                <div class="dialogue-line" data-text="你好" onclick="speakFromElement(this)">
                     <div class="chinese-text zh">1. 你好！</div>
                     <div class="pinyin-text latin">Nǐ hǎo!</div>
                     <div class="vietnamese-text latin">Chào bạn!</div>
                 </div>
                 
-                <div class="dialogue-line" onclick="speakText('你好吗')">
+                <div class="dialogue-line" data-text="你好吗" onclick="speakFromElement(this)">
                     <div class="chinese-text zh">2. 你好吗？</div>
                     <div class="pinyin-text latin">Nǐ hǎo ma?</div>
                     <div class="vietnamese-text latin">Bạn khỏe không?</div>
                 </div>
                 
-                <div class="dialogue-line" onclick="speakText('很好')">
+                <div class="dialogue-line" data-text="很好" onclick="speakFromElement(this)">
                     <div class="chinese-text zh">3. 很好。</div>
                     <div class="pinyin-text latin">Hěn hǎo.</div>
                     <div class="vietnamese-text latin">Rất khỏe.</div>
                 </div>
                 
-                <div class="dialogue-line" onclick="speakText('我也很好')">
+                <div class="dialogue-line" data-text="我也很好" onclick="speakFromElement(this)">
                     <div class="chinese-text zh">4. 我也很好！</div>
                     <div class="pinyin-text latin">Wǒ yě hěn hǎo!</div>
                     <div class="vietnamese-text latin">Tôi cũng rất khỏe!</div>
@@ -1425,16 +1534,15 @@
                 
                 <div class="toggle-bar-inline">
                     <button class="toggle-btn-inline active" onclick="toggleVisibility('damthoai', 'pinyin', this); event.stopPropagation();">
-                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;">
+                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                             <circle cx="12" cy="12" r="3"></circle>
                         </svg>
                         Phiên âm
                     </button>
                     <button class="toggle-btn-inline active" onclick="toggleVisibility('damthoai', 'vietnamese', this); event.stopPropagation();">
-                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
+                        <svg class="eye-icon" viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                         </svg>
                         Nghĩa
                     </button>
@@ -1446,24 +1554,24 @@
                     <span class="zh">会话 1</span> <span class="latin">- Chào hỏi</span>
                 </button>
                 <button class="sub-tab-btn latin" onclick="switchDialogue('dt2', this)">
-                    <span class="zh">会话 2</span> <span class="latin">- Hỏi thăm sức khỏe</span>
+                    <span class="zh">会话 2</span> <span class="latin">- Hỏi thăm</span>
                 </button>
             </div>
 
             <div class="dialogue-container active" id="dt1" data-dialogue="dt1">
-                <div class="card-title" style="border-bottom-color: var(--blue); margin-top:0;" onclick="speakSequential(['玛丽你好','你好大卫'], 800)">
+                <div class="card-title" style="border-bottom-color: var(--blue); margin-top:0;" onclick="speakText('玛丽你好 你好大卫', true)">
                     <span style="color: var(--blue); font-family: SimSun, serif; font-size: 20px;" class="zh">会话 1</span>
                     <span class="latin">CHÀO HỎI</span>
-                    <button class="header-audio" title="Phát âm tuần tự">▶</button>
+                    <button class="header-audio" data-text="玛丽你好 你好大卫" data-seq="true" onclick="event.stopPropagation(); speakText('玛丽你好 你好大卫', true)" title="Phát âm tuần tự">▶</button>
                 </div>
                 <div class="dialogue-box" id="boxDt1">
-                    <div class="dialogue-line" onclick="speakText('玛丽你好')">
+                    <div class="dialogue-line" data-text="玛丽你好" onclick="speakFromElement(this)">
                         <div class="speaker latin">王兰 (Vương Lan):</div>
                         <div class="chinese-text zh">玛丽，你好！</div>
                         <div class="pinyin-text latin">Mǎlì, nǐ hǎo!</div>
                         <div class="vietnamese-text latin">Mã Lệ, chào bạn!</div>
                     </div>
-                    <div class="dialogue-line" onclick="speakText('你好大卫')">
+                    <div class="dialogue-line" data-text="你好大卫" onclick="speakFromElement(this)">
                         <div class="speaker latin">刘京 (Lưu Kinh):</div>
                         <div class="chinese-text zh">你好，大卫！</div>
                         <div class="pinyin-text latin">Nǐ hǎo, Dàwèi!</div>
@@ -1473,25 +1581,25 @@
             </div>
 
             <div class="dialogue-container" id="dt2" data-dialogue="dt2">
-                <div class="card-title" style="border-bottom-color: var(--green); margin-top:0;" onclick="speakSequential(['你好吗','很好你好吗','我也很好'], 800)">
+                <div class="card-title" style="border-bottom-color: var(--green); margin-top:0;" onclick="speakText('你好吗 很好你好吗 我也很好', true)">
                     <span style="color: var(--green); font-family: SimSun, serif; font-size: 20px;" class="zh">会话 2</span>
                     <span class="latin">HỎI THĂM SỨC KHỎE</span>
-                    <button class="header-audio" title="Phát âm tuần tự">▶</button>
+                    <button class="header-audio" data-text="你好吗 很好你好吗 我也很好" data-seq="true" onclick="event.stopPropagation(); speakText('你好吗 很好你好吗 我也很好', true)" title="Phát âm tuần tự">▶</button>
                 </div>
                 <div class="dialogue-box" id="boxDt2">
-                    <div class="dialogue-line" onclick="speakText('你好吗')">
+                    <div class="dialogue-line" data-text="你好吗" onclick="speakFromElement(this)">
                         <div class="speaker latin">刘京 (Lưu Kinh):</div>
                         <div class="chinese-text zh">你好吗？</div>
                         <div class="pinyin-text latin">Nǐ hǎo ma?</div>
                         <div class="vietnamese-text latin">Bạn khỏe không?</div>
                     </div>
-                    <div class="dialogue-line" onclick="speakText('很好你好吗')">
+                    <div class="dialogue-line" data-text="很好你好吗" onclick="speakFromElement(this)">
                         <div class="speaker latin">王兰 (Vương Lan):</div>
                         <div class="chinese-text zh">很好。你好吗？</div>
                         <div class="pinyin-text latin">Hěn hǎo. Nǐ hǎo ma?</div>
                         <div class="vietnamese-text latin">Rất khỏe. Bạn khỏe không?</div>
                     </div>
-                    <div class="dialogue-line" onclick="speakText('我也很好')">
+                    <div class="dialogue-line" data-text="我也很好" onclick="speakFromElement(this)">
                         <div class="speaker latin">刘京 (Lưu Kinh):</div>
                         <div class="chinese-text zh">我也很好。</div>
                         <div class="pinyin-text latin">Wǒ yě hěn hǎo.</div>
@@ -1519,21 +1627,21 @@
                     <span class="hanzi-title zh">声母</span>
                     <span class="latin">THANH MẪU (PHỤ ÂM) - 11 ÂM</span>
                 </div>
-                <div class="latin" style="background: var(--ink); color: #fff; padding: 16px; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; font-size: 24px; letter-spacing: 8px; margin: 16px 0;">
+                <div class="latin" style="background: var(--ink); color: #fff; padding: 16px; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; font-size: 24px; letter-spacing: 8px; margin: 16px 0;" onclick="speakText('b p m f d t n l g k h', true)">
                     b &nbsp; p &nbsp; m &nbsp; f &nbsp; d &nbsp; t &nbsp; n &nbsp; l &nbsp; g &nbsp; k &nbsp; h
                 </div>
                 <div class="latin" style="font-size: 16px; color: var(--gray); margin-top: 12px;">
                     <div class="phonetic-group">
                         <div class="phonetic-group-title">Môi âm</div>
-                        <div>b p m f</div>
+                        <div onclick="speakText('b p m f', true)" style="cursor:pointer;">b p m f</div>
                     </div>
                     <div class="phonetic-group">
                         <div class="phonetic-group-title">Đầu lưỡi</div>
-                        <div>d t n l</div>
+                        <div onclick="speakText('d t n l', true)" style="cursor:pointer;">d t n l</div>
                     </div>
                     <div class="phonetic-group">
                         <div class="phonetic-group-title">Âm cuốn lưỡi</div>
-                        <div>g k h</div>
+                        <div onclick="speakText('g k h', true)" style="cursor:pointer;">g k h</div>
                     </div>
                 </div>
             </div>
@@ -1546,13 +1654,13 @@
                     <span class="latin">VẬN MẪU (NGUYÊN ÂM) - 16 ÂM</span>
                 </div>
                 <table class="phonetic-table latin">
-                    <tr>
+                    <tr onclick="speakText('a o e i u ü', true)" style="cursor:pointer;">
                         <td>a</td><td>o</td><td>e</td><td>i</td><td>u</td><td>ü</td>
                     </tr>
-                    <tr>
+                    <tr onclick="speakText('ai ei ao ou an en', true)" style="cursor:pointer;">
                         <td>ai</td><td>ei</td><td>ao</td><td>ou</td><td>an</td><td>en</td>
                     </tr>
-                    <tr>
+                    <tr onclick="speakText('ang ing ie iou', true)" style="cursor:pointer;">
                         <td>ang</td><td>ing</td><td>ie</td><td>iu/iou</td><td colspan="2"></td>
                     </tr>
                 </table>
@@ -1569,21 +1677,13 @@
                     <table class="phonetic-table latin" style="font-size: 14px; min-width: 700px;">
                         <thead>
                             <tr>
-                                <th></th><th>a</th><th>o</th><th>e</th><th>ai</th><th>ei</th><th>ao</th><th>ou</th><th>an</th><th>en</th><th>ang</th>
+                                <th></th><th onclick="speakText('a')">a</th><th onclick="speakText('o')">o</th><th onclick="speakText('e')">e</th><th onclick="speakText('ai')">ai</th><th onclick="speakText('ei')">ei</th><th onclick="speakText('ao')">ao</th><th onclick="speakText('ou')">ou</th><th onclick="speakText('an')">an</th><th onclick="speakText('en')">en</th><th onclick="speakText('ang')">ang</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><th>b</th><td>ba</td><td>bo</td><td></td><td>bai</td><td>bei</td><td>bao</td><td></td><td>ban</td><td>ben</td><td>bang</td></tr>
-                            <tr><th>p</th><td>pa</td><td>po</td><td></td><td>pai</td><td>pei</td><td>pao</td><td>pou</td><td>pan</td><td>pen</td><td>pang</td></tr>
-                            <tr><th>m</th><td>ma</td><td>mo</td><td>me</td><td>mai</td><td>mei</td><td>mao</td><td>mou</td><td>man</td><td>men</td><td>mang</td></tr>
-                            <tr><th>f</th><td>fa</td><td>fo</td><td></td><td></td><td>fei</td><td></td><td>fou</td><td>fan</td><td>fen</td><td>fang</td></tr>
-                            <tr><th>d</th><td>da</td><td></td><td>de</td><td>dai</td><td>dei</td><td>dao</td><td>dou</td><td>dan</td><td>den</td><td>dang</td></tr>
-                            <tr><th>t</th><td>ta</td><td></td><td>te</td><td>tai</td><td></td><td>tao</td><td>tou</td><td>tan</td><td></td><td>tang</td></tr>
-                            <tr><th>n</th><td>na</td><td></td><td>ne</td><td>nai</td><td>nei</td><td>nao</td><td>nou</td><td>nan</td><td>nen</td><td>nang</td></tr>
-                            <tr><th>l</th><td>la</td><td></td><td>le</td><td>lai</td><td>lei</td><td>lao</td><td>lou</td><td>lan</td><td></td><td>lang</td></tr>
-                            <tr><th>g</th><td>ga</td><td></td><td>ge</td><td>gai</td><td>gei</td><td>gao</td><td>gou</td><td>gan</td><td>gen</td><td>gang</td></tr>
-                            <tr><th>k</th><td>ka</td><td></td><td>ke</td><td>kai</td><td>kei</td><td>kao</td><td>kou</td><td>kan</td><td>ken</td><td>kang</td></tr>
-                            <tr><th>h</th><td>ha</td><td></td><td>he</td><td>hai</td><td>hei</td><td>hao</td><td>hou</td><td>han</td><td>hen</td><td>hang</td></tr>
+                            <tr><th onclick="speakText('b')">b</th><td onclick="speakText('ba')">ba</td><td onclick="speakText('bo')">bo</td><td></td><td onclick="speakText('bai')">bai</td><td onclick="speakText('bei')">bei</td><td onclick="speakText('bao')">bao</td><td></td><td onclick="speakText('ban')">ban</td><td onclick="speakText('ben')">ben</td><td onclick="speakText('bang')">bang</td></tr>
+                            <tr><th onclick="speakText('p')">p</th><td onclick="speakText('pa')">pa</td><td onclick="speakText('po')">po</td><td></td><td onclick="speakText('pai')">pai</td><td onclick="speakText('pei')">pei</td><td onclick="speakText('pao')">pao</td><td onclick="speakText('pou')">pou</td><td onclick="speakText('pan')">pan</td><td onclick="speakText('pen')">pen</td><td onclick="speakText('pang')">pang</td></tr>
+                            <tr><th onclick="speakText('m')">m</th><td onclick="speakText('ma')">ma</td><td onclick="speakText('mo')">mo</td><td onclick="speakText('me')">me</td><td onclick="speakText('mai')">mai</td><td onclick="speakText('mei')">mei</td><td onclick="speakText('mao')">mao</td><td onclick="speakText('mou')">mou</td><td onclick="speakText('man')">man</td><td onclick="speakText('men')">men</td><td onclick="speakText('mang')">mang</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1597,25 +1697,21 @@
                     <span class="latin">THANH ĐIỆU</span>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0;">
-                    <div class="latin" style="border: 1px solid var(--blue); border-radius: 6px; padding: 16px; text-align: center; background: #f8f9fa;">
-                        <div style="font-size: 28px; color: var(--blue); font-family: Arial, sans-serif; margin-bottom: 4px;">mā ˉ</div>
-                        <div style="font-weight: 700; color: var(--blue); font-size: 16px;">Thanh 1 (第一声)</div>
-                        <div style="font-size: 13px; color: var(--gray); margin-top: 2px;">Thanh bằng cao</div>
+                    <div class="latin" style="border: 1px solid var(--blue); border-radius: 6px; padding: 20px; text-align: center; background: #f8f9fa;" onclick="speakText('mā')">
+                        <div style="font-size: 32px; color: var(--blue); font-family: Arial, sans-serif; margin-bottom: 4px;">mā ˉ</div>
+                        <div style="font-weight: 700; color: var(--blue); font-size: 16px;">Thanh 1</div>
                     </div>
-                    <div class="latin" style="border: 1px solid var(--green); border-radius: 6px; padding: 16px; text-align: center; background: #f8f9fa;">
-                        <div style="font-size: 28px; color: var(--green); font-family: Arial, sans-serif; margin-bottom: 4px;">má ˊ</div>
-                        <div style="font-weight: 700; color: var(--green); font-size: 16px;">Thanh 2 (第二声)</div>
-                        <div style="font-size: 13px; color: var(--gray); margin-top: 2px;">Thanh lên cao</div>
+                    <div class="latin" style="border: 1px solid var(--green); border-radius: 6px; padding: 20px; text-align: center; background: #f8f9fa;" onclick="speakText('má')">
+                        <div style="font-size: 32px; color: var(--green); font-family: Arial, sans-serif; margin-bottom: 4px;">má ˊ</div>
+                        <div style="font-weight: 700; color: var(--green); font-size: 16px;">Thanh 2</div>
                     </div>
-                    <div class="latin" style="border: 1px solid var(--orange); border-radius: 6px; padding: 16px; text-align: center; background: #f8f9fa;">
-                        <div style="font-size: 28px; color: var(--orange); font-family: Arial, sans-serif; margin-bottom: 4px;">mǎ ˇ</div>
-                        <div style="font-weight: 700; color: var(--orange); font-size: 16px;">Thanh 3 (第三声)</div>
-                        <div style="font-size: 13px; color: var(--gray); margin-top: 2px;">Thanh xuống lên</div>
+                    <div class="latin" style="border: 1px solid var(--orange); border-radius: 6px; padding: 20px; text-align: center; background: #f8f9fa;" onclick="speakText('mǎ')">
+                        <div style="font-size: 32px; color: var(--orange); font-family: Arial, sans-serif; margin-bottom: 4px;">mǎ ˇ</div>
+                        <div style="font-weight: 700; color: var(--orange); font-size: 16px;">Thanh 3</div>
                     </div>
-                    <div class="latin" style="border: 1px solid var(--red); border-radius: 6px; padding: 16px; text-align: center; background: #f8f9fa;">
-                        <div style="font-size: 28px; color: var(--red); font-family: Arial, sans-serif; margin-bottom: 4px;">mà ˋ</div>
-                        <div style="font-weight: 700; color: var(--red); font-size: 16px;">Thanh 4 (第四声)</div>
-                        <div style="font-size: 13px; color: var(--gray); margin-top: 2px;">Thanh xuống nặng</div>
+                    <div class="latin" style="border: 1px solid var(--red); border-radius: 6px; padding: 20px; text-align: center; background: #f8f9fa;" onclick="speakText('mà')">
+                        <div style="font-size: 32px; color: var(--red); font-family: Arial, sans-serif; margin-bottom: 4px;">mà ˋ</div>
+                        <div style="font-weight: 700; color: var(--red); font-size: 16px;">Thanh 4</div>
                     </div>
                 </div>
             </div>
@@ -1627,13 +1723,13 @@
                     <span class="hanzi-title zh">变调</span>
                     <span class="latin">BIẾN ĐIỆU THANH 3</span>
                 </div>
-                <div class="latin" style="background: #fafafa; padding: 16px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.6; border-left: 3px solid var(--orange);">
-                    <strong style="color: var(--orange);">1.</strong> Khi hai âm tiết cùng mang thanh thứ 3 đi liền nhau, âm tiết đi trước sẽ biến thành thanh thứ 2.<br>
-                    <span style="color: var(--red); font-family: Arial, sans-serif; font-size: 20px; font-weight: 600;">Nǐ hǎo → Ní hǎo</span>
+                <div class="latin" style="background: #fafafa; padding: 20px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.8; border-left: 3px solid var(--orange);" onclick="speakText('你好')">
+                    <strong style="color: var(--orange);">1.</strong> Hai âm tiết thanh 3 liền nhau, âm đầu biến thành thanh 2.<br>
+                    <span style="color: var(--red); font-size: 22px; font-weight: 600;">Nǐ hǎo → Ní hǎo</span>
                 </div>
-                <div class="latin" style="background: #fafafa; padding: 16px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.6; border-left: 3px solid var(--orange);">
-                    <strong style="color: var(--orange);">2.</strong> Khi âm tiết thanh 3 đặt trước thanh 1, 2, 4 hoặc thanh nhẹ → đọc thành nửa thanh 3.<br>
-                    <span style="color: var(--red); font-family: Arial, sans-serif; font-size: 20px; font-weight: 600;">Hǎo ma → Hào ma</span>
+                <div class="latin" style="background: #fafafa; padding: 20px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.8; border-left: 3px solid var(--orange);" onclick="speakText('好吗')">
+                    <strong style="color: var(--orange);">2.</strong> Thanh 3 trước thanh nhẹ → đọc thành nửa thanh 3.<br>
+                    <span style="color: var(--red); font-size: 22px; font-weight: 600;">Hǎo ma → Hào ma</span>
                 </div>
             </div>
         </div>
@@ -1642,15 +1738,15 @@
             <div class="card">
                 <div class="card-title">
                     <span class="hanzi-title zh">轻声</span>
-                    <span class="latin">CÁCH ĐỌC THANH NHẸ</span>
+                    <span class="latin">THANH NHẸ</span>
                 </div>
-                <div class="latin" style="background: #fafafa; padding: 16px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.6; border-left: 3px solid var(--purple);">
-                    <strong style="color: var(--purple);">1.</strong> Trước thanh nhẹ là thanh 3 → đọc lên giọng (gần giống sắc).<br>
-                    <span style="font-family: Arial, sans-serif; font-size: 18px; color: var(--ink);">Nǐ men</span>
+                <div class="latin" style="background: #fafafa; padding: 20px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.8; border-left: 3px solid var(--purple);" onclick="speakText('你们')">
+                    <strong style="color: var(--purple);">1.</strong> Trước thanh nhẹ là thanh 3 → đọc lên giọng.<br>
+                    <span style="font-size: 20px;">Nǐ men</span>
                 </div>
-                <div class="latin" style="background: #fafafa; padding: 16px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.6; border-left: 3px solid var(--purple);">
-                    <strong style="color: var(--purple);">2.</strong> Trước thanh nhẹ là thanh 1, 2, 4 → đọc xuống giọng (gần giống huyền).<br>
-                    <span style="font-family: Arial, sans-serif; font-size: 18px; color: var(--ink);">Tā men</span>
+                <div class="latin" style="background: #fafafa; padding: 20px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.8; border-left: 3px solid var(--purple);" onclick="speakText('他们')">
+                    <strong style="color: var(--purple);">2.</strong> Trước thanh nhẹ là thanh 1/2/4 → đọc xuống giọng.<br>
+                    <span style="font-size: 20px;">Tā men</span>
                 </div>
             </div>
         </div>
@@ -1787,7 +1883,7 @@
                 <div class="radical-box">
                     <div class="radical-char zh">阝</div>
                     <div class="radical-name latin">Bộ ấp</div>
-                    <div class="radical-desc latin">Liên quan đến địa hình hay vị trí</div>
+                    <div class="radical-desc latin">Liên quan đến địa hình</div>
                 </div>
                 
                 <div class="radical-box">
@@ -1811,7 +1907,7 @@
                 <div class="radical-box">
                     <div class="radical-char zh">门</div>
                     <div class="radical-name latin">Bộ môn</div>
-                    <div class="radical-desc latin">Liên quan đến phòng ốc, cửa ra vào</div>
+                    <div class="radical-desc latin">Liên quan đến cửa</div>
                 </div>
                 
                 <div class="radical-box">
@@ -1823,7 +1919,7 @@
                 <div class="radical-box">
                     <div class="radical-char zh">彳</div>
                     <div class="radical-name latin">Bộ xích</div>
-                    <div class="radical-desc latin">Liên quan đến hành động đi</div>
+                    <div class="radical-desc latin">Liên quan đến đi lại</div>
                 </div>
             </div>
         </div>
@@ -1838,16 +1934,133 @@
 
 <script>
     const writers = {};
+    let isSpeaking = false;
+    let audioContext = null;
+    
+    // Khởi tạo audio context cho iOS
+    function initAudioContext() {
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioContext.state === 'suspended') {
+            audioContext.resume();
+        }
+    }
+
+    // Hàm phát âm chính - ĐÃ SỬA ĐỂ HOẠT ĐỘNG TRÊN MOBILE
+    function speakText(text, isSequential = false) {
+        // Yêu cầu tương tác người dùng trước khi phát âm
+        initAudioContext();
+        
+        if (!('speechSynthesis' in window)) {
+            showToast('Trình duyệt không hỗ trợ phát âm');
+            return;
+        }
+
+        // Dừng âm thanh đang phát
+        window.speechSynthesis.cancel();
+        
+        // Xóa trạng thái playing cũ
+        document.querySelectorAll('.playing').forEach(el => el.classList.remove('playing'));
+        
+        if (!text || text.trim() === '') return;
+        
+        const texts = isSequential ? text.split(/\s+/) : [text];
+        
+        if (isSequential && texts.length > 1) {
+            speakSequential(texts);
+        } else {
+            speakSingle(text);
+        }
+    }
+
+    function speakSingle(text) {
+        return new Promise((resolve) => {
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'zh-CN';
+            u.rate = 0.8;
+            u.pitch = 1;
+            u.volume = 1;
+            
+            u.onstart = function() {
+                isSpeaking = true;
+                showToast('Đang phát: ' + text);
+            };
+            
+            u.onend = function() {
+                isSpeaking = false;
+                hideToast();
+                resolve();
+            };
+            
+            u.onerror = function(e) {
+                console.error('Speech error:', e);
+                isSpeaking = false;
+                hideToast();
+                // Thử lại một lần nữa nếu lỗi
+                if (e.error === 'not-allowed' || e.error === 'interrupted') {
+                    showToast('Vui lòng click để phát âm');
+                }
+                resolve();
+            };
+            
+            // Đảm bảo giọng Trung Quốc được chọn
+            const voices = window.speechSynthesis.getVoices();
+            const chineseVoice = voices.find(v => v.lang.includes('zh') || v.lang.includes('cmn'));
+            if (chineseVoice) {
+                u.voice = chineseVoice;
+            }
+            
+            window.speechSynthesis.speak(u);
+        });
+    }
+
+    async function speakSequential(texts) {
+        showToast('Đang phát âm...');
+        
+        for (let i = 0; i < texts.length; i++) {
+            if (texts[i].trim()) {
+                await speakSingle(texts[i]);
+                if (i < texts.length - 1) {
+                    await new Promise(r => setTimeout(r, 600));
+                }
+            }
+        }
+        
+        hideToast();
+    }
+
+    function speakFromElement(element) {
+        const text = element.getAttribute('data-text');
+        if (text) {
+            element.classList.add('playing');
+            speakText(text).then(() => {
+                setTimeout(() => element.classList.remove('playing'), 500);
+            });
+        }
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('audioToast');
+        toast.textContent = message;
+        toast.classList.add('show');
+    }
+
+    function hideToast() {
+        const toast = document.getElementById('audioToast');
+        toast.classList.remove('show');
+    }
 
     // Editor functions
     function openEditor() {
         document.getElementById('editorModal').classList.add('active');
-        document.getElementById('editorContent').focus();
+        document.body.style.overflow = 'hidden';
         updateWordCount();
     }
 
     function closeEditor() {
         document.getElementById('editorModal').classList.remove('active');
+        document.body.style.overflow = '';
     }
 
     function formatDoc(cmd, value = null) {
@@ -1865,16 +2078,15 @@
     function copyContent() {
         const content = document.getElementById('editorContent').innerText;
         navigator.clipboard.writeText(content).then(() => {
-            alert('Đã sao chép nội dung!');
+            alert('Đã sao chép!');
         }).catch(() => {
-            // Fallback
             const range = document.createRange();
             range.selectNode(document.getElementById('editorContent'));
             window.getSelection().removeAllRanges();
             window.getSelection().addRange(range);
             document.execCommand('copy');
             window.getSelection().removeAllRanges();
-            alert('Đã sao chép nội dung!');
+            alert('Đã sao chép!');
         });
     }
 
@@ -1884,60 +2096,7 @@
         document.getElementById('wordCount').textContent = count + ' từ';
     }
 
-    // Update word count on input
     document.getElementById('editorContent').addEventListener('input', updateWordCount);
-
-    // Close modal when clicking outside
-    document.getElementById('editorModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeEditor();
-        }
-    });
-
-    // Existing functions...
-    function speakText(text) {
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(text);
-            u.lang = 'zh-CN';
-            u.rate = 0.8;
-            u.pitch = 1;
-            window.speechSynthesis.speak(u);
-        } else {
-            alert('Trình duyệt không hỗ trợ phát âm');
-        }
-    }
-
-    function speakSequential(texts, pauseMs = 800) {
-        if (!('speechSynthesis' in window)) {
-            alert('Trình duyệt không hỗ trợ phát âm');
-            return;
-        }
-        
-        window.speechSynthesis.cancel();
-        
-        let index = 0;
-        
-        function speakNext() {
-            if (index >= texts.length) return;
-            
-            const u = new SpeechSynthesisUtterance(texts[index]);
-            u.lang = 'zh-CN';
-            u.rate = 0.8;
-            u.pitch = 1;
-            
-            u.onend = function() {
-                index++;
-                if (index < texts.length) {
-                    setTimeout(speakNext, pauseMs);
-                }
-            };
-            
-            window.speechSynthesis.speak(u);
-        }
-        
-        speakNext();
-    }
 
     function openTab(evt, tabName) {
         document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -2037,7 +2196,7 @@
                         
                         writer.animateCharacter();
                     } catch(e) {
-                        console.log('Error loading stroke for:', c);
+                        console.log('Error:', c);
                     }
                 });
             }
@@ -2048,34 +2207,7 @@
 
     function replayStroke(char) {
         if (writers[char] && writers[char].length > 0) {
-            writers[char].forEach(writer => {
-                writer.animateCharacter();
-            });
-        } else {
-            const card = document.querySelector(`.vocab-card[data-char="${char}"]`);
-            if (card) {
-                const container = card.querySelector('.stroke-inline');
-                container.innerHTML = '';
-                const chars = char.split('');
-                chars.forEach((c, index) => {
-                    const div = document.createElement('div');
-                    div.style.width = '60px';
-                    div.style.height = '60px';
-                    div.id = 'stroke-replay-' + char + '-' + index;
-                    container.appendChild(div);
-                    
-                    HanziWriter.create('stroke-replay-' + char + '-' + index, c, {
-                        width: 60,
-                        height: 60,
-                        padding: 3,
-                        strokeColor: '#C0392B',
-                        radicalColor: '#27AE60',
-                        delayBetweenStrokes: 1000,
-                        strokeAnimationSpeed: 1,
-                        showCharacter: false
-                    }).animateCharacter();
-                });
-            }
+            writers[char].forEach(writer => writer.animateCharacter());
         }
     }
 
@@ -2094,12 +2226,7 @@
         
         function normalize(str) {
             return str.replace(/\s+/g, '')
-                     .replace(/[，,]/g, '')
-                     .replace(/[。.]/g, '')
-                     .replace(/[！!]/g, '')
-                     .replace(/[？?]/g, '')
-                     .replace(/[：:]/g, '')
-                     .replace(/[；;]/g, '');
+                     .replace(/[，,。！？：；.!?:;]/g, '');
         }
         
         const normalizedUser = normalize(userAnswer);
@@ -2113,10 +2240,13 @@
         } else {
             input.classList.add('wrong');
             input.classList.remove('correct');
-            resultDiv.innerHTML = '<strong>✗ Sai.</strong> Đáp án đúng: ' + correctAnswer;
+            resultDiv.innerHTML = '<strong>✗ Sai.</strong> Đáp án: ' + correctAnswer;
             resultDiv.className = 'result-msg show wrong';
         }
     }
+
+    // Preload voices
+    window.speechSynthesis.getVoices();
     
     window.onload = function() {
         if (document.getElementById('tuvung').classList.contains('active')) {
