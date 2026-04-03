@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>越南语学习 - Tiếng Việt</title>
+    <title>Gia Sư Hoa Ngữ Tân An - 越南语学习</title>
     <style>
         * {
             margin: 0;
@@ -15,8 +15,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #f9f9f9;
-            color: #1a1a1a;
+            background: #f5f5f5;
+            color: #333;
             line-height: 1.5;
             height: 100vh;
             overflow: hidden;
@@ -29,16 +29,65 @@
             flex-direction: column;
         }
 
+        /* Header */
+        .app-header {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            background: #fff;
+        }
+
+        .brand-info {
+            color: #fff;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .brand-address {
+            font-size: 13px;
+            opacity: 0.95;
+            line-height: 1.3;
+        }
+
+        .brand-contact {
+            font-size: 13px;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
         /* Tab Navigation */
         .tab-container {
-            background: #fff;
-            border-bottom: 2px solid #e5e5e5;
+            background: #FF9800;
             display: flex;
             justify-content: center;
             padding: 0 20px;
             flex-shrink: 0;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .tab-nav {
@@ -48,28 +97,21 @@
         }
 
         .tab-button {
-            padding: 16px 32px;
-            font-size: 18px;
-            font-weight: 500;
-            color: #666;
-            background: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.85);
+            background: transparent;
             border: none;
             cursor: pointer;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
             white-space: nowrap;
-        }
-
-        .tab-button:hover {
-            color: #1a1a1a;
-            background: #f9f9f9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .tab-button.active {
-            color: #1a1a1a;
-            border-bottom-color: #1a1a1a;
-            font-weight: 600;
+            color: #fff;
         }
 
         /* Content Container */
@@ -95,8 +137,7 @@
         /* Sidebar */
         .sidebar {
             width: 280px;
-            background: #fff;
-            border-right: 1px solid #e5e5e5;
+            background: #37474F;
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -106,20 +147,21 @@
 
         .sidebar-header {
             padding: 20px;
-            border-bottom: 1px solid #f0f0f0;
+            background: #263238;
+            border-bottom: 1px solid #455A64;
             flex-shrink: 0;
         }
 
         .sidebar-title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            color: #1a1a1a;
+            color: #fff;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
         }
 
         .sidebar-subtitle {
-            font-size: 16px;
-            color: #999;
+            font-size: 14px;
+            color: #B0BEC5;
             margin-top: 4px;
         }
 
@@ -136,36 +178,44 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
+            background: rgba(255,255,255,0.05);
         }
 
         .nav-item:hover {
-            background: #f5f5f5;
+            background: rgba(255,255,255,0.1);
         }
 
         .nav-item.active {
-            background: #f0f0f0;
+            background: #4CAF50;
+            box-shadow: 0 2px 8px rgba(76,175,80,0.3);
         }
 
         .nav-title-cn {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 500;
-            color: #1a1a1a;
+            color: #fff;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
             line-height: 1.4;
         }
 
         .nav-title-vi {
-            font-size: 16px;
-            color: #666;
+            font-size: 14px;
+            color: #B0BEC5;
             margin-top: 4px;
             line-height: 1.4;
         }
 
+        .nav-item.active .nav-title-cn,
+        .nav-item.active .nav-title-vi {
+            color: #fff;
+        }
+
         .sidebar-footer {
-            padding: 16px;
-            border-top: 1px solid #f0f0f0;
-            font-size: 14px;
-            color: #999;
+            padding: 12px;
+            background: #263238;
+            border-top: 1px solid #455A64;
+            font-size: 12px;
+            color: #78909C;
             text-align: center;
             flex-shrink: 0;
         }
@@ -177,28 +227,22 @@
             flex-direction: column;
             overflow: hidden;
             min-width: 0;
-            background: #f9f9f9;
+            background: #f5f5f5;
         }
 
         .top-bar {
             background: #fff;
-            border-bottom: 1px solid #e5e5e5;
-            padding: 16px 24px;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 24px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-            height: 70px;
+            height: 60px;
             flex-shrink: 0;
         }
 
         .page-title {
-            font-size: 22px;
-            font-weight: 600;
-            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 60%;
+            display: none;
         }
 
         .controls-group {
@@ -212,16 +256,16 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 16px;
+            font-size: 14px;
             color: #666;
         }
 
         .btn-icon {
             width: 36px;
             height: 36px;
-            border: 1px solid #e0e0e0;
+            border: 2px solid #e0e0e0;
             background: #fff;
-            border-radius: 6px;
+            border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -229,63 +273,53 @@
             font-size: 16px;
             transition: all 0.2s;
             flex-shrink: 0;
+            color: #666;
         }
 
         .btn-icon:hover {
-            background: #f5f5f5;
+            border-color: #2196F3;
+            color: #2196F3;
+            transform: scale(1.05);
         }
 
         .btn-icon.active {
-            background: #1a1a1a;
+            background: #2196F3;
             color: #fff;
-            border-color: #1a1a1a;
+            border-color: #2196F3;
         }
 
         select {
-            padding: 6px 10px;
-            border: 1px solid #e0e0e0;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 14px;
             background: #fff;
             color: #444;
             cursor: pointer;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: #2196F3;
         }
 
         .content-scroll {
             flex: 1;
             overflow-y: auto;
             overflow-x: hidden;
-            padding: 24px;
+            padding: 20px;
             -webkit-overflow-scrolling: touch;
         }
 
         .content-card {
             background: #fff;
             border-radius: 12px;
-            border: 1px solid #e5e5e5;
+            border: 1px solid #e0e0e0;
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-        }
-
-        .card-header {
-            padding: 24px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .card-title {
-            font-size: 22px;
-            font-weight: 600;
-            color: #1a1a1a;
-            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-            line-height: 1.4;
-        }
-
-        .card-subtitle {
-            font-size: 16px;
-            color: #666;
-            margin-top: 6px;
-            line-height: 1.4;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
         }
 
         .card-body {
@@ -295,60 +329,67 @@
             width: 100%;
         }
 
-        .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            width: 100%;
-        }
-
         .data-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            font-size: 22px;
+            border-collapse: collapse;
+            font-size: 18px;
             min-width: 400px;
+        }
+
+        .data-table thead {
+            display: table-header-group;
         }
 
         .data-table th {
             text-align: left;
-            padding: 20px 24px;
-            font-weight: 500;
-            color: #999;
-            font-size: 18px;
+            padding: 16px;
+            font-weight: 600;
+            color: #fff;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            background: #fafafa;
-            border-bottom: 1px solid #f0f0f0;
+            background: #2196F3;
+            border-bottom: 2px solid #1976D2;
             position: sticky;
             top: 0;
             z-index: 10;
         }
 
-        .data-table td {
-            padding: 20px 24px;
-            border-bottom: 1px solid #f5f5f5;
-            vertical-align: middle;
+        .data-table th:first-child {
+            border-radius: 12px 0 0 0;
         }
 
-        .data-table tr:last-child td {
+        .data-table th:last-child {
+            border-radius: 0 12px 0 0;
+        }
+
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+            background: #fff;
+        }
+
+        .data-table tbody tr:last-child td {
             border-bottom: none;
         }
 
-        .data-table tr:hover {
-            background: #fafafa;
+        .data-table tbody tr:hover td {
+            background: #f8f9fa;
         }
 
         .col-num {
-            width: 80px;
+            width: 60px;
             text-align: center !important;
-            font-weight: 500;
-            color: #999;
-            font-size: 18px;
+            font-weight: 600;
+            color: #2196F3;
+            font-size: 15px;
+            background: #E3F2FD !important;
         }
 
         .col-audio {
             width: 60px;
-            padding: 12px !important;
+            padding: 10px !important;
             text-align: center;
         }
 
@@ -356,299 +397,119 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            border: 1px solid #e0e0e0;
-            background: #fff;
-            color: #1a1a1a;
-            font-size: 14px;
+            border: none;
+            background: #4CAF50;
+            color: #fff;
+            font-size: 12px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(76,175,80,0.3);
+            margin: 0 auto;
         }
 
         .audio-btn:hover {
-            background: #1a1a1a;
-            color: #fff;
-            border-color: #1a1a1a;
+            background: #45a049;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(76,175,80,0.4);
         }
 
         .audio-btn.playing {
-            background: #1a1a1a;
-            color: #fff;
-            border-color: #1a1a1a;
+            background: #FF5722;
             animation: pulse 1s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .vi-text {
-            font-size: 22px;
-            color: #1a1a1a;
+            font-size: 18px;
+            color: #333;
             font-weight: 500;
             line-height: 1.5;
         }
 
         .cn-text {
-            font-size: 22px;
-            color: #666;
+            font-size: 18px;
+            color: #D32F2F;
+            font-weight: 600;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
             line-height: 1.5;
         }
 
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            .tab-container {
-                padding: 0 8px;
-            }
-
-            .tab-button {
-                padding: 12px 16px;
-                font-size: 15px;
-            }
-
-            .tab-panel {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                height: auto;
-                max-height: 160px;
-                border-right: none;
-                border-bottom: 1px solid #e5e5e5;
-                flex-shrink: 0;
-            }
-
-            .sidebar-header {
-                padding: 12px 16px;
-            }
-
-            .sidebar-title {
-                font-size: 18px;
-            }
-
-            .sidebar-subtitle {
-                font-size: 14px;
-            }
-
-            .nav-list {
-                padding: 8px;
-                display: flex;
-                gap: 8px;
-                overflow-x: auto;
-                overflow-y: hidden;
-                -webkit-overflow-scrolling: touch;
-                flex-direction: row;
-                white-space: nowrap;
-                height: auto;
-            }
-
-            .nav-item {
-                padding: 10px 14px;
-                margin-bottom: 0;
-                flex-shrink: 0;
-                min-width: 120px;
-                max-width: 160px;
-            }
-
-            .nav-title-cn {
-                font-size: 16px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .nav-title-vi {
-                font-size: 13px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .sidebar-footer {
-                display: none;
-            }
-
-            .main-content {
-                flex: 1;
-                min-height: 0;
-                overflow: hidden;
-            }
-
-            .top-bar {
-                padding: 12px 16px;
-                height: auto;
-                min-height: 60px;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-
-            .page-title {
-                font-size: 18px;
-                max-width: 100%;
-            }
-
-            .controls-group {
-                gap: 12px;
-                width: auto;
-            }
-
-            .control-item {
-                font-size: 14px;
-            }
-
-            .btn-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
-            }
-
-            select {
-                font-size: 14px;
-                padding: 5px 8px;
-            }
-
-            .content-scroll {
-                padding: 12px;
-                flex: 1;
-                overflow-y: auto;
-            }
-
-            .content-card {
-                border-radius: 8px;
-                margin: 0;
-                max-width: none;
-            }
-
-            .card-header {
-                padding: 16px;
-            }
-
-            .card-title {
-                font-size: 18px;
-            }
-
-            .card-subtitle {
-                font-size: 14px;
-            }
-
-            .data-table {
-                font-size: 16px;
-                min-width: 100%;
-            }
-
-            .data-table th {
-                padding: 12px 8px;
-                font-size: 13px;
-                position: static;
-            }
-
-            .data-table td {
-                padding: 12px 8px;
-            }
-
-            .col-num {
-                width: 50px;
-                font-size: 14px;
-            }
-
-            .col-audio {
-                width: 50px;
-                padding: 8px !important;
-            }
-
-            .audio-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 12px;
-            }
-
-            .vi-text {
-                font-size: 16px;
-            }
-
-            .cn-text {
-                font-size: 16px;
-            }
+            .app-header { padding: 10px 16px; }
+            .logo-img { width: 40px; height: 40px; }
+            .brand-name { font-size: 16px; }
+            .brand-address, .brand-contact { font-size: 11px; }
+            .tab-container { padding: 0 8px; }
+            .tab-button { padding: 12px 16px; font-size: 14px; }
+            .tab-panel { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; max-height: 160px; border-right: none; border-bottom: 1px solid #455A64; flex-shrink: 0; }
+            .sidebar-header { padding: 12px 16px; }
+            .sidebar-title { font-size: 16px; }
+            .nav-list { padding: 8px; display: flex; gap: 8px; overflow-x: auto; overflow-y: hidden; flex-direction: row; white-space: nowrap; height: auto; }
+            .nav-item { padding: 10px 14px; margin-bottom: 0; flex-shrink: 0; min-width: 120px; max-width: 160px; }
+            .nav-title-cn { font-size: 15px; }
+            .nav-title-vi { font-size: 12px; }
+            .sidebar-footer { display: none; }
+            .main-content { flex: 1; min-height: 0; overflow: hidden; }
+            .top-bar { padding: 10px 16px; height: auto; min-height: 55px; }
+            .btn-icon { width: 32px; height: 32px; font-size: 14px; }
+            select { font-size: 13px; padding: 6px 10px; }
+            .content-scroll { padding: 12px; }
+            .content-card { border-radius: 8px; margin: 0; max-width: none; }
+            .data-table { font-size: 15px; min-width: 100%; }
+            .data-table th { padding: 12px 8px; font-size: 12px; position: static; }
+            .data-table th:first-child, .data-table th:last-child { border-radius: 8px 8px 0 0; }
+            .data-table td { padding: 10px 8px; }
+            .col-num { width: 45px; font-size: 13px; }
+            .col-audio { width: 45px; }
+            .audio-btn { width: 32px; height: 32px; font-size: 11px; }
+            .vi-text, .cn-text { font-size: 15px; }
         }
 
-        /* Very small screens */
         @media (max-width: 480px) {
-            .tab-button {
-                padding: 10px 12px;
-                font-size: 14px;
-            }
-
-            .sidebar {
-                max-height: 140px;
-            }
-
-            .nav-item {
-                min-width: 100px;
-                padding: 8px 12px;
-            }
-
-            .nav-title-cn {
-                font-size: 15px;
-            }
-
-            .nav-title-vi {
-                font-size: 12px;
-            }
-
-            .data-table {
-                font-size: 15px;
-            }
-
-            .data-table th {
-                padding: 10px 6px;
-                font-size: 12px;
-            }
-
-            .data-table td {
-                padding: 10px 6px;
-            }
-
-            .col-num {
-                width: 40px;
-                font-size: 13px;
-            }
-
-            .col-audio {
-                width: 45px;
-            }
-
-            .audio-btn {
-                width: 28px;
-                height: 28px;
-                font-size: 11px;
-            }
-
-            .vi-text, .cn-text {
-                font-size: 15px;
-            }
+            .app-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .tab-button { padding: 10px 12px; font-size: 13px; }
+            .sidebar { max-height: 140px; }
+            .nav-item { min-width: 100px; padding: 8px 12px; }
+            .data-table { font-size: 14px; }
+            .vi-text, .cn-text { font-size: 14px; }
         }
-    </style>
-<base target="_blank">
+        </style>
 </head>
 <body>
     <div class="app-container">
+        <!-- Header -->
+        <div class="app-header">
+            <div class="logo-container">
+                <img src="https://wenzhannguyen-dot.github.io/gia-su-hoa-ngu-tan-an/Picture1.png" alt="Logo" class="logo-img">
+                <div class="brand-info">
+                    <div class="brand-name">GIA SƯ HOA NGỮ TÂN AN</div>
+                    <div class="brand-address">9/1 Bạch Văn Tư, Tân An, Long An</div>
+                    <div class="brand-contact">Zalo: 0839 889 772</div>
+                </div>
+            </div>
+        </div>
+
         <!-- Tab Navigation -->
         <div class="tab-container">
             <div class="tab-nav">
-                <button class="tab-button active" onclick="switchTab('dulich')">🏖️ 旅游 Du Lịch</button>
-                <button class="tab-button" onclick="switchTab('mausam')">🛍️ 购物 Mua Sắm</button>
-                <button class="tab-button" onclick="switchTab('thuongdung')">💬 常用 Thường Dùng</button>
+                <button class="tab-button active" data-tab="dulich">旅游 Du Lịch</button>
+                <button class="tab-button" data-tab="mausam">购物 Mua Sắm</button>
+                <button class="tab-button" data-tab="thuongdung">常用 Thường Dùng</button>
             </div>
         </div>
 
         <!-- Content Container -->
         <div class="content-container">
-            <!-- Du Lich Tab Panel -->
+            <!-- Du Lich Tab -->
             <div id="tab-dulich" class="tab-panel active">
                 <div class="sidebar">
                     <div class="sidebar-header">
@@ -656,12 +517,11 @@
                         <div class="sidebar-subtitle">Việt Nam Du Lịch</div>
                     </div>
                     <div class="nav-list" id="navList-dulich"></div>
-                    <div class="sidebar-footer">© 2026 越南语学习</div>
+                    <div class="sidebar-footer">© 2026 Gia Sư Hoa Ngữ Tân An</div>
                 </div>
 
                 <div class="main-content">
                     <div class="top-bar">
-                        <div class="page-title" id="currentTitle-dulich">芽庄海滩</div>
                         <div class="controls-group">
                             <div class="control-item">
                                 <button class="btn-icon active" id="voiceF-dulich" onclick="setVoice('dulich', 'female')">♀</button>
@@ -680,9 +540,6 @@
 
                     <div class="content-scroll">
                         <div class="content-card">
-                            <div class="card-header">
-                                <div class="card-title" id="cardTitle-dulich">芽庄海滩</div>
-                            </div>
                             <div class="card-body">
                                 <div id="lessonContent-dulich"></div>
                             </div>
@@ -691,20 +548,19 @@
                 </div>
             </div>
 
-            <!-- Mau Sam Tab Panel -->
+            <!-- Mau Sam Tab - NỘI DUNG MỚI HOÀN TOÀN -->
             <div id="tab-mausam" class="tab-panel">
                 <div class="sidebar">
                     <div class="sidebar-header">
                         <div class="sidebar-title">越南购物</div>
-                        <div class="sidebar-subtitle">Việt Nam Mua Sắm</div>
+                        <div class="sidebar-subtitle">MUA SẮM VIỆT NAM</div>
                     </div>
                     <div class="nav-list" id="navList-mausam"></div>
-                    <div class="sidebar-footer">© 2026 越南语学习</div>
+                    <div class="sidebar-footer">© 2026 Gia Sư Hoa Ngữ Tân An</div>
                 </div>
 
                 <div class="main-content">
                     <div class="top-bar">
-                        <div class="page-title" id="currentTitle-mausam">芽庄海滩</div>
                         <div class="controls-group">
                             <div class="control-item">
                                 <button class="btn-icon active" id="voiceF-mausam" onclick="setVoice('mausam', 'female')">♀</button>
@@ -723,9 +579,6 @@
 
                     <div class="content-scroll">
                         <div class="content-card">
-                            <div class="card-header">
-                                <div class="card-title" id="cardTitle-mausam">芽庄海滩</div>
-                            </div>
                             <div class="card-body">
                                 <div id="lessonContent-mausam"></div>
                             </div>
@@ -734,7 +587,7 @@
                 </div>
             </div>
 
-            <!-- Thuong Dung Tab Panel -->
+            <!-- Thuong Dung Tab -->
             <div id="tab-thuongdung" class="tab-panel">
                 <div class="sidebar">
                     <div class="sidebar-header">
@@ -742,12 +595,11 @@
                         <div class="sidebar-subtitle">Thường Dùng</div>
                     </div>
                     <div class="nav-list" id="navList-thuongdung"></div>
-                    <div class="sidebar-footer">© 2026 越南语学习</div>
+                    <div class="sidebar-footer">© 2026 Gia Sư Hoa Ngữ Tân An</div>
                 </div>
 
                 <div class="main-content">
                     <div class="top-bar">
-                        <div class="page-title" id="currentTitle-thuongdung">问候</div>
                         <div class="controls-group">
                             <div class="control-item">
                                 <button class="btn-icon active" id="voiceF-thuongdung" onclick="setVoice('thuongdung', 'female')">♀</button>
@@ -766,10 +618,6 @@
 
                     <div class="content-scroll">
                         <div class="content-card">
-                            <div class="card-header">
-                                <div class="card-title" id="cardTitle-thuongdung">问候</div>
-                                <div class="card-subtitle" id="cardSubtitle-thuongdung">基础问候语 / Lời chào</div>
-                            </div>
                             <div class="card-body">
                                 <div id="lessonContent-thuongdung"></div>
                             </div>
@@ -781,7 +629,9 @@
     </div>
 
     <script>
-        // Data for Du Lich - ĐÃ LOẠI BỎ PHIÊN ÂM
+        // ==========================================
+        // DATA DU LICH
+        // ==========================================
         const lessonsDuLich = {
             nhatrang: {
                 title: '芽庄海滩',
@@ -897,15 +747,147 @@
             }
         };
 
-        // Data for Mau Sam
-        const lessonsMauSam = { ...lessonsDuLich };
+        // ==========================================
+        // DATA MUA SẮM MỚI HOÀN TOÀN (8 CHỦ ĐỀ)
+        // ==========================================
+        const lessonsMauSam = {
+            traicay: {
+                title: '水果店',
+                titleVi: 'Trái cây',
+                data: [
+                    {vi: "Xoài này bao nhiêu tiền một cân?", cn: "这个芒果多少钱一公斤？"},
+                    {vi: "Sầu riêng có chín chưa?", cn: "榴莲熟了吗？"},
+                    {vi: "Tôi muốn mua mít Thái.", cn: "我想买泰国菠萝蜜。"},
+                    {vi: "Vú sữa có ngọt không?", cn: "牛奶果甜吗？"},
+                    {vi: "Cho tôi cân hai cân thanh long.", cn: "给我称两公斤火龙果。"},
+                    {vi: "Chôm chôm này tươi không?", cn: "这个红毛丹新鲜吗？"},
+                    {vi: "Măng cụt bao nhiêu một kí?", cn: "山竹多少钱一公斤？"},
+                    {vi: "Tôi muốn thử trước được không?", cn: "我可以先尝尝吗？"},
+                    {vi: "Giảm giá cho tôi đi!", cn: "给我打个折吧！"},
+                    {vi: "Cam sành có chua không?", cn: "青橘酸吗？"}
+                ]
+            },
+            quanao: {
+                title: '服装店',
+                titleVi: 'Quần áo',
+                data: [
+                    {vi: "Tôi mặc cỡ M.", cn: "我穿M码。"},
+                    {vi: "Cái này có màu đỏ không?", cn: "这个有红色的吗？"},
+                    {vi: "Tôi có thể mặc thử không?", cn: "我可以试穿吗？"},
+                    {vi: "Phòng thay đồ ở đâu?", cn: "试衣间在哪里？"},
+                    {vi: "Cái này vừa vặn quá!", cn: "这个太合身了！"},
+                    {vi: "Có size lớn hơn không?", cn: "有大一点的尺码吗？"},
+                    {vi: "Áo này làm bằng vải gì?", cn: "这件衣服是什么面料？"},
+                    {vi: "Giặt có phai màu không?", cn: "洗会掉色吗？"},
+                    {vi: "Tôi muốn mua áo dài.", cn: "我想买奥黛。"},
+                    {vi: "Có thể đổi hàng không?", cn: "可以换货吗？"}
+                ]
+            },
+            giaydep: {
+                title: '鞋店',
+                titleVi: 'Giày dép',
+                data: [
+                    {vi: "Tôi đi size 39.", cn: "我穿39码。"},
+                    {vi: "Có dép lê không?", cn: "有拖鞋吗？"},
+                    {vi: "Giày này có êm chân không?", cn: "这双鞋舒服吗？"},
+                    {vi: "Tôi muốn thử đôi này.", cn: "我想试试这双。"},
+                    {vi: "Giày cao gót có cao quá không?", cn: "高跟鞋太高吗？"},
+                    {vi: "Sandal này có chống nước không?", cn: "这个凉鞋防水吗？"},
+                    {vi: "Tôi muốn mua giày thể thao.", cn: "我想买运动鞋。"},
+                    {vi: "Có bảo hành không?", cn: "有保修吗？"},
+                    {vi: "Đế giày có chống trơn không?", cn: "鞋底防滑吗？"},
+                    {vi: "Mang lâu có đau chân không?", cn: "穿久了脚会疼吗？"}
+                ]
+            },
+            non: {
+                title: '帽子店',
+                titleVi: 'Nón & Mũ',
+                data: [
+                    {vi: "Tôi muốn mua nón lá.", cn: "我想买斗笠。"},
+                    {vi: "Cái này có vừa đầu không?", cn: "这个合适吗？"},
+                    {vi: "Nón bảo hiểm bao nhiêu tiền?", cn: "头盔多少钱？"},
+                    {vi: "Có mũ chống nắng không?", cn: "有遮阳帽吗？"},
+                    {vi: "Tôi muốn mua mũ snapback.", cn: "我想买棒球帽。"},
+                    {vi: "Nón này có thể gập được không?", cn: "这个帽子能折叠吗？"},
+                    {vi: "Có màu đen không?", cn: "有黑色的吗？"},
+                    {vi: "Nón lưỡi trai này đẹp quá!", cn: "这个鸭舌帽真好看！"},
+                    {vi: "Có thể điều chỉnh size không?", cn: "可以调节尺寸吗？"},
+                    {vi: "Nón len có ấm không?", cn: "毛线帽暖和吗？"}
+                ]
+            },
+            phukien: {
+                title: '饰品店',
+                titleVi: 'Phụ kiện',
+                data: [
+                    {vi: "Túi xách này bằng da thật phải không?", cn: "这个手提包是真皮的吗？"},
+                    {vi: "Tôi muốn mua ví.", cn: "我想买钱包。"},
+                    {vi: "Có kính râm không?", cn: "有太阳镜吗？"},
+                    {vi: "Thắt lưng này dài bao nhiêu?", cn: "这条腰带多长？"},
+                    {vi: "Tôi muốn mua khăn choàng.", cn: "我想买围巾。"},
+                    {vi: "Có vòng tay bạc không?", cn: "有银手镯吗？"},
+                    {vi: "Bông tai này có nặng không?", cn: "这个耳环重吗？"},
+                    {vi: "Tôi muốn xem dây chuyền.", cn: "我想看项链。"},
+                    {vi: "Có thể khắc tên không?", cn: "可以刻名字吗？"},
+                    {vi: "Nhẫn này có mấy carat?", cn: "这个戒指多少克拉？"}
+                ]
+            },
+            mypham: {
+                title: '化妆品店',
+                titleVi: 'Mỹ phẩm',
+                data: [
+                    {vi: "Tôi muốn mua kem chống nắng.", cn: "我想买防晒霜。"},
+                    {vi: "Có son môi màu hồng không?", cn: "有粉色口红吗？"},
+                    {vi: "Sản phẩm này có phù hợp da dầu không?", cn: "这个产品适合油性皮肤吗？"},
+                    {vi: "Tôi có thể thử màu này không?", cn: "我可以试试这个颜色吗？"},
+                    {vi: "Có nước hoa nào thơm nhẹ không?", cn: "有清淡的香水吗？"},
+                    {vi: "Tẩy trang loại nào tốt?", cn: "哪种卸妆水好？"},
+                    {vi: "Có mặt nạ giấy không?", cn: "有面膜吗？"},
+                    {vi: "Sữa rửa mặt này có dịu da không?", cn: "这个洗面奶温和吗？"},
+                    {vi: "Có hàng chính hãng không?", cn: "是正品吗？"},
+                    {vi: "Có thể đổi trả trong bao lâu?", cn: "多久内可以退换？"}
+                ]
+            },
+            dientu: {
+                title: '电子产品',
+                titleVi: 'Điện tử',
+                data: [
+                    {vi: "Tai nghe này có chống ồn không?", cn: "这个耳机有降噪功能吗？"},
+                    {vi: "Pin sạc dự phòng dung lượng bao nhiêu?", cn: "充电宝容量是多少？"},
+                    {vi: "Có dây sạc iPhone không?", cn: "有苹果充电线吗？"},
+                    {vi: "Thẻ nhớ này bao nhiêu GB?", cn: "这个内存卡多少GB？"},
+                    {vi: "Có ốp lưng điện thoại không?", cn: "有手机壳吗？"},
+                    {vi: "Chuột không dây có tốt không?", cn: "无线鼠标好用吗？"},
+                    {vi: "Có bảo hành bao lâu?", cn: "保修多久？"},
+                    {vi: "Tôi muốn mua đồng hồ thông minh.", cn: "我想买智能手表。"},
+                    {vi: "Có thể thanh toán bằng thẻ không?", cn: "可以刷卡吗？"},
+                    {vi: "Có hóa đơn đỏ không?", cn: "有发票吗？"}
+                ]
+            },
+            sieuthi: {
+                title: '超市购物',
+                titleVi: 'Siêu thị',
+                data: [
+                    {vi: "Quầy thịt ở đâu?", cn: "肉类柜台在哪里？"},
+                    {vi: "Có rau hữu cơ không?", cn: "有有机蔬菜吗？"},
+                    {vi: "Sữa tươi hạn sử dụng đến bao giờ?", cn: "鲜奶保质期到什么时候？"},
+                    {vi: "Có túi nilon không?", cn: "有塑料袋吗？"},
+                    {vi: "Tôi cần giỏ hàng.", cn: "我需要购物篮。"},
+                    {vi: "Đồ này đang giảm giá phải không?", cn: "这个在打折吗？"},
+                    {vi: "Có thẻ thành viên không?", cn: "有会员卡吗？"},
+                    {vi: "Tính tiền ở đâu?", cn: "在哪里结账？"},
+                    {vi: "Có giao hàng tận nơi không?", cn: "可以送货上门吗？"},
+                    {vi: "Mở cửa đến mấy giờ?", cn: "开到几点？"}
+                ]
+            }
+        };
 
-        // Data for Thuong Dung - ĐÃ LOẠI BỎ PHIÊN ÂM
+        // ==========================================
+        // DATA THUONG DUNG
+        // ==========================================
         const lessonsThuongDung = {
             greetings: {
                 title: '问候',
                 titleVi: 'Chào hỏi',
-                subtitle: '基础问候语 / Lời chào',
                 data: [
                     {vi: "Xin chào", cn: "你好"},
                     {vi: "Chào buổi sáng", cn: "早上好"},
@@ -922,7 +904,6 @@
             intro: {
                 title: '自我介绍',
                 titleVi: 'Giới thiệu',
-                subtitle: '介绍姓名、国籍 / Giới thiệu',
                 data: [
                     {vi: "Tôi tên là...", cn: "我叫..."},
                     {vi: "Tôi là người Trung Quốc", cn: "我是中国人"},
@@ -939,7 +920,6 @@
             shopping: {
                 title: '购物',
                 titleVi: 'Mua sắm',
-                subtitle: '询问价格、砍价 / Mua sắm',
                 data: [
                     {vi: "Bao nhiêu tiền?", cn: "多少钱？"},
                     {vi: "Cái này bao nhiêu tiền?", cn: "这个多少钱？"},
@@ -956,7 +936,6 @@
             dining: {
                 title: '饮食',
                 titleVi: 'Ăn uống',
-                subtitle: '点餐、结账 / Ăn uống',
                 data: [
                     {vi: "Cho tôi món này", cn: "给我这个菜"},
                     {vi: "Cho tôi một phần", cn: "给我一份"},
@@ -973,7 +952,6 @@
             directions: {
                 title: '方向',
                 titleVi: 'Phương hướng',
-                subtitle: '问路、指路 / Phương hướng',
                 data: [
                     {vi: "Ở đâu?", cn: "在哪里？"},
                     {vi: "Gần đây không?", cn: "离这里近吗？"},
@@ -990,7 +968,6 @@
             verbs: {
                 title: '常用动词',
                 titleVi: 'Động từ',
-                subtitle: '70个常用动词 / Động từ',
                 data: [
                     {vi: "là", cn: "是"}, {vi: "có", cn: "有"},
                     {vi: "đi", cn: "去"}, {vi: "đến", cn: "来"},
@@ -1007,7 +984,6 @@
             patterns: {
                 title: '常用句型',
                 titleVi: 'Mẫu câu',
-                subtitle: '30个口语短句 / Mẫu câu',
                 data: [
                     {vi: "không sao", cn: "没关系"},
                     {vi: "không vấn đề", cn: "没问题"},
@@ -1024,7 +1000,6 @@
             antonyms: {
                 title: '反义词',
                 titleVi: 'Trái nghĩa',
-                subtitle: '48对反义词 / Trái nghĩa',
                 data: [
                     {vi: "to - nhỏ", cn: "大 - 小"},
                     {vi: "nhiều - ít", cn: "多 - 少"},
@@ -1040,99 +1015,82 @@
             }
         };
 
-        // State management
+        // ==========================================
+        // STATE & FUNCTIONS
+        // ==========================================
         let currentTab = 'dulich';
-        let currentVoice = {
-            dulich: 'female',
-            mausam: 'female',
-            thuongdung: 'female'
-        };
-        let speechRate = {
-            dulich: 0.9,
-            mausam: 0.9,
-            thuongdung: 0.9
-        };
-        let currentLesson = {
-            dulich: 'nhatrang',
-            mausam: 'nhatrang',
-            thuongdung: 'greetings'
-        };
+        let currentVoice = { dulich: 'female', mausam: 'female', thuongdung: 'female' };
+        let speechRate = { dulich: 0.9, mausam: 0.9, thuongdung: 0.9 };
+        let currentLesson = { dulich: 'nhatrang', mausam: 'traicay', thuongdung: 'greetings' };
 
-        // Tab switching
-        function switchTab(tab) {
-            currentTab = tab;
+        function getLessonsByTab(tab) {
+            switch(tab) {
+                case 'dulich': return lessonsDuLich;
+                case 'mausam': return lessonsMauSam;
+                case 'thuongdung': return lessonsThuongDung;
+                default: return lessonsDuLich;
+            }
+        }
 
-            // Update tab buttons
+        document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
+                btn.addEventListener('click', function() {
+                    const tab = this.dataset.tab;
+                    switchTab(tab, this);
+                });
             });
-            event.target.classList.add('active');
+            init();
+        });
 
-            // Update tab panels
-            document.querySelectorAll('.tab-panel').forEach(panel => {
-                panel.classList.remove('active');
-            });
+        function switchTab(tab, clickedBtn) {
+            currentTab = tab;
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            clickedBtn.classList.add('active');
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
             document.getElementById(`tab-${tab}`).classList.add('active');
         }
 
-        // Initialize
         function init() {
             initTab('dulich', lessonsDuLich, 'nhatrang');
-            initTab('mausam', lessonsMauSam, 'nhatrang');
+            initTab('mausam', lessonsMauSam, 'traicay');
             initTab('thuongdung', lessonsThuongDung, 'greetings');
         }
 
         function initTab(tab, lessons, defaultLesson) {
             renderNav(tab, lessons);
-            showLesson(tab, lessons, defaultLesson);
+            showLesson(tab, defaultLesson);
         }
 
         function renderNav(tab, lessons) {
             const navList = document.getElementById(`navList-${tab}`);
             let html = '';
-
             for (const [key, lesson] of Object.entries(lessons)) {
-                html += `
-                    <div class="nav-item ${key === currentLesson[tab] ? 'active' : ''}" 
-                         onclick="showLesson('${tab}', ${tab === 'thuongdung' ? 'lessonsThuongDung' : tab === 'mausam' ? 'lessonsMauSam' : 'lessonsDuLich'}, '${key}')" 
-                         data-key="${key}">
-                        <div class="nav-title-cn">${lesson.title}</div>
-                        <div class="nav-title-vi">${lesson.titleVi}</div>
-                    </div>
-                `;
+                html += `<div class="nav-item ${key === currentLesson[tab] ? 'active' : ''}" onclick="showLesson('${tab}', '${key}')" data-key="${key}">
+                    <div class="nav-title-cn">${lesson.title}</div>
+                    <div class="nav-title-vi">${lesson.titleVi}</div>
+                </div>`;
             }
-
             navList.innerHTML = html;
         }
 
-        function showLesson(tab, lessons, key) {
-            if (typeof lessons === 'string') {
-                lessons = eval(lessons);
-            }
-
+        function showLesson(tab, key) {
+            const lessons = getLessonsByTab(tab);
             currentLesson[tab] = key;
 
-            // Update nav items
             const navList = document.getElementById(`navList-${tab}`);
             navList.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.toggle('active', item.dataset.key === key);
             });
 
             const lesson = lessons[key];
-            document.getElementById(`currentTitle-${tab}`).textContent = lesson.title;
-            document.getElementById(`cardTitle-${tab}`).textContent = lesson.title;
-
-            if (tab === 'thuongdung') {
-                document.getElementById(`cardSubtitle-${tab}`).textContent = lesson.subtitle;
-            }
-
             renderTable(tab, lesson);
         }
 
         function renderTable(tab, lesson) {
-            let html = '<div class="table-wrapper"><table class="data-table"><thead><tr>';
-            html += '<th class="col-num">序号</th>';
-            html += '<th class="col-audio"></th>';
+            const container = document.getElementById(`lessonContent-${tab}`);
+            let html = '<table class="data-table"><thead><tr>';
+            html += '<th class="col-num">STT</th>';
+            html += '<th class="col-audio">▶</th>';
             html += '<th>越南语</th>';
             html += '<th>中文</th>';
             html += '</tr></thead><tbody>';
@@ -1140,20 +1098,17 @@
             lesson.data.forEach((item, idx) => {
                 const num = idx + 1;
                 const btnId = `btn-${tab}-${num}`;
-                const text = item.vi.replace(/'/g, "\'");
-
+                const text = item.vi.replace(/'/g, "\'").replace(/"/g, '&quot;');
                 html += `<tr>
                     <td class="col-num">${num}</td>
-                    <td class="col-audio">
-                        <button class="audio-btn" id="${btnId}" onclick="speak('${tab}', '${text}', '${btnId}')">▶</button>
-                    </td>
+                    <td class="col-audio"><button class="audio-btn" id="${btnId}" onclick="speak('${tab}', '${text}', '${btnId}')">▶</button></td>
                     <td class="vi-text">${item.vi}</td>
                     <td class="cn-text">${item.cn}</td>
                 </tr>`;
             });
 
-            html += '</tbody></table></div>';
-            document.getElementById(`lessonContent-${tab}`).innerHTML = html;
+            html += '</tbody></table>';
+            container.innerHTML = html;
         }
 
         function setVoice(tab, type) {
@@ -1171,9 +1126,7 @@
                 alert('浏览器不支持语音功能');
                 return;
             }
-
             window.speechSynthesis.cancel();
-
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'vi-VN';
             utterance.rate = speechRate[tab];
@@ -1185,11 +1138,8 @@
             utterance.onend = () => {
                 if (btn) btn.classList.remove('playing');
             };
-
             window.speechSynthesis.speak(utterance);
         }
-
-        init();
     </script>
 </body>
 </html>
