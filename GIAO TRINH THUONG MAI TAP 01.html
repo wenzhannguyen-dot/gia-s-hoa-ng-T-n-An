@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giáo Trình Hán Ngữ Thương Mại</title>
+    <style>
+        
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --green: #059669;
+            --orange: #ea580c;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .content-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        
+        .lesson-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .lesson-card:hover {
+            background: #f8f9fa;
+            border-color: #2563eb;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .header h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+        
+        .school-info {
+            text-align: left;
+        }
+        
+        .school-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 0 0 5px 0;
+        }
+        
+        .school-address {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+        
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .lesson-icon {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .lesson-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .lesson-title {
+            flex: 1;
+        }
+        
+        .lesson-title h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .lesson-title p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .lesson-badge {
+            background: #2563eb;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .lesson-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .lesson-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .lesson-file {
+            color: #999;
+        }
+        
+        .lesson-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .lesson-link:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .home-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .home-btn:active {
+            transform: translateY(0);
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <div class="header">
+            <div class="logo-section">
+                <img src="https://wenzhannguyen-dot.github.io/gia-su-hoa-ngu-tan-an/Picture1.png" alt="Gia Sư Hóa Ngữ Tân An Logo" class="logo">
+                <div class="school-info">
+                    <div class="school-name">Gia Sư Hóa Ngữ Tân An</div>
+                    <p class="school-address">9/1 Bạch Văn Tư, Tân An, Long An</p>
+                    <p class="school-address">Zalo: 0839 889 772</p>
+                </div>
+            </div>
+            <div class="header-content">
+                <h1>Giáo Trình Hán Ngữ Thương Mại</h1>
+                <p>Chọn bài học để bắt đầu</p>
+            </div>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="home-btn">
+                <i class="fas fa-home"></i>
+                <span>Trang chủ</span>
+            </button>
+        </div>
+
+        <div class="content-container">
+            <div id="lessonContent" class="lesson-grid">
+                <!-- Content will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 Gia Sư Hóa Ngữ Tân An - Tất cả quyền được bảo lưu</p>
+        </div>
+    </div>
+
+    <script>
+        // Data structure for lessons
+        const lessons = [
+            { id: 1, title: "Bài 01: 欢迎来上海", subtitle: "Chào mừng đến Thượng Hải", file: "THUONG MAI 01-01.HTML", description: "Giới thiệu cơ bản và chào hỏi" },
+            { id: 2, title: "Bài 02: 你叫什么名字", subtitle: "Bạn tên gì?", file: "THUONG MAI 01-02.HTML", description: "Hỏi và trả lời tên" },
+            { id: 3, title: "Bài 03: 你是哪国人", subtitle: "Bạn người nước nào?", file: "THUONG MAI 01-03.HTML", description: "Quốc tịch và dân tộc" },
+            { id: 4, title: "Bài 04: 现在几点", subtitle: "Bây giờ mấy giờ?", file: "THUONG MAI 01-04.HTML", description: "Hỏi giờ và thời gian" },
+            { id: 5, title: "Bài 05: 今天几号", subtitle: "Hôm nay ngày mấy?", file: "THUONG MAI 01-05.HTML", description: "Ngày tháng và lịch" },
+            { id: 6, title: "Bài 06: 你家有几口人", subtitle: "Gia đình bạn có mấy người?", file: "THUONG MAI 01-06.HTML", description: "Gia đình và người thân" },
+            { id: 7, title: "Bài 07: 你住在哪儿", subtitle: "Bạn ở đâu?", file: "THUONG MAI 01-07.HTML", description: "Nơi ở và địa chỉ" },
+            { id: 8, title: "Bài 08: 你的电话号码是多少", subtitle: "Số điện thoại của bạn là bao nhiêu?", file: "THUONG MAI 01-08.HTML", description: "Số điện thoại và liên lạc" },
+            { id: 9, title: "Bài 09: 这个多少钱", subtitle: "Cái này bao nhiêu tiền?", file: "THUONG MAI 01-09.HTML", description: "Giá cả và mua sắm" },
+            { id: 10, title: "Bài 10: 你要吃什么", subtitle: "Bạn muốn ăn gì?", file: "THUONG MAI 01-10.HTML", description: "Ăn uống và nhà hàng" }
+        ];
+
+
+        // Render lessons
+        function renderLessons() {
+            const contentContainer = document.getElementById('lessonContent');
+            
+            contentContainer.innerHTML = lessons.map(lesson => `
+                <div class="lesson-card" onclick="openLesson('${lesson.file}')">
+                    <div class="lesson-header">
+                        <div class="lesson-icon">${lesson.id}</div>
+                        <div class="lesson-title">
+                            <h3>${lesson.title}</h3>
+                            <p>${lesson.subtitle}</p>
+                        </div>
+                        <div class="lesson-badge">Bài ${lesson.id}</div>
+                    </div>
+                    <div class="lesson-description">${lesson.description}</div>
+                    <div class="lesson-footer">
+                        <span class="lesson-file">${lesson.file}</span>
+                        <a href="#" class="lesson-link" onclick="openLesson('${lesson.file}'); return false;">Mở bài học →</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Open lesson
+        function openLesson(filename) {
+            window.open(filename, '_blank');
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', renderLessons);
+    </script>
+</body>
+</html>

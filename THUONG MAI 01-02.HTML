@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BÀI 02: 一路平安 - Giáo Trình Hán Ngữ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.3.0/dist/hanzi-writer.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --green: #059669;
+            --orange: #ea580c;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+        
+        .chinese-text {
+            font-family: "DFKai-SB", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", "SimSun", serif;
+            letter-spacing: 0.05em;
+        }
+        
+        .hanzi-bold {
+            font-family: "DFKai-SB", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", "SimSun", serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #0f172a;
+            letter-spacing: 0.05em;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--gray-100);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray-300);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-600);
+        }
+        
+        .glass-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .tab-btn {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .tab-btn.active::after {
+            width: 80%;
+        }
+        .tab-btn.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .dialogue-row {
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        .dialogue-row:hover {
+            background-color: var(--gray-50);
+            border-left-color: var(--primary-blue);
+        }
+        .speaker-lili {
+            color: var(--primary-blue);
+        }
+        .speaker-yamada {
+            color: var(--green);
+        }
+        
+        .audio-btn {
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .audio-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
+        }
+        .audio-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .vocab-table th {
+            background-color: var(--gray-100);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--gray-600);
+        }
+        .vocab-row {
+            transition: all 0.15s ease;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .vocab-row:hover {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .vocab-hanzi {
+            font-family: "DFKai-SB", "KaiTi", "STKaiti", "楷体", "Noto Serif SC", "SimSun", serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: 0.05em;
+        }
+        
+        .writer-container {
+            background-image: radial-gradient(circle at 1px 1px, var(--gray-200) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        .editor-overlay {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            border: 1px solid var(--gray-200);
+            color: var(--gray-700);
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover {
+            border-color: var(--gray-300);
+            background-color: var(--gray-50);
+        }
+        
+        .btn-accent {
+            background-color: var(--orange);
+            color: white;
+            transition: all 0.2s;
+        }
+        .btn-accent:hover {
+            background-color: #c2410c;
+            transform: translateY(-1px);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray-200);
+            transition: box-shadow 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.03);
+        }
+        
+        .section-title {
+            border-left: 4px solid var(--primary-blue);
+            padding-left: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        
+        .sub-section-title {
+            border-left: 4px solid var(--green);
+            padding-left: 1rem;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+        
+        .pinyin-text {
+            color: var(--gray-600);
+            font-style: italic;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        
+        .meaning-text {
+            color: var(--gray-700);
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+        .loading-ring {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Header -->
+    <header class="glass-header sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-4">
+                    <div id="logoPreview" class="h-10 w-10 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500 border border-gray-300 overflow-hidden">
+                        <img src="https://wenzhannguyen-dot.github.io/gia-su-hoa-ngu-tan-an/Picture1.png" class="h-full w-full object-cover">
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-gray-900 tracking-tight">GIA SƯ HOA NGỮ TÂN AN</h1>
+                        <p class="text-xs text-gray-600">9/1 Bạch Văn Tư, Tân An, Long An • Zalo: 0839 889 772</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="window.location.href='GIAO TRINH THUONG MAI TAP 01.html'" class="home-btn">
+                        <i class="fas fa-home"></i>
+                        <span>Quay về trang chủ</span>
+                    </button>
+                    <button onclick="openEditor()" class="btn-primary px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 shadow-sm">
+                        <i class="fas fa-edit"></i>
+                        <span class="hidden sm:inline">Soạn thảo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        
+        <!-- Navigation Tabs -->
+        <div class="bg-white rounded-t-lg border-b border-gray-200 mb-6 overflow-x-auto">
+            <div class="flex min-w-max">
+                <button onclick="switchTab('main')" id="tab-main" class="tab-btn active px-6 py-4 text-sm font-medium text-gray-600 hover:text-blue-600 flex items-center gap-2">
+                    <i class="fas fa-book-open text-blue-600"></i>
+                    <span>Bài khóa chính</span>
+                </button>
+                <button onclick="switchTab('sub')" id="tab-sub" class="tab-btn px-6 py-4 text-sm font-medium text-gray-600 hover:text-green-600 flex items-center gap-2">
+                    <i class="fas fa-book-reader text-green-600"></i>
+                    <span>Bài khóa phụ</span>
+                </button>
+                <button onclick="switchTab('vocab')" id="tab-vocab" class="tab-btn px-6 py-4 text-sm font-medium text-gray-600 hover:text-orange-600 flex items-center gap-2">
+                    <i class="fas fa-list text-orange-600"></i>
+                    <span>Từ vựng</span>
+                    <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">38</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Text Section -->
+        <section id="content-main" class="space-y-6">
+            <div class="card p-6 md:p-8">
+                <div class="text-center mb-8 pb-6 border-b border-gray-100">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2 chinese-text tracking-wide">第一单元 迎送</h2>
+                    <h3 class="text-xl font-semibold text-blue-700 mb-1 chinese-text">Bài 2: 一路平安</h3>
+                    <p class="text-gray-600 italic">Chúc một đường bình an</p>
+                </div>
+                
+                <div class="space-y-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-4 border border-blue-100">
+                        <i class="fas fa-plane-departure text-xs"></i>
+                        <span class="chinese-text">场景: 在机场</span>
+                        <span class="text-blue-600/70">(Tại sân bay)</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <!-- Dialogue items -->
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('山田先生，您的登机手续都办好了吗？')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">山田先生，您的登机手续都办好了吗？</p>
+                                    <p class="pinyin-text">Shāntián xiānsheng, nín de dēngjī shǒuxù dōu bàn hǎo le ma?</p>
+                                    <p class="meaning-text text-gray-700">Ngài Yamada, thủ tục lên máy bay của ngài đã làm xong chưa ạ?</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg bg-gray-50/50">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-yamada font-bold text-sm uppercase tracking-wider chinese-text text-center">山 田</span>
+                                    <button onclick="speak('都办好了。')" class="audio-btn w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center border border-green-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">都办好了。</p>
+                                    <p class="pinyin-text">Dōu bàn hǎo le.</p>
+                                    <p class="meaning-text text-gray-700">Đều làm xong rồi.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('现在是10点30分，离飞机起飞还有40分钟。')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">现在是10点30分，离飞机起飞还有40分钟。</p>
+                                    <p class="pinyin-text">Xiànzài shì 10 diǎn 30 fēn, lí fēijī qǐfēi hái yǒu 40 fēnzhōng.</p>
+                                    <p class="meaning-text text-gray-700">Bây giờ là 10h30, còn 40 phút nữa máy bay cất cánh.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg bg-gray-50/50">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-yamada font-bold text-sm uppercase tracking-wider chinese-text text-center">山 田</span>
+                                    <button onclick="speak('提前半小时登机就可以。李经理，谢谢您来送我。')" class="audio-btn w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center border border-green-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">提前半小时登机就可以。李经理，谢谢您来送我。</p>
+                                    <p class="pinyin-text">Tíqián bàn xiǎoshí dēngjī jiù kěyǐ. Lǐ jīnglǐ, xièxiè nín lái sòng wǒ.</p>
+                                    <p class="meaning-text text-gray-700">Lên máy bay trước nửa tiếng là được. Giám đốc Lý, cảm ơn chị đến tiễn tôi.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('您太客气了！这次跟贵公司的合作能这么顺利，我们还要感谢您哪！')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">您太客气了！这次跟贵公司的合作能这么顺利，我们还要感谢您哪！</p>
+                                    <p class="pinyin-text">Nín tài kèqi le! Zhè cì gēn guì gōngsī de hézuò néng zhème shùnlì, wǒmen hái yào gǎnxiè nín na!</p>
+                                    <p class="meaning-text text-gray-700">Ngài quá khách khí rồi! Lần hợp tác với quý công ty này được thuận lợi như vậy, chúng tôi còn phải cảm ơn ngài!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg bg-gray-50/50">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-yamada font-bold text-sm uppercase tracking-wider chinese-text text-center">山 田</span>
+                                    <button onclick="speak('哪里。希望我们能再次合作。')" class="audio-btn w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center border border-green-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">哪里。希望我们能再次合作。</p>
+                                    <p class="pinyin-text">Nǎlǐ. Xīwàng wǒmen néng zài cì hézuò.</p>
+                                    <p class="meaning-text text-gray-700">Ngài quá khen. Hi vọng chúng ta có thể hợp tác lần nữa.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('我相信一定会有机会的。您这次在上海呆的时间太短了。')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">我相信一定会有机会的。您这次在上海呆的时间太短了。</p>
+                                    <p class="pinyin-text">Wǒ xiāngxìn yídìng huì yǒu jīhuì de. Nín zhè cì zài Shànghǎi dāi de shíjiān tài duǎn le.</p>
+                                    <p class="meaning-text text-gray-700">Tôi tin chắc nhất định sẽ có cơ hội. Lần này ngài ở Thượng Hải thầm gian quá ngắn.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg bg-gray-50/50">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-yamada font-bold text-sm uppercase tracking-wider chinese-text text-center">山 田</span>
+                                    <button onclick="speak('是啊。上海有很多有意思的地方，我打算以后跟家人一起来。他们对北京感觉不错，对上海也非常感兴趣。')" class="audio-btn w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center border border-green-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">是啊。上海有很多有意思的地方，我打算以后跟家人一起来。他们对北京感觉不错，对上海也非常感兴趣。</p>
+                                    <p class="pinyin-text">Shì a. Shànghǎi yǒu hěn duō yǒu yìsi de dìfang, wǒ dǎsuan yǐhòu gēn jiārén yìqǐ lái. Tāmen duì Běijīng gǎnjué búcuò, duì Shànghǎi yě fēicháng gǎn xìngqù.</p>
+                                    <p class="meaning-text text-gray-700">Đúng vậy. Thượng Hải có nhiều nơi thú vị, tôi dự định sau này cùng gia đình đến. Họ cảm thấy Bắc Kinh không tệ, đối với Thượng Hải cũng rất hứng thú.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('那好啊，到时请跟我联系。')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">那好啊，到时请跟我联系。</p>
+                                    <p class="pinyin-text">Nà hǎo a, dào shí qǐng gēn wǒ liánxì.</p>
+                                    <p class="meaning-text text-gray-700">Vậy tốt quá, đến lúc đó xin liên hệ với tôi.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg bg-gray-50/50">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-yamada font-bold text-sm uppercase tracking-wider chinese-text text-center">山 田</span>
+                                    <button onclick="speak('好的，先谢谢您了。')" class="audio-btn w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center border border-green-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">好的，先谢谢您了。</p>
+                                    <p class="pinyin-text">Hǎo de, xiān xièxiè nín le.</p>
+                                    <p class="meaning-text text-gray-700">Được, cảm ơn chị trước.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('别客气。以后我们常联系吧。')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">别客气。以后我们常联系吧。</p>
+                                    <p class="pinyin-text">Bié kèqi. Yǐhòu wǒmen cháng liánxì ba.</p>
+                                    <p class="meaning-text text-gray-700">Đừng khách sáo. Sau này chúng ta thường xuyên liên lạc nhé.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg bg-gray-50/50">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-yamada font-bold text-sm uppercase tracking-wider chinese-text text-center">山 田</span>
+                                    <button onclick="speak('当然！')" class="audio-btn w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center border border-green-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">当然！</p>
+                                    <p class="pinyin-text">Dāngrán!</p>
+                                    <p class="meaning-text text-gray-700">Đương nhiên!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('明年公司可能派我去东京考察。')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">明年公司可能派我去东京考察。</p>
+                                    <p class="pinyin-text">Míngnián gōngsī kěnéng pài wǒ qù Dōngjīng kǎochá.</p>
+                                    <p class="meaning-text text-gray-700">Năm sau công ty có thể cử tôi đi Tokyo khảo sát.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg bg-gray-50/50">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-yamada font-bold text-sm uppercase tracking-wider chinese-text text-center">山 田</span>
+                                    <button onclick="speak('是吗？那我们很快就会再见面了。到时请通知我，我会好好招待您的。')" class="audio-btn w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center border border-green-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">是吗？那我们很快就会再见面了。到时请通知我，我会好好招待您的。</p>
+                                    <p class="pinyin-text">Shì ma? Nà wǒmen hěn kuài jiù huì zài jiànmiàn le. Dào shí qǐng tōngzhī wǒ, wǒ huì hǎohǎo zhāodài nín de.</p>
+                                    <p class="meaning-text text-gray-700">Thật sao? Vậy chúng ta sẽ gặp lại nhau sớm thôi. Đến lúc đó xin thông báo cho tôi, tôi sẽ tiếp đón chị chu đáo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('谢谢！到时我会给您打电话的。')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">谢谢！到时我会给您打电话的。</p>
+                                    <p class="pinyin-text">Xièxie! Dào shí wǒ huì gěi nín dǎ diànhuà de.</p>
+                                    <p class="meaning-text text-gray-700">Cảm ơn! Đến lúc đó tôi sẽ gọi điện cho ngài.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg bg-gray-50/50">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-yamada font-bold text-sm uppercase tracking-wider chinese-text text-center">山 田</span>
+                                    <button onclick="speak('登机时间到了。李经理，再见！')" class="audio-btn w-8 h-8 bg-green-50 text-green-600 rounded-full flex items-center justify-center border border-green-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">登机时间到了。李经理，再见！</p>
+                                    <p class="pinyin-text">Dēngjī shíjiān dào le. Lǐ jīnglǐ, zàijiàn!</p>
+                                    <p class="meaning-text text-gray-700">Đã đến giờ lên máy bay. Giám đốc Lý, tạm biệt!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dialogue-row py-4 px-6 rounded-lg">
+                            <div class="flex gap-6 items-start">
+                                <div class="flex-shrink-0 w-24 flex flex-col items-center gap-2 pt-1">
+                                    <span class="speaker-lili font-bold text-sm uppercase tracking-wider chinese-text text-center">李 丽</span>
+                                    <button onclick="speak('再见！祝您一路平安！')" class="audio-btn w-8 h-8 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center border border-blue-200" title="Nghe">
+                                        <i class="fas fa-volume-up text-xs"></i>
+                                    </button>
+                                </div>
+                                <div class="flex-1 space-y-1.5">
+                                    <p class="text-xl chinese-text text-gray-900 leading-relaxed">再见！祝您一路平安！</p>
+                                    <p class="pinyin-text">Zàijiàn! Zhù nín yílù píng'ān!</p>
+                                    <p class="meaning-text text-gray-700">Tạm biệt! Chúc ngài một đường bình an!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sub Text Section -->
+        <section id="content-sub" class="hidden space-y-6">
+            <div class="card p-6 md:p-8">
+                <div class="text-center mb-8 pb-6 border-b border-gray-100">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2 chinese-text">副课文: 您一路走好</h2>
+                    <p class="text-gray-600 italic">Chúc ngài đi bình an</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="py-5 px-6 bg-gray-50 rounded-lg border-l-4 border-green-600">
+                        <div class="flex items-start gap-4">
+                            <button onclick="speak('大伟学汉语已经两年了，汉语说得不错。一次，有位中国客人来英国，公司就派他去机场迎接。得知客人是位女士，大伟去机场的时候特地带了一大束花，可是客人看到花并不是很高兴。大伟觉得很奇怪，就问客人是不是哪里不舒服。客人笑了笑，说：\"身体没什么不舒服，只是你送我的是菊花。在中国，只有告别时才会送菊花。\"哦，原来是这样！大伟觉得很不好意思。')" class="audio-btn flex-shrink-0 w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center border border-green-300" title="Nghe đoạn văn 1">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <div class="flex-1 space-y-2">
+                                <p class="text-lg chinese-text text-gray-900 leading-relaxed">
+                                    大伟学汉语已经两年了，汉语说得不错。一次，有位中国客人来英国，公司就派他去机场迎接。得知客人是位女士，大伟去机场的时候特地带了一大束花，可是客人看到花并不是很高兴。大伟觉得很奇怪，就问客人是不是哪里不舒服。客人笑了笑，说："身体没什么不舒服，只是你送我的是菊花。在中国，只有告别时才会送菊花。"哦，原来是这样！大伟觉得很不好意思。
+                                </p>
+                                <p class="pinyin-text">
+                                    Dàwěi xué Hànyǔ yǐjīng liǎng nián le, Hànyǔ shuō de búcuò. Yí cì, yǒu wèi Zhōngguó kèrén lái Yīngguó, gōngsī jiù pài tā qù jīchǎng yíngjiē. Dézhī kèrén shì wèi nǚshì, Dàwěi qù jīchǎng de shíhou tèdì dài le yí dà shù huā, kěshì kèrén kàn dào huā bìng bùshì hěn gāoxìng. Dàwěi juéde hěn qíguài, jiù wèn kèrén shì bu shì nǎlǐ bù shūfu. Kèrén xiào le xiào, shuō: "Shēntǐ méi shénme bù shūfu, zhǐshì nǐ sòng wǒ de shì júhuā. Zài Zhōngguó, zhǐyǒu gàobié shí cái huì sòng júhuā." Ó, yuánlái shì zhèyàng! Dàwěi juéde hěn bù hǎoyìsi.
+                                </p>
+                                <p class="meaning-text text-gray-700">
+                                    Đại Vĩ học tiếng Hán đã hai năm, nói tiếng Hán khá tốt. Một lần, có một vị khách Trung Quốc đến Anh, công ty cử anh ta đến sân bay đón. Biết được khách là nữ giới, Đại Vĩ lúc đi sân bay đặc biệt mang theo một bó hoa lớn, nhưng khách nhìn thấy hoa lại không vui lắm. Đại Vĩ cảm thấy rất kỳ lạ, liền hỏi khách có phải chỗ nào không khỏe không. Khách cười cười, nói: "Thân thể không có gì không khỏe, chỉ là anh tặng tôi là hoa cúc. Ở Trung Quốc, chỉ có lúc từ biệt mới tặng hoa cúc." Ồ, hóa ra là như vậy! Đại Vĩ cảm thấy rất ngại.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="py-5 px-6 bg-gray-50 rounded-lg border-l-4 border-blue-600">
+                        <div class="flex items-start gap-4">
+                            <button onclick="speak('后来，在这位客人离开时，大伟又去机场给她送行。这次他不仅又送了一大束菊花给客人，还不停地说\"您一路走好\"、\"一路顺风\"。客人一听，脸上就出现了哭笑不得的表情。她好像有话要说，可最后还是什么也没说就走了，也没带走那束菊花。')" class="audio-btn flex-shrink-0 w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center border border-blue-300" title="Nghe đoạn văn 2">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <div class="flex-1 space-y-2">
+                                <p class="text-lg chinese-text text-gray-900 leading-relaxed">
+                                    后来，在这位客人离开时，大伟又去机场给她送行。这次他不仅又送了一大束菊花给客人，还不停地说"您一路走好"、"一路顺风"。客人一听，脸上就出现了哭笑不得的表情。她好像有话要说，可最后还是什么也没说就走了，也没带走那束菊花。
+                                </p>
+                                <p class="pinyin-text">
+                                    Hòulái, zài zhè wèi kèrén líkāi shí, Dàwěi yòu qù jīchǎng gěi tā sòngxíng. Zhè cì tā bùjǐn yòu sòng le yí dà shù júhuā gěi kèrén, hái bùtíng de shuō "Nín yílù zǒuhǎo", "Yílù shùnfēng". Kèrén yì tīng, liǎn shàng jiù chūxiàn le kūxiào bùdé de biǎoqíng. Tā hǎoxiàng yǒu huà yào shuō, kě zuìhòu háishi shénme yě méi shuō jiù zǒu le, yě méi dài zǒu nà shù júhuā.
+                                </p>
+                                <p class="meaning-text text-gray-700">
+                                    Về sau, khi vị khách này rời đi, Đại Vĩ lại đi sân bay tiễn cô ấy. Lần này anh ta không chỉ lại tặng một bó hoa cúc lớn cho khách, còn không ngừng nói "Ngài đi bình an", "Một đường thuận buồm". Khách vừa nghe, trên mặt liền xuất hiện vẻ mặt khóc dở mếu dở. Cô ấy hình như có lời muốn nói, nhưng cuối cùng vẫn chẳng nói gì mà đi, cũng không mang theo bó hoa cúc kia.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="py-5 px-6 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <div class="flex items-start gap-4">
+                            <button onclick="speak('大伟想了几天也没想明白问题出在哪里，客人说送别的时候可以送菊花的呀！最后他不得不请教他的中国朋友。朋友听后笑了。原来，在中国，只有在跟去世的朋友或亲人告别时才会送菊花，而且\"一路走好\"也是在那时说的话。这下大伟终于明白了，脸也红了！')" class="audio-btn flex-shrink-0 w-10 h-10 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center border border-orange-300" title="Nghe đoạn kết">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <div class="flex-1 space-y-2">
+                                <p class="text-lg chinese-text text-gray-900 leading-relaxed">
+                                    大伟想了几天也没想明白问题出在哪里，客人说送别的时候可以送菊花的呀！最后他不得不请教他的中国朋友。朋友听后笑了。原来，在中国，只有在跟去世的朋友或亲人告别时才会送菊花，而且"一路走好"也是在那时说的话。这下大伟终于明白了，脸也红了！
+                                </p>
+                                <p class="pinyin-text">
+                <div class="section-title py-4 px-6 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Từ vựng Bài khóa chính</h3>
+                        <p class="text-sm text-gray-600 mt-1 chinese-text">生词 (主课文) • 20 từ</p>
+                    </div>
+                    <i class="fas fa-book text-blue-600 text-xl"></i>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full vocab-table">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-3 text-center w-16 align-middle">STT</th>
+                                <th class="px-4 py-3 text-center w-16 align-middle">Đọc</th>
+                                <th class="px-4 py-3 text-center w-32 align-middle">Chữ Hán</th>
+                                <th class="px-4 py-3 text-center w-40 align-middle">Phiên âm</th>
+                                <th class="px-4 py-3 text-left align-middle">Nghĩa tiếng Việt</th>
+                                <th class="px-4 py-3 text-center w-20 align-middle">Viết</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vocabMainBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sub Text Vocabulary -->
+            <div class="card overflow-hidden">
+                <div class="sub-section-title py-4 px-6 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">Từ vựng Bài khóa phụ</h3>
+                        <p class="text-sm text-gray-600 mt-1 chinese-text">生词 (副课文) • 19 từ</p>
+                    </div>
+                    <i class="fas fa-book-reader text-green-600 text-xl"></i>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full vocab-table">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-3 text-center w-16 align-middle">STT</th>
+                                <th class="px-4 py-3 text-center w-16 align-middle">Đọc</th>
+                                <th class="px-4 py-3 text-center w-32 align-middle">Chữ Hán</th>
+                                <th class="px-4 py-3 text-center w-40 align-middle">Phiên âm</th>
+                                <th class="px-4 py-3 text-left align-middle">Nghĩa tiếng Việt</th>
+                                <th class="px-4 py-3 text-center w-20 align-middle">Viết</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vocabSubBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Character Practice Modal -->
+    <div id="practiceModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-3xl w-full shadow-2xl overflow-hidden">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200 bg-gray-50">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900">Luyện viết chữ</h3>
+                    <p class="text-3xl font-bold text-blue-600 mt-1 chinese-text" id="currentCharDisplay"></p>
+                </div>
+                <button onclick="closePractice()" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+            </div>
+            
+            <div class="writer-container min-h-[350px] flex items-center justify-center p-8 bg-gray-50" id="characterTarget">
+                <div class="loading-ring absolute w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full"></div>
+            </div>
+            
+            <div class="p-6 border-t border-gray-200 bg-white flex flex-wrap justify-center gap-3">
+                <button onclick="animateAllCharacters()" class="btn-primary px-6 py-2.5 rounded-lg font-medium flex items-center gap-2">
+                    <i class="fas fa-play"></i> Viết lại
+                </button>
+                <button onclick="toggleAllOutlines()" class="btn-secondary px-6 py-2.5 rounded-lg font-medium flex items-center gap-2">
+                    <i class="fas fa-eye"></i> Hiện/Ẩn khung
+                </button>
+                <button onclick="closePractice()" class="px-6 py-2.5 rounded-lg font-medium flex items-center gap-2 border border-gray-300 hover:bg-gray-50 text-gray-700 transition-colors">
+                    <i class="fas fa-times"></i> Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Word Editor Modal -->
+    <div id="wordEditor" class="editor-overlay fixed inset-0 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl w-full max-w-4xl h-[90vh] shadow-2xl flex flex-col overflow-hidden">
+            <div class="bg-gray-100 border-b border-gray-200 p-4 flex items-center justify-between">
+                <h3 class="font-bold text-gray-800 flex items-center gap-2">
+                    <i class="fas fa-edit text-blue-600"></i>
+                    Soạn thảo nội dung
+                </h3>
+                <button onclick="closeEditor()" class="w-8 h-8 rounded-full hover:bg-gray-200 flex items-center justify-center transition-colors">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+            </div>
+            
+            <div class="flex-1 flex flex-col">
+                <div class="bg-gray-50 border-b border-gray-200 p-3 flex flex-wrap gap-2 items-center">
+                    <div class="flex gap-1">
+                        <button onclick="formatDoc('bold')" class="w-9 h-9 rounded bg-white border border-gray-300 hover:bg-gray-100 flex items-center justify-center" title="In đậm">
+                            <i class="fas fa-bold text-gray-700"></i>
+                        </button>
+                        <button onclick="formatDoc('italic')" class="w-9 h-9 rounded bg-white border border-gray-300 hover:bg-gray-100 flex items-center justify-center" title="In nghiêng">
+                            <i class="fas fa-italic text-gray-700"></i>
+                        </button>
+                        <button onclick="formatDoc('underline')" class="w-9 h-9 rounded bg-white border border-gray-300 hover:bg-gray-100 flex items-center justify-center" title="Gạch chân">
+                            <i class="fas fa-underline text-gray-700"></i>
+                        </button>
+                    </div>
+                    <div class="w-px h-6 bg-gray-300 mx-1"></div>
+                    <div class="flex gap-1">
+                        <button onclick="formatDoc('justifyLeft')" class="w-9 h-9 rounded bg-white border border-gray-300 hover:bg-gray-100 flex items-center justify-center" title="Căn trái">
+                            <i class="fas fa-align-left text-gray-700"></i>
+                        </button>
+                        <button onclick="formatDoc('justifyCenter')" class="w-9 h-9 rounded bg-white border border-gray-300 hover:bg-gray-100 flex items-center justify-center" title="Căn giữa">
+                            <i class="fas fa-align-center text-gray-700"></i>
+                        </button>
+                        <button onclick="formatDoc('justifyRight')" class="w-9 h-9 rounded bg-white border border-gray-300 hover:bg-gray-100 flex items-center justify-center" title="Căn phải">
+                            <i class="fas fa-align-right text-gray-700"></i>
+                        </button>
+                    </div>
+                    <div class="w-px h-6 bg-gray-300 mx-1"></div>
+                    <select onchange="formatDoc('fontSize', this.value)" class="px-3 py-1.5 rounded border border-gray-300 text-sm bg-white">
+                        <option value="3">Cỡ chữ</option>
+                        <option value="2">Nhỏ</option>
+                        <option value="3">Bình thường</option>
+                        <option value="5">Lớn</option>
+                        <option value="7">Rất lớn</option>
+                    </select>
+                    <div class="flex-1"></div>
+                    <button onclick="exportHTML()" class="btn-accent px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                        <i class="fas fa-file-export"></i> Xuất HTML
+                    </button>
+                </div>
+                
+                <div id="editorContent" class="flex-1 p-6 overflow-y-auto outline-none" contenteditable="true">
+                    <p class="text-2xl font-bold text-gray-900 mb-2 chinese-text" style="font-family: 'DFKai-SB', 'KaiTi', serif;">GIA SƯ HOA NGỮ TÂN AN</p>
+                    <p class="text-gray-600 mb-6">Địa chỉ: 9/1 Bạch Văn Tư, Tân An, Long An | Zalo: 0839 889 772</p>
+                    <hr class="border-gray-200 my-4">
+                    <p class="text-xl font-bold text-blue-700 mb-4 chinese-text" style="font-family: 'DFKai-SB', 'KaiTi', serif;">BÀI 02: 一路平安 (Chúc một đường bình an)</p>
+                    <p class="text-gray-700">[Nhập nội dung ghi chú của bạn tại đây...]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const vocabMain = [
+            {hanzi: "平安", pinyin: "píng'ān", mean: "Bình an, an toàn"},
+            {hanzi: "登机", pinyin: "dēngjī", mean: "Lên máy bay"},
+            {hanzi: "手续", pinyin: "shǒuxù", mean: "Thủ tục"},
+            {hanzi: "办", pinyin: "bàn", mean: "Làm, giải quyết"},
+            {hanzi: "离", pinyin: "lí", mean: "Cách, còn (thời gian)"},
+            {hanzi: "提前", pinyin: "tíqián", mean: "Trước, sớm hơn dự kiến"},
+            {hanzi: "贵", pinyin: "guì", mean: "Quý (tôn xưng)"},
+            {hanzi: "哪里", pinyin: "nǎlǐ", mean: "Ngài quá khen (khiêm tốn)"},
+            {hanzi: "呆", pinyin: "dāi", mean: "Ở, lưu lại"},
+            {hanzi: "打算", pinyin: "dǎsuan", mean: "Dự định, có ý định"},
+            {hanzi: "联系", pinyin: "liánxì", mean: "Liên hệ, liên lạc"},
+            {hanzi: "当然", pinyin: "dāngrán", mean: "Đương nhiên, tất nhiên"},
+            {hanzi: "可能", pinyin: "kěnéng", mean: "Có thể, khả năng"},
+            {hanzi: "派", pinyin: "pài", mean: "Cử, phái"},
+            {hanzi: "考察", pinyin: "kǎochá", mean: "Khảo sát, khảo sát học tập"},
+            {hanzi: "通知", pinyin: "tōngzhī", mean: "Thông báo, cho biết"},
+            {hanzi: "好好", pinyin: "hǎohǎo", mean: "Chu đáo, nhiệt tình"},
+            {hanzi: "招待", pinyin: "zhāodài", mean: "Tiếp đón, khoản đãi"},
+            {hanzi: "祝", pinyin: "zhù", mean: "Chúc"},
+            {hanzi: "东京", pinyin: "Dōngjīng", mean: "Tokyo (thủ đô Nhật Bản)"}
+        ];
+
+        const vocabSub = [
+            {hanzi: "迎接", pinyin: "yíngjiē", mean: "Đón, đón tiếp"},
+            {hanzi: "得知", pinyin: "dézhī", mean: "Được biết, biết được"},
+            {hanzi: "女士", pinyin: "nǚshì", mean: "Nữ giới, phụ nữ"},
+            {hanzi: "特地", pinyin: "tèdì", mean: "Đặc biệt, riêng"},
+            {hanzi: "束", pinyin: "shù", mean: "Bó (hoa)"},
+            {hanzi: "觉得", pinyin: "juéde", mean: "Cảm thấy, cho rằng"},
+            {hanzi: "奇怪", pinyin: "qíguài", mean: "Kỳ lạ, lạ"},
+            {hanzi: "菊花", pinyin: "júhuā", mean: "Hoa cúc"},
+            {hanzi: "告别", pinyin: "gàobié", mean: "Từ biệt, chia ly"},
+            {hanzi: "送行", pinyin: "sòngxíng", mean: "Tiễn hành, tiễn biệt"},
+            {hanzi: "不停", pinyin: "bùtíng", mean: "Không ngừng, liên tục"},
+            {hanzi: "一路顺风", pinyin: "yílù-shùnfēng", mean: "Một đường thuận buồm"},
+            {hanzi: "哭笑不得", pinyin: "kūxiào-bùdé", mean: "Khóc dở mếu dở"},
+            {hanzi: "表情", pinyin: "biǎoqíng", mean: "Biểu cảm, vẻ mặt"},
+            {hanzi: "好像", pinyin: "hǎoxiàng", mean: "Hình như, có vẻ như"},
+            {hanzi: "不得不", pinyin: "bùdébù", mean: "Đành phải, bất đắc dĩ"},
+            {hanzi: "请教", pinyin: "qǐngjiào", mean: "Thỉnh giáo, hỏi"},
+            {hanzi: "去世", pinyin: "qùshì", mean: "Qua đời, mất"},
+            {hanzi: "终于", pinyin: "zhōngyú", mean: "Cuối cùng, rốt cuộc"}
+        ];
+
+        let writers = [];
+        let showingOutlines = true;
+        let currentWord = '';
+
+        function initVocab() {
+            const mainBody = document.getElementById('vocabMainBody');
+            mainBody.innerHTML = vocabMain.map((word, idx) => createVocabRow(idx + 1, word, 'blue')).join('');
+            
+            const subBody = document.getElementById('vocabSubBody');
+            subBody.innerHTML = vocabSub.map((word, idx) => createVocabRow(idx + 1, word, 'green')).join('');
+        }
+
+        function createVocabRow(index, word, colorTheme) {
+            const btnClass = colorTheme === 'blue' 
+                ? 'text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100' 
+                : 'text-green-600 hover:text-green-800 bg-green-50 hover:bg-green-100';
+            
+            return `
+                <tr class="vocab-row">
+                    <td class="px-4 py-4 text-center text-gray-500 text-sm align-middle">${index}</td>
+                    <td class="px-4 py-4 text-center align-middle">
+                        <button onclick="speak('${word.hanzi}')" class="${btnClass} w-8 h-8 rounded-full flex items-center justify-center transition-all" title="Nghe">
+                            <i class="fas fa-volume-up text-xs"></i>
+                        </button>
+                    </td>
+                    <td class="px-4 py-4 text-center vocab-hanzi align-middle">${word.hanzi}</td>
+                    <td class="px-4 py-4 text-center font-medium text-gray-600 align-middle">${word.pinyin}</td>
+                    <td class="px-4 py-4 text-gray-700 align-middle">${word.mean}</td>
+                    <td class="px-4 py-4 text-center align-middle">
+                        <button onclick="practice('${word.hanzi}')" class="text-orange-600 hover:text-orange-800 bg-orange-50 hover:bg-orange-100 w-8 h-8 rounded-full flex items-center justify-center transition-all" title="Luyện viết">
+                            <i class="fas fa-pen text-xs"></i>
+                        </button>
+                    </td>
+                </tr>
+            `;
+        }
+
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                utterance.pitch = 1;
+                
+                const voices = window.speechSynthesis.getVoices();
+                const zhVoice = voices.find(voice => voice.lang.includes('zh'));
+                if (zhVoice) {
+                    utterance.voice = zhVoice;
+                }
+                
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function practice(word) {
+            currentWord = word;
+            const chars = word.split('');
+            document.getElementById('currentCharDisplay').textContent = word;
+            document.getElementById('practiceModal').classList.remove('hidden');
+            
+            const container = document.getElementById('characterTarget');
+            container.innerHTML = '<div class="flex flex-col items-center gap-4"><div class="loading-ring w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full"></div><p class="text-gray-500 text-sm">Đang tải dữ liệu chữ Hán...</p></div>';
+            
+            writers = [];
+            showingOutlines = true;
+            
+            const charCount = chars.length;
+            const size = charCount === 1 ? 260 : (charCount === 2 ? 180 : 140);
+            
+            setTimeout(() => {
+                try {
+                    container.innerHTML = '';
+                    container.className = 'writer-container min-h-[350px] flex items-center justify-center gap-4 p-8 bg-gray-50 flex-wrap';
+                    
+                    chars.forEach((char, idx) => {
+                        const div = document.createElement('div');
+                        div.id = 'writer-' + idx;
+                        div.className = 'bg-white rounded-lg shadow-md border border-gray-200';
+                        div.style.width = size + 'px';
+                        div.style.height = size + 'px';
+                        container.appendChild(div);
+                        
+                        const writer = HanziWriter.create('writer-' + idx, char, {
+                            width: size,
+                            height: size,
+                            padding: 5,
+                            strokeColor: '#2563eb',
+                            outlineColor: '#cbd5e1',
+                            strokeAnimationSpeed: 1,
+                            delayBetweenStrokes: 600,
+                            showOutline: true,
+                            charDataLoader: function(char, onLoad, onError) {
+                                fetch(`https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/${char}.json`)
+                                    .then(res => {
+                                        if (!res.ok) throw new Error('Primary CDN failed');
+                                        return res.json();
+                                    })
+                                    .then(data => onLoad(data))
+                                    .catch(err => {
+                                        fetch(`https://raw.githubusercontent.com/chanind/hanzi-writer-data/master/${char}.json`)
+                                            .then(res => {
+                                                if (!res.ok) throw new Error('Fallback CDN failed');
+                                                return res.json();
+                                            })
+                                            .then(data => onLoad(data))
+                                            .catch(err2 => {
+                                                onError(err2);
+                                            });
+                                    });
+                            }
+                        });
+                        
+                        writers.push(writer);
+                    });
+                    
+                    setTimeout(() => {
+                        animateAllCharacters();
+                    }, 500);
+                    
+                } catch (e) {
+                    container.innerHTML = '<div class="text-center p-4"><i class="fas fa-exclamation-circle text-red-500 text-2xl mb-2"></i><p class="text-red-600">Lỗi tải chữ. Vui lòng thử lại.</p></div>';
+                }
+            }, 300);
+        }
+
+        function animateAllCharacters() {
+            let delay = 0;
+            writers.forEach((writer, idx) => {
+                setTimeout(() => {
+                    if (writer && writer.animateCharacter) {
+                        writer.animateCharacter();
+                    }
+                }, delay);
+                delay += 1000;
+            });
+        }
+
+        function toggleAllOutlines() {
+            showingOutlines = !showingOutlines;
+            writers.forEach(w => {
+                if (w) {
+                    showingOutlines ? w.showOutline() : w.hideOutline();
+                }
+            });
+        }
+
+        function closePractice() {
+            document.getElementById('practiceModal').classList.add('hidden');
+            writers = [];
+        }
+
+        function switchTab(tab) {
+            ['main', 'sub', 'vocab'].forEach(t => {
+                document.getElementById('content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('active');
+            });
+            
+            document.getElementById('content-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.add('active');
+        }
+
+        function openEditor() {
+            document.getElementById('wordEditor').classList.remove('hidden');
+        }
+
+        function closeEditor() {
+            document.getElementById('wordEditor').classList.add('hidden');
+        }
+
+        function formatDoc(cmd, value = null) {
+            document.execCommand(cmd, false, value);
+            document.getElementById('editorContent').focus();
+        }
+
+        function exportHTML() {
+            const content = document.getElementById('editorContent').innerHTML;
+            const html = `<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ghi chú Bài 02</title>
+    <style>body{font-family:"DFKai-SB", "KaiTi", serif;max-width:800px;margin:40px auto;padding:20px;line-height:1.6;color:#334155}</style>
+</head>
+<body>
+    ${content}
+</body>
+</html>`;
+            
+            const blob = new Blob([html], {type: 'text/html'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Bai02_GhiChu.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        window.onload = function() {
+            initVocab();
+            
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.getVoices();
+            }
+        };
+
+        document.getElementById('practiceModal').addEventListener('click', function(e) {
+            if (e.target === this) closePractice();
+        });
+        
+        document.getElementById('wordEditor').addEventListener('click', function(e) {
+            if (e.target === this) closeEditor();
+        });
+    </script>
+    
+    <style>
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .home-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .home-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+    
+    <div class="footer">
+        <p> 2024 Gia Sư Hóa Ngữ Tân An - Tất cả quyền được bảo lưu</p>
+    </div>
+</body>
+</html>
