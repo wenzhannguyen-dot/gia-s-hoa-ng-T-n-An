@@ -1627,21 +1627,31 @@
                     <span class="hanzi-title zh">声母</span>
                     <span class="latin">THANH MẪU (PHỤ ÂM) - 11 ÂM</span>
                 </div>
-                <div class="latin" style="background: var(--ink); color: #fff; padding: 16px; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; font-size: 24px; letter-spacing: 8px; margin: 16px 0;" onclick="speakText('b p m f d t n l g k h', true)">
-                    b &nbsp; p &nbsp; m &nbsp; f &nbsp; d &nbsp; t &nbsp; n &nbsp; l &nbsp; g &nbsp; k &nbsp; h
+                <div class="latin" style="background: var(--ink); color: #fff; padding: 16px; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; font-size: 24px; letter-spacing: 8px; margin: 16px 0;">
+                    <span onclick="playPhoneticAudio('b')" style="cursor:pointer; padding: 4px;">b</span> &nbsp;
+                    <span onclick="playPhoneticAudio('p')" style="cursor:pointer; padding: 4px;">p</span> &nbsp;
+                    <span onclick="playPhoneticAudio('m')" style="cursor:pointer; padding: 4px;">m</span> &nbsp;
+                    <span onclick="playPhoneticAudio('f')" style="cursor:pointer; padding: 4px;">f</span> &nbsp;
+                    <span onclick="playPhoneticAudio('d')" style="cursor:pointer; padding: 4px;">d</span> &nbsp;
+                    <span onclick="playPhoneticAudio('t')" style="cursor:pointer; padding: 4px;">t</span> &nbsp;
+                    <span onclick="playPhoneticAudio('n')" style="cursor:pointer; padding: 4px;">n</span> &nbsp;
+                    <span onclick="playPhoneticAudio('l')" style="cursor:pointer; padding: 4px;">l</span> &nbsp;
+                    <span onclick="playPhoneticAudio('g')" style="cursor:pointer; padding: 4px;">g</span> &nbsp;
+                    <span onclick="playPhoneticAudio('k')" style="cursor:pointer; padding: 4px;">k</span> &nbsp;
+                    <span onclick="playPhoneticAudio('h')" style="cursor:pointer; padding: 4px;">h</span>
                 </div>
                 <div class="latin" style="font-size: 16px; color: var(--gray); margin-top: 12px;">
                     <div class="phonetic-group">
-                        <div class="phonetic-group-title">Môi âm</div>
-                        <div onclick="speakText('b p m f', true)" style="cursor:pointer;">b p m f</div>
+                        <div class="phonetic-group-title">Âm môi</div>
+                        <div style="cursor:default;">b p m f</div>
                     </div>
                     <div class="phonetic-group">
                         <div class="phonetic-group-title">Đầu lưỡi</div>
-                        <div onclick="speakText('d t n l', true)" style="cursor:pointer;">d t n l</div>
+                        <div style="cursor:default;">d t n l</div>
                     </div>
                     <div class="phonetic-group">
                         <div class="phonetic-group-title">Âm cuốn lưỡi</div>
-                        <div onclick="speakText('g k h', true)" style="cursor:pointer;">g k h</div>
+                        <div style="cursor:default;">g k h</div>
                     </div>
                 </div>
             </div>
@@ -1654,14 +1664,28 @@
                     <span class="latin">VẬN MẪU (NGUYÊN ÂM) - 16 ÂM</span>
                 </div>
                 <table class="phonetic-table latin">
-                    <tr onclick="speakText('a o e i u ü', true)" style="cursor:pointer;">
-                        <td>a</td><td>o</td><td>e</td><td>i</td><td>u</td><td>ü</td>
+                    <tr style="cursor:pointer;">
+                        <td onclick="playPhoneticAudio('a')">a</td>
+                        <td onclick="playPhoneticAudio('o')">o</td>
+                        <td onclick="playPhoneticAudio('e')">e</td>
+                        <td onclick="playPhoneticAudio('i')">i</td>
+                        <td onclick="playPhoneticAudio('u')">u</td>
+                        <td onclick="playPhoneticAudio('ü')">ü</td>
                     </tr>
-                    <tr onclick="speakText('ai ei ao ou an en', true)" style="cursor:pointer;">
-                        <td>ai</td><td>ei</td><td>ao</td><td>ou</td><td>an</td><td>en</td>
+                    <tr style="cursor:pointer;">
+                        <td onclick="playPhoneticAudio('ai')">ai</td>
+                        <td onclick="playPhoneticAudio('ei')">ei</td>
+                        <td onclick="playPhoneticAudio('ao')">ao</td>
+                        <td onclick="playPhoneticAudio('ou')">ou</td>
+                        <td onclick="playPhoneticAudio('an')">an</td>
+                        <td onclick="playPhoneticAudio('en')">en</td>
                     </tr>
-                    <tr onclick="speakText('ang ing ie iou', true)" style="cursor:pointer;">
-                        <td>ang</td><td>ing</td><td>ie</td><td>iu/iou</td><td colspan="2"></td>
+                    <tr style="cursor:pointer;">
+                        <td onclick="playPhoneticAudio('ang')">ang</td>
+                        <td onclick="playPhoneticAudio('ing')">ing</td>
+                        <td onclick="playPhoneticAudio('ie')">ie</td>
+                        <td onclick="playPhoneticAudio('iu')">iu/iou</td>
+                        <td colspan="2"></td>
                     </tr>
                 </table>
             </div>
@@ -1677,13 +1701,13 @@
                     <table class="phonetic-table latin" style="font-size: 14px; min-width: 700px;">
                         <thead>
                             <tr>
-                                <th></th><th onclick="speakText('a')">a</th><th onclick="speakText('o')">o</th><th onclick="speakText('e')">e</th><th onclick="speakText('ai')">ai</th><th onclick="speakText('ei')">ei</th><th onclick="speakText('ao')">ao</th><th onclick="speakText('ou')">ou</th><th onclick="speakText('an')">an</th><th onclick="speakText('en')">en</th><th onclick="speakText('ang')">ang</th>
+                                <th></th><th onclick="playPhoneticAudio('a')">a</th><th onclick="playPhoneticAudio('o')">o</th><th onclick="playPhoneticAudio('e')">e</th><th onclick="playPhoneticAudio('ai')">ai</th><th onclick="playPhoneticAudio('ei')">ei</th><th onclick="playPhoneticAudio('ao')">ao</th><th onclick="playPhoneticAudio('ou')">ou</th><th onclick="playPhoneticAudio('an')">an</th><th onclick="playPhoneticAudio('en')">en</th><th onclick="playPhoneticAudio('ang')">ang</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><th onclick="speakText('b')">b</th><td onclick="speakText('ba')">ba</td><td onclick="speakText('bo')">bo</td><td></td><td onclick="speakText('bai')">bai</td><td onclick="speakText('bei')">bei</td><td onclick="speakText('bao')">bao</td><td></td><td onclick="speakText('ban')">ban</td><td onclick="speakText('ben')">ben</td><td onclick="speakText('bang')">bang</td></tr>
-                            <tr><th onclick="speakText('p')">p</th><td onclick="speakText('pa')">pa</td><td onclick="speakText('po')">po</td><td></td><td onclick="speakText('pai')">pai</td><td onclick="speakText('pei')">pei</td><td onclick="speakText('pao')">pao</td><td onclick="speakText('pou')">pou</td><td onclick="speakText('pan')">pan</td><td onclick="speakText('pen')">pen</td><td onclick="speakText('pang')">pang</td></tr>
-                            <tr><th onclick="speakText('m')">m</th><td onclick="speakText('ma')">ma</td><td onclick="speakText('mo')">mo</td><td onclick="speakText('me')">me</td><td onclick="speakText('mai')">mai</td><td onclick="speakText('mei')">mei</td><td onclick="speakText('mao')">mao</td><td onclick="speakText('mou')">mou</td><td onclick="speakText('man')">man</td><td onclick="speakText('men')">men</td><td onclick="speakText('mang')">mang</td></tr>
+                            <tr><th onclick="playPhoneticAudio('b')">b</th><td onclick="playPhoneticAudio('ba')">ba</td><td onclick="playPhoneticAudio('bo')">bo</td><td></td><td onclick="playPhoneticAudio('bai')">bai</td><td onclick="playPhoneticAudio('bei')">bei</td><td onclick="playPhoneticAudio('bao')">bao</td><td></td><td onclick="playPhoneticAudio('ban')">ban</td><td onclick="playPhoneticAudio('ben')">ben</td><td onclick="playPhoneticAudio('bang')">bang</td></tr>
+                            <tr><th onclick="playPhoneticAudio('p')">p</th><td onclick="playPhoneticAudio('pa')">pa</td><td onclick="playPhoneticAudio('po')">po</td><td></td><td onclick="playPhoneticAudio('pai')">pai</td><td onclick="playPhoneticAudio('pei')">pei</td><td onclick="playPhoneticAudio('pao')">pao</td><td onclick="playPhoneticAudio('pou')">pou</td><td onclick="playPhoneticAudio('pan')">pan</td><td onclick="playPhoneticAudio('pen')">pen</td><td onclick="playPhoneticAudio('pang')">pang</td></tr>
+                            <tr><th onclick="playPhoneticAudio('m')">m</th><td onclick="playPhoneticAudio('ma')">ma</td><td onclick="playPhoneticAudio('mo')">mo</td><td onclick="playPhoneticAudio('me')">me</td><td onclick="playPhoneticAudio('mai')">mai</td><td onclick="playPhoneticAudio('mei')">mei</td><td onclick="playPhoneticAudio('mao')">mao</td><td onclick="playPhoneticAudio('mou')">mou</td><td onclick="playPhoneticAudio('man')">man</td><td onclick="playPhoneticAudio('men')">men</td><td onclick="playPhoneticAudio('mang')">mang</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1972,6 +1996,40 @@
         } else {
             speakSingle(text);
         }
+    }
+
+    function playPhoneticAudio(phonetic) {
+        initAudioContext();
+        
+        // Stop any current speech synthesis
+        window.speechSynthesis.cancel();
+        document.querySelectorAll('.playing').forEach(el => el.classList.remove('playing'));
+        
+        // Create audio element for MP3 file
+        const audio = new Audio(phonetic + '.mp3');
+        audio.volume = 1;
+        
+        audio.onplay = function() {
+            showToast('Đang phát: ' + phonetic);
+        };
+        
+        audio.onended = function() {
+            hideToast();
+        };
+        
+        audio.onerror = function(e) {
+            console.error('Audio error:', e);
+            showToast('Không thể tải file âm thanh');
+            // Fallback to speech synthesis if MP3 fails
+            speakSingle(phonetic);
+        };
+        
+        audio.play().catch(error => {
+            console.error('Play error:', error);
+            showToast('Không thể phát âm thanh');
+            // Fallback to speech synthesis
+            speakSingle(phonetic);
+        });
     }
 
     function speakSingle(text) {
