@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Bài 2: 你好吗 - 301 Tiếng Hán Nhập Môn</title>
+    <title>Bài 2: 你身体好吗 - 301 Tiếng Hán Nhập Môn</title>
     <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.3.0/dist/hanzi-writer.min.js"></script>
     <style>
         :root {
@@ -691,6 +691,24 @@
             font-weight: 700;
         }
 
+        .phonetic-cell {
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            color: var(--blue);
+        }
+
+        .phonetic-cell:hover {
+            background: var(--red);
+            color: #fff;
+        }
+
+        .phonetic-cell.playing {
+            background: var(--red);
+            color: #fff;
+            animation: pulse 1s infinite;
+        }
+
         .phonetic-group {
             background: #f5f5f5;
             padding: 12px 16px;
@@ -1059,7 +1077,7 @@
         
         <div class="lesson-info">
             <span class="zh">第二课 你好吗</span>
-            <span class="latin">BÀI 2: BẠN KHỎE KHÔNG?</span>
+            <span class="latin">BÀI 2: SỨC KHỎE CỦA BẠN THẾ NÀO?</span>
         </div>
         
         <div class="contact-info">
@@ -1162,12 +1180,12 @@
                     <span class="latin">MỤC TIÊU KIẾN THỨC BÀI HỌC</span>
                 </div>
                 <ol class="latin" style="margin-left: 20px; line-height: 1.8; font-size: 16px;">
-                    <li>Phát âm chính xác các nguyên âm đơn: <span class="latin">i, u, ü</span></li>
-                    <li>Phát âm chính xác các phụ âm: <span class="latin">z, c, s, zh, ch, sh, r, j, q, x</span></li>
-                    <li>Nắm vững cách ghép vần các phụ âm và nguyên âm</li>
-                    <li>Quy tắc viết <span class="zh">ü</span> khi ghép với <span class="latin">j, q, x, y</span> (bỏ hai chấm)</li>
-                    <li>Nhận biết 18 từ vựng và các mẫu câu hỏi thăm sức khỏe, gia đình</li>
-                    <li>Biết sử dụng lượng từ <span class="zh">口</span> để hỏi số nhân khẩu gia đình</li>
+                    <li>Phát âm chính xác 10 phụ âm: <span class="latin">j q x z c s zh ch sh r</span></li>
+                    <li>Phát âm chính xác 16 nguyên âm: <span class="latin">a o e i u ü ai ei ao ou en ie an ang ing iu (iou)</span></li>
+                    <li>Nắm vững cách ghép vần các phụ âm nguyên âm trên</li>
+                    <li>Phụ âm <span class="latin">Y</span> và <span class="latin">W</span></li>
+                    <li>Nhận biết 19 từ vựng và 3 danh từ riêng trong bài này</li>
+                    <li>Biết sử dụng từ vựng và 4 mẫu câu trong bài để giao tiếp thực tế</li>
                 </ol>
             </div>
         </div>
@@ -1179,10 +1197,9 @@
                     <span class="latin">ĐIỂM QUAN TRỌNG VÀ KHÓ</span>
                 </div>
                 <ol class="latin" style="margin-left: 20px; line-height: 1.8; font-size: 16px;">
-                    <li>Phân biệt cách phát âm: <span class="latin">z/c/s (Âm đầu lưỡi trước)</span> và <span class="latin">zh/ch/sh (Âm đầu lưỡi sau)</span></li>
-                    <li>Phát âm nguyên âm <span class="latin">ü</span> (môi tròn, lưỡi đẩy về phía trước)</li>
-                    <li>Biến điệu thanh 3 khi đi liền nhau: <span class="zh">你好 (nǐ hǎo → ní hǎo)</span></li>
-                    <li>Cách dùng lượng từ <span class="zh">口</span> chỉ số người trong gia đình</li>
+                    <li>Khi <span class="latin">i</span> đi với phụ âm <span class="latin">j q x</span> đọc giống <strong>ư</strong> tiếng Việt</li>
+                    <li>Khi <span class="latin">i</span> đi với <span class="latin">z c s zh ch sh r</span> đọc giống <strong>i</strong> tiếng Việt</li>
+                    <li>Khi phía trước <span class="latin">iou</span> có phụ âm thì nguyên âm <span class="latin">o</span> ở giữa được bỏ đi</li>
                 </ol>
             </div>
         </div>
@@ -1191,242 +1208,47 @@
     <!-- TỪ VỰNG -->
     <div id="tuvung" class="tab-content">
         <div class="card">
-            <div class="card-title" onclick="speakText('身体 爱 家 几 口 哥哥 弟弟 姐姐 妹妹 和 照片 看 这 那 的 谁 个 谢谢', true)">
+            <div class="card-title" onclick="speakText('早 身体 谢谢 再见 老师 学生 您 一 二 三 四 五 六 七 八 九 十 号 今天', true)">
                 <span class="hanzi-title zh">生词</span>
                 <span class="latin">TỪ VỰNG BÀI 2</span>
-                <button class="header-audio" data-text="身体 爱 家 几 口 哥哥 弟弟 姐姐 妹妹 和 照片 看 这 那 的 谁 个 谢谢" data-seq="true" onclick="event.stopPropagation(); speakText('身体 爱 家 几 口 哥哥 弟弟 姐姐 妹妹 和 照片 看 这 那 的 谁 个 谢谢', true)" title="Phát âm toàn bộ">▶</button>
+                <button class="header-audio" data-text="早 身体 谢谢 再见 老师 学生 您 一 二 三 四 五 六 七 八 九 十 号 今天" data-seq="true" onclick="event.stopPropagation(); speakText('身体 爱 家 几 口 哥哥 弟弟 姐姐 妹妹 和 照片 看 这 那 的 谁 个 谢谢', true)" title="Phát âm toàn bộ">▶</button>
             </div>
 
             <div class="sub-tab-bar">
                 <button class="sub-tab-btn active latin" onclick="filterVocab('all', this)">Tất cả</button>
                 <button class="sub-tab-btn latin" onclick="filterVocab('danhtu', this)">Danh từ</button>
                 <button class="sub-tab-btn latin" onclick="filterVocab('dongtu', this)">Động từ</button>
-                <button class="sub-tab-btn latin" onclick="filterVocab('tinhthai', this)">Tình thái</button>
-                <button class="sub-tab-btn latin" onclick="filterVocab('lienhe', this)">Liên hệ</button>
-                <button class="sub-tab-btn latin" onclick="filterVocab('daici', this)">Đại từ</button>
-                <button class="sub-tab-btn latin" onclick="filterVocab('luongtu', this)">Lượng từ</button>
-                <button class="sub-tab-btn latin" onclick="filterVocab('trutu', this)">Trợ từ</button>
+                <button class="sub-tab-btn latin" onclick="filterVocab('tinhthai', this)">Tính từ</button>
+                <button class="sub-tab-btn latin" onclick="filterVocab('daitu', this)">Đại từ</button>
+                <button class="sub-tab-btn latin" onclick="filterVocab('sosotu', this)">Số từ</button>
+                <button class="sub-tab-btn latin" onclick="filterVocab('chuyendanh', this)">Danh từ riêng</button>
             </div>
 
             <div class="vocab-grid" id="vocabContainer">
+
+                <div class="vocab-card" data-type="tinhthai" data-char="早" onclick="speakText('早')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">早</div>
+                        <span class="vocab-type latin tinhthai">Tính từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Zǎo</div>
+                    <div class="vocab-meaning latin">Sớm, chào buổi sáng</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-早"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('早')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
                 <div class="vocab-card" data-type="danhtu" data-char="身体" onclick="speakText('身体')">
                     <div class="vocab-header">
                         <div class="vocab-hanzi zh">身体</div>
                         <span class="vocab-type latin danhtu">Danh từ</span>
                     </div>
-                    <div class="vocab-pinyin latin">shēntǐ</div>
-                    <div class="vocab-meaning latin">Thân thể, sức khỏe</div>
+                    <div class="vocab-pinyin latin">Shēntǐ</div>
+                    <div class="vocab-meaning latin">Sức khỏe, thân thể</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-身体"></div>
                         <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('身体')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="dongtu" data-char="爱" onclick="speakText('爱')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">爱</div>
-                        <span class="vocab-type latin dongtu">Động từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">ài</div>
-                    <div class="vocab-meaning latin">Yêu, thích</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-爱"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('爱')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="danhtu" data-char="家" onclick="speakText('家')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">家</div>
-                        <span class="vocab-type latin danhtu">Danh từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">jiā</div>
-                    <div class="vocab-meaning latin">Nhà, gia đình</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-家"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('家')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="daici" data-char="谁" onclick="speakText('谁')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">谁</div>
-                        <span class="vocab-type latin daici">Đại từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">shéi</div>
-                    <div class="vocab-meaning latin">Ai</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-谁"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('谁')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="daici" data-char="这" onclick="speakText('这')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">这</div>
-                        <span class="vocab-type latin daici">Đại từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">zhè</div>
-                    <div class="vocab-meaning latin">Này, đây</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-这"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('这')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="daici" data-char="那" onclick="speakText('那')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">那</div>
-                        <span class="vocab-type latin daici">Đại từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">nà</div>
-                    <div class="vocab-meaning latin">Kia, đó</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-那"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('那')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="danhtu" data-char="照片" onclick="speakText('照片')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">照片</div>
-                        <span class="vocab-type latin danhtu">Danh từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">zhàopiàn</div>
-                    <div class="vocab-meaning latin">Ảnh (chụp)</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-照片"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('照片')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="danhtu" data-char="哥哥" onclick="speakText('哥哥')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">哥哥</div>
-                        <span class="vocab-type latin danhtu">Danh từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">gēge</div>
-                    <div class="vocab-meaning latin">Anh trai</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-哥哥"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('哥哥')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="danhtu" data-char="姐姐" onclick="speakText('姐姐')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">姐姐</div>
-                        <span class="vocab-type latin danhtu">Danh từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">jiějie</div>
-                    <div class="vocab-meaning latin">Chị gái</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-姐姐"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('姐姐')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="danhtu" data-char="弟弟" onclick="speakText('弟弟')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">弟弟</div>
-                        <span class="vocab-type latin danhtu">Danh từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">dìdi</div>
-                    <div class="vocab-meaning latin">Em trai</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-弟弟"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('弟弟')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="danhtu" data-char="妹妹" onclick="speakText('妹妹')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">妹妹</div>
-                        <span class="vocab-type latin danhtu">Danh từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">mèimei</div>
-                    <div class="vocab-meaning latin">Em gái</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-妹妹"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('妹妹')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="lienhe" data-char="和" onclick="speakText('和')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">和</div>
-                        <span class="vocab-type latin lienhe">Liên hệ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">hé</div>
-                    <div class="vocab-meaning latin">Và, cùng với</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-和"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('和')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="dongtu" data-char="看" onclick="speakText('看')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">看</div>
-                        <span class="vocab-type latin dongtu">Động từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">kàn</div>
-                    <div class="vocab-meaning latin">Nhìn, xem</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-看"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('看')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="tinhthai" data-char="几" onclick="speakText('几')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">几</div>
-                        <span class="vocab-type latin tinhthai">Tình thái</span>
-                    </div>
-                    <div class="vocab-pinyin latin">jǐ</div>
-                    <div class="vocab-meaning latin">Mấy, bao nhiêu</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-几"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('几')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="luongtu" data-char="口" onclick="speakText('口')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">口</div>
-                        <span class="vocab-type latin luongtu">Lượng từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">kǒu</div>
-                    <div class="vocab-meaning latin">Nhân khẩu, miệng</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-口"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('口')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="trutu" data-char="的" onclick="speakText('的')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">的</div>
-                        <span class="vocab-type latin trutu">Trợ từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">de</div>
-                    <div class="vocab-meaning latin">Của (trợ từ sở hữu)</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-的"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('的')" title="Xem lại">↺</button>
-                    </div>
-                </div>
-
-                <div class="vocab-card" data-type="luongtu" data-char="个" onclick="speakText('个')">
-                    <div class="vocab-header">
-                        <div class="vocab-hanzi zh">个</div>
-                        <span class="vocab-type latin luongtu">Lượng từ</span>
-                    </div>
-                    <div class="vocab-pinyin latin">gè</div>
-                    <div class="vocab-meaning latin">Cái, con, người (lượng từ chung)</div>
-                    <div class="stroke-wrapper">
-                        <div class="stroke-inline" id="stroke-个"></div>
-                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('个')" title="Xem lại">↺</button>
                     </div>
                 </div>
 
@@ -1435,13 +1257,261 @@
                         <div class="vocab-hanzi zh">谢谢</div>
                         <span class="vocab-type latin dongtu">Động từ</span>
                     </div>
-                    <div class="vocab-pinyin latin">xièxie</div>
+                    <div class="vocab-pinyin latin">Xièxie</div>
                     <div class="vocab-meaning latin">Cảm ơn</div>
                     <div class="stroke-wrapper">
                         <div class="stroke-inline" id="stroke-谢谢"></div>
                         <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('谢谢')" title="Xem lại">↺</button>
                     </div>
                 </div>
+
+                <div class="vocab-card" data-type="maucau" data-char="再见" onclick="speakText('再见')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">再见</div>
+                        <span class="vocab-type latin maucau" style="background:#E8EAF6;color:#3949AB;">Mẫu câu</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Zàijiàn</div>
+                    <div class="vocab-meaning latin">Tạm biệt</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-再见"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('再见')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="danhtu" data-char="老师" onclick="speakText('老师')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">老师</div>
+                        <span class="vocab-type latin danhtu">Danh từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Lǎoshī</div>
+                    <div class="vocab-meaning latin">Thầy, cô giáo</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-老师"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('老师')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="danhtu" data-char="学生" onclick="speakText('学生')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">学生</div>
+                        <span class="vocab-type latin danhtu">Danh từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Xuéshēng</div>
+                    <div class="vocab-meaning latin">Học sinh</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-学生"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('学生')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="daitu" data-char="您" onclick="speakText('您')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">您</div>
+                        <span class="vocab-type latin daitu">Đại từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Nín</div>
+                    <div class="vocab-meaning latin">Ngài, ông, bà (kính ngữ)</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-您"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('您')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="一" onclick="speakText('一')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">一</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Yī</div>
+                    <div class="vocab-meaning latin">Một</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-一"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('一')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="二" onclick="speakText('二')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">二</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Èr</div>
+                    <div class="vocab-meaning latin">Hai</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-二"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('二')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="三" onclick="speakText('三')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">三</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Sān</div>
+                    <div class="vocab-meaning latin">Ba</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-三"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('三')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="四" onclick="speakText('四')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">四</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Sì</div>
+                    <div class="vocab-meaning latin">Bốn</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-四"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('四')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="五" onclick="speakText('五')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">五</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Wǔ</div>
+                    <div class="vocab-meaning latin">Năm</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-五"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('五')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="六" onclick="speakText('六')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">六</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Liù</div>
+                    <div class="vocab-meaning latin">Sáu</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-六"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('六')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="七" onclick="speakText('七')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">七</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Qī</div>
+                    <div class="vocab-meaning latin">Bảy</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-七"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('七')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="八" onclick="speakText('八')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">八</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Bā</div>
+                    <div class="vocab-meaning latin">Tám</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-八"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('八')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="九" onclick="speakText('九')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">九</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Jiǔ</div>
+                    <div class="vocab-meaning latin">Chín</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-九"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('九')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="sosotu" data-char="十" onclick="speakText('十')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">十</div>
+                        <span class="vocab-type latin sosotu" style="background:#FFF3E0;color:#E65100;">Số từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Shí</div>
+                    <div class="vocab-meaning latin">Mười</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-十"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('十')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="danhtu" data-char="号" onclick="speakText('号')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">号</div>
+                        <span class="vocab-type latin danhtu">Danh từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Hào</div>
+                    <div class="vocab-meaning latin">Ngày, số</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-号"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('号')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="danhtu" data-char="今天" onclick="speakText('今天')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">今天</div>
+                        <span class="vocab-type latin danhtu">Danh từ</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Jīntiān</div>
+                    <div class="vocab-meaning latin">Hôm nay</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-今天"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('今天')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="chuyendanh" data-char="李" onclick="speakText('李')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">李</div>
+                        <span class="vocab-type latin chuyendanh">Danh từ riêng</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Lǐ</div>
+                    <div class="vocab-meaning latin">Lý (họ người)</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-李"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('李')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="chuyendanh" data-char="王" onclick="speakText('王')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">王</div>
+                        <span class="vocab-type latin chuyendanh">Danh từ riêng</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Wáng</div>
+                    <div class="vocab-meaning latin">Vương (họ người)</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-王"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('王')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
+                <div class="vocab-card" data-type="chuyendanh" data-char="张" onclick="speakText('张')">
+                    <div class="vocab-header">
+                        <div class="vocab-hanzi zh">张</div>
+                        <span class="vocab-type latin chuyendanh">Danh từ riêng</span>
+                    </div>
+                    <div class="vocab-pinyin latin">Zhāng</div>
+                    <div class="vocab-meaning latin">Trương (họ người)</div>
+                    <div class="stroke-wrapper">
+                        <div class="stroke-inline" id="stroke-张"></div>
+                        <button class="replay-btn" onclick="event.stopPropagation(); replayStroke('张')" title="Xem lại">↺</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -1449,10 +1519,9 @@
     <!-- MẪU CÂU -->
     <div id="maucau" class="tab-content">
         <div class="card">
-            <div class="card-title" onclick="speakText('你好吗 我很好 谢谢 你家有几口人 我家有五口人', true)">
+            <div class="card-title" onclick="speakText('你早 你身体好吗 谢谢 再见', true)">
                 <span class="hanzi-title zh">句子</span>
                 <span class="latin">MẪU CÂU</span>
-                
                 <div class="toggle-bar-inline">
                     <button class="toggle-btn-inline active" onclick="toggleVisibility('maucau', 'pinyin', this); event.stopPropagation();">
                         <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
@@ -1469,39 +1538,28 @@
                         Nghĩa
                     </button>
                 </div>
-                
-                <button class="header-audio" data-text="你好吗 我很好 谢谢 你家有几口人 我家有五口人" data-seq="true" onclick="event.stopPropagation(); speakText('你好吗 我很好 谢谢 你家有几口人 我家有五口人', true)" title="Phát âm tuần tự">▶</button>
+                <button class="header-audio" data-text="你早 你身体好吗 谢谢 再见" data-seq="true" onclick="event.stopPropagation(); speakText('你早 你身体好吗 谢谢 再见', true)" title="Phát âm tuần tự">▶</button>
             </div>
-            
             <div class="dialogue-box" id="boxMauCau">
-                <div class="dialogue-line" data-text="你好吗" onclick="speakFromElement(this)">
-                    <div class="chinese-text zh">1. 你好吗？</div>
-                    <div class="pinyin-text latin">Nǐ hǎo ma?</div>
-                    <div class="vietnamese-text latin">Bạn khỏe không?</div>
+                <div class="dialogue-line" data-text="你早" onclick="speakFromElement(this)">
+                    <div class="chinese-text zh">5. 你早！</div>
+                    <div class="pinyin-text latin">Nǐ zǎo!</div>
+                    <div class="vietnamese-text latin">Chào bạn! (buổi sáng)</div>
                 </div>
-                
-                <div class="dialogue-line" data-text="我很好" onclick="speakFromElement(this)">
-                    <div class="chinese-text zh">2. 我很好。</div>
-                    <div class="pinyin-text latin">Wǒ hěn hǎo.</div>
-                    <div class="vietnamese-text latin">Tôi rất khỏe.</div>
+                <div class="dialogue-line" data-text="你身体好吗" onclick="speakFromElement(this)">
+                    <div class="chinese-text zh">6. 你身体好吗？</div>
+                    <div class="pinyin-text latin">Nǐ shēntǐ hǎo ma?</div>
+                    <div class="vietnamese-text latin">Sức khỏe của bạn có tốt không?</div>
                 </div>
-                
                 <div class="dialogue-line" data-text="谢谢" onclick="speakFromElement(this)">
-                    <div class="chinese-text zh">3. 谢谢！</div>
+                    <div class="chinese-text zh">7. 谢谢！</div>
                     <div class="pinyin-text latin">Xièxie!</div>
                     <div class="vietnamese-text latin">Cảm ơn!</div>
                 </div>
-                
-                <div class="dialogue-line" data-text="你家有几口人" onclick="speakFromElement(this)">
-                    <div class="chinese-text zh">4. 你家有几口人？</div>
-                    <div class="pinyin-text latin">Nǐ jiā yǒu jǐ kǒu rén?</div>
-                    <div class="vietnamese-text latin">Nhà bạn có mấy nhân khẩu?</div>
-                </div>
-
-                <div class="dialogue-line" data-text="我家有五口人" onclick="speakFromElement(this)">
-                    <div class="chinese-text zh">5. 我家有五口人。</div>
-                    <div class="pinyin-text latin">Wǒ jiā yǒu wǔ kǒu rén.</div>
-                    <div class="vietnamese-text latin">Nhà tôi có năm nhân khẩu.</div>
+                <div class="dialogue-line" data-text="再见" onclick="speakFromElement(this)">
+                    <div class="chinese-text zh">8. 再见！</div>
+                    <div class="pinyin-text latin">Zàijiàn!</div>
+                    <div class="vietnamese-text latin">Tạm biệt!</div>
                 </div>
             </div>
         </div>
@@ -1513,7 +1571,6 @@
             <div class="card-title">
                 <span class="hanzi-title zh">会话</span>
                 <span class="latin">ĐÀM THOẠI</span>
-                
                 <div class="toggle-bar-inline">
                     <button class="toggle-btn-inline active" onclick="toggleVisibility('damthoai', 'pinyin', this); event.stopPropagation();">
                         <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
@@ -1530,80 +1587,79 @@
                     </button>
                 </div>
             </div>
-
             <div class="sub-tab-bar">
                 <button class="sub-tab-btn active latin" onclick="switchDialogue('dt1', this)">
                     <span class="zh">会话 1</span> <span class="latin">- Hỏi thăm sức khỏe</span>
                 </button>
                 <button class="sub-tab-btn latin" onclick="switchDialogue('dt2', this)">
-                    <span class="zh">会话 2</span> <span class="latin">- Giới thiệu gia đình</span>
+                    <span class="zh">会话 2</span> <span class="latin">- Học sinh chào thầy</span>
                 </button>
             </div>
 
             <div class="dialogue-container active" id="dt1" data-dialogue="dt1">
-                <div class="card-title" style="border-bottom-color: var(--blue); margin-top:0;" onclick="speakText('你好吗 我很好谢谢 我身体不太好', true)">
+                <div class="card-title" style="border-bottom-color: var(--blue); margin-top:0;" onclick="speakText('你早 你早 你身体好吗 很好谢谢', true)">
                     <span style="color: var(--blue); font-family: SimSun, serif; font-size: 20px;" class="zh">会话 1</span>
                     <span class="latin">HỎI THĂM SỨC KHỎE</span>
-                    <button class="header-audio" data-text="你好吗 我很好谢谢 我身体不太好" data-seq="true" onclick="event.stopPropagation(); speakText('你好吗 我很好谢谢 我身体不太好', true)" title="Phát âm tuần tự">▶</button>
+                    <button class="header-audio" data-text="你早 你早 你身体好吗 很好谢谢" data-seq="true" onclick="event.stopPropagation(); speakText('你早 你早 你身体好吗 很好谢谢', true)" title="Phát âm tuần tự">▶</button>
                 </div>
                 <div class="dialogue-box" id="boxDt1">
-                    <div class="dialogue-line" data-text="你好吗" onclick="speakFromElement(this)">
-                        <div class="speaker latin">玛丽 (Mã Lệ):</div>
-                        <div class="chinese-text zh">你好吗？</div>
-                        <div class="pinyin-text latin">Nǐ hǎo ma?</div>
-                        <div class="vietnamese-text latin">Bạn khỏe không?</div>
+                    <div class="dialogue-line" data-text="你早" onclick="speakFromElement(this)">
+                        <div class="speaker latin">李老师 (Thầy Lý)：</div>
+                        <div class="chinese-text zh">你早！</div>
+                        <div class="pinyin-text latin">Nǐ zǎo!</div>
+                        <div class="vietnamese-text latin">Chào buổi sáng!</div>
                     </div>
-                    <div class="dialogue-line" data-text="我很好谢谢" onclick="speakFromElement(this)">
-                        <div class="speaker latin">王兰 (Vương Lan):</div>
-                        <div class="chinese-text zh">我很好，谢谢！</div>
-                        <div class="pinyin-text latin">Wǒ hěn hǎo, xièxie!</div>
-                        <div class="vietnamese-text latin">Tôi rất khỏe, cảm ơn!</div>
+                    <div class="dialogue-line" data-text="你早" onclick="speakFromElement(this)">
+                        <div class="speaker latin">王老师 (Thầy Vương)：</div>
+                        <div class="chinese-text zh">你早！</div>
+                        <div class="pinyin-text latin">Nǐ zǎo!</div>
+                        <div class="vietnamese-text latin">Chào buổi sáng!</div>
                     </div>
-                    <div class="dialogue-line" data-text="我身体不太好" onclick="speakFromElement(this)">
-                        <div class="speaker latin">玛丽 (Mã Lệ):</div>
-                        <div class="chinese-text zh">我身体不太好。</div>
-                        <div class="pinyin-text latin">Wǒ shēntǐ bú tài hǎo.</div>
-                        <div class="vietnamese-text latin">Tôi không được khỏe lắm.</div>
+                    <div class="dialogue-line" data-text="你身体好吗" onclick="speakFromElement(this)">
+                        <div class="speaker latin">李老师 (Thầy Lý)：</div>
+                        <div class="chinese-text zh">你身体好吗？</div>
+                        <div class="pinyin-text latin">Nǐ shēntǐ hǎo ma?</div>
+                        <div class="vietnamese-text latin">Sức khỏe bạn tốt không?</div>
+                    </div>
+                    <div class="dialogue-line" data-text="很好谢谢" onclick="speakFromElement(this)">
+                        <div class="speaker latin">王老师 (Thầy Vương)：</div>
+                        <div class="chinese-text zh">很好。谢谢！</div>
+                        <div class="pinyin-text latin">Hěn hǎo. Xièxie!</div>
+                        <div class="vietnamese-text latin">Rất tốt. Cảm ơn!</div>
                     </div>
                 </div>
             </div>
 
             <div class="dialogue-container" id="dt2" data-dialogue="dt2">
-                <div class="card-title" style="border-bottom-color: var(--green); margin-top:0;" onclick="speakText('你家有几口人 我家有五口人 你看这是我家的照片', true)">
+                <div class="card-title" style="border-bottom-color: var(--green); margin-top:0;" onclick="speakText('你们好吗 我们都很好您身体好吗 也很好再见 再见', true)">
                     <span style="color: var(--green); font-family: SimSun, serif; font-size: 20px;" class="zh">会话 2</span>
-                    <span class="latin">GIỚI THIỆU GIA ĐÌNH</span>
-                    <button class="header-audio" data-text="你家有几口人 我家有五口人 你看这是我家的照片" data-seq="true" onclick="event.stopPropagation(); speakText('你家有几口人 我家有五口人 你看这是我家的照片', true)" title="Phát âm tuần tự">▶</button>
+                    <span class="latin">HỌC SINH CHÀO THẦY</span>
+                    <button class="header-audio" data-text="你们好吗 我们都很好您身体好吗 也很好再见 再见" data-seq="true" onclick="event.stopPropagation(); speakText('你们好吗 我们都很好您身体好吗 也很好再见 再见', true)" title="Phát âm tuần tự">▶</button>
                 </div>
                 <div class="dialogue-box" id="boxDt2">
-                    <div class="dialogue-line" data-text="你家有几口人" onclick="speakFromElement(this)">
-                        <div class="speaker latin">大卫 (Đại Vệ):</div>
-                        <div class="chinese-text zh">你家有几口人？</div>
-                        <div class="pinyin-text latin">Nǐ jiā yǒu jǐ kǒu rén?</div>
-                        <div class="vietnamese-text latin">Nhà bạn có mấy nhân khẩu?</div>
+                    <div class="dialogue-line" data-text="你们好吗" onclick="speakFromElement(this)">
+                        <div class="speaker latin">张老师 (Thầy Trương)：</div>
+                        <div class="chinese-text zh">你们好吗？</div>
+                        <div class="pinyin-text latin">Nǐmen hǎo ma?</div>
+                        <div class="vietnamese-text latin">Các em khỏe không?</div>
                     </div>
-                    <div class="dialogue-line" data-text="我家有五口人" onclick="speakFromElement(this)">
-                        <div class="speaker latin">王兰 (Vương Lan):</div>
-                        <div class="chinese-text zh">我家有五口人。</div>
-                        <div class="pinyin-text latin">Wǒ jiā yǒu wǔ kǒu rén.</div>
-                        <div class="vietnamese-text latin">Nhà tôi có năm nhân khẩu.</div>
+                    <div class="dialogue-line" data-text="我们都很好您身体好吗" onclick="speakFromElement(this)">
+                        <div class="speaker latin">学生AB (Học sinh AB)：</div>
+                        <div class="chinese-text zh">我们都很好，您身体好吗？</div>
+                        <div class="pinyin-text latin">Wǒmen dōu hěn hǎo, nín shēntǐ hǎo ma?</div>
+                        <div class="vietnamese-text latin">Các em đều rất khỏe. Sức khỏe thầy tốt không?</div>
                     </div>
-                    <div class="dialogue-line" data-text="你看这是我家的照片" onclick="speakFromElement(this)">
-                        <div class="speaker latin">王兰 (Vương Lan):</div>
-                        <div class="chinese-text zh">你看，这是我家的照片。</div>
-                        <div class="pinyin-text latin">Nǐ kàn, zhè shì wǒ jiā de zhàopiàn.</div>
-                        <div class="vietnamese-text latin">Bạn xem, đây là ảnh gia đình tôi.</div>
+                    <div class="dialogue-line" data-text="也很好再见" onclick="speakFromElement(this)">
+                        <div class="speaker latin">张老师 (Thầy Trương)：</div>
+                        <div class="chinese-text zh">也很好。再见！</div>
+                        <div class="pinyin-text latin">Yě hěn hǎo. Zàijiàn!</div>
+                        <div class="vietnamese-text latin">Cũng rất tốt. Tạm biệt!</div>
                     </div>
-                    <div class="dialogue-line" data-text="这是你哥哥吗" onclick="speakFromElement(this)">
-                        <div class="speaker latin">大卫 (Đại Vệ):</div>
-                        <div class="chinese-text zh">这是你哥哥吗？</div>
-                        <div class="pinyin-text latin">Zhè shì nǐ gēge ma?</div>
-                        <div class="vietnamese-text latin">Đây là anh trai bạn à?</div>
-                    </div>
-                    <div class="dialogue-line" data-text="是这是我哥哥和我妹妹" onclick="speakFromElement(this)">
-                        <div class="speaker latin">王兰 (Vương Lan):</div>
-                        <div class="chinese-text zh">是，这是我哥哥和我妹妹。</div>
-                        <div class="pinyin-text latin">Shì, zhè shì wǒ gēge hé wǒ mèimei.</div>
-                        <div class="vietnamese-text latin">Vâng, đây là anh trai và em gái tôi.</div>
+                    <div class="dialogue-line" data-text="再见" onclick="speakFromElement(this)">
+                        <div class="speaker latin">学生AB (Học sinh AB)：</div>
+                        <div class="chinese-text zh">再见！</div>
+                        <div class="pinyin-text latin">Zàijiàn!</div>
+                        <div class="vietnamese-text latin">Tạm biệt!</div>
                     </div>
                 </div>
             </div>
@@ -1616,8 +1672,6 @@
             <button class="sub-tab-btn active latin" onclick="openSubTab(event, 'na-shengmu')">Thanh mẫu</button>
             <button class="sub-tab-btn latin" onclick="openSubTab(event, 'na-yunmu')">Vận mẫu</button>
             <button class="sub-tab-btn latin" onclick="openSubTab(event, 'na-pinyin')">Bảng ghép vần</button>
-            <button class="sub-tab-btn latin" onclick="openSubTab(event, 'na-shengdiao')">Thanh điệu</button>
-            <button class="sub-tab-btn latin" onclick="openSubTab(event, 'na-biandiao')">Biến điệu</button>
         </div>
 
         <div id="na-shengmu" class="sub-tab-content active">
@@ -1627,28 +1681,28 @@
                     <span class="latin">THANH MẪU (PHỤ ÂM MỚI)</span>
                 </div>
                 <div class="latin" style="background: var(--ink); color: #fff; padding: 16px; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; font-size: 24px; letter-spacing: 8px; margin: 16px 0;">
-                    <span onclick="playPhoneticAudio('z')" style="cursor:pointer; padding: 4px;">z</span> &nbsp;
-                    <span onclick="playPhoneticAudio('c')" style="cursor:pointer; padding: 4px;">c</span> &nbsp;
-                    <span onclick="playPhoneticAudio('s')" style="cursor:pointer; padding: 4px;">s</span> &nbsp;
-                    <span onclick="playPhoneticAudio('zh')" style="cursor:pointer; padding: 4px;">zh</span> &nbsp;
-                    <span onclick="playPhoneticAudio('ch')" style="cursor:pointer; padding: 4px;">ch</span> &nbsp;
-                    <span onclick="playPhoneticAudio('sh')" style="cursor:pointer; padding: 4px;">sh</span> &nbsp;
-                    <span onclick="playPhoneticAudio('r')" style="cursor:pointer; padding: 4px;">r</span> &nbsp;
-                    <span onclick="playPhoneticAudio('j')" style="cursor:pointer; padding: 4px;">j</span> &nbsp;
-                    <span onclick="playPhoneticAudio('q')" style="cursor:pointer; padding: 4px;">q</span> &nbsp;
-                    <span onclick="playPhoneticAudio('x')" style="cursor:pointer; padding: 4px;">x</span>
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('z')">z</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('c')">c</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('s')">s</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('zh')">zh</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('ch')">ch</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('sh')">sh</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('r')">r</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('j')">j</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('q')">q</span> &nbsp;
+                    <span style="padding: 4px; cursor: pointer;" onclick="playPhoneticAudio('x')">x</span>
                 </div>
                 <div class="latin" style="font-size: 16px; color: var(--gray); margin-top: 12px;">
-                    <div class="phonetic-group">
-                        <div class="phonetic-group-title">Âm đầu lưỡi trước (z, c, s)</div>
+                    <div class="phonetic-group" style="background: #f5f5f5; padding: 12px 16px; margin: 8px 0; border-radius: 4px; font-size: 16px;">
+                        <div style="font-weight: 700; color: var(--blue); margin-bottom: 4px; font-size: 14px;">Âm đầu lưỡi trước (z, c, s)</div>
                         <div style="cursor:default;">z c s - Đầu lưỡi chạm răng cửa</div>
                     </div>
-                    <div class="phonetic-group">
-                        <div class="phonetic-group-title">Cuốn lưỡi (zh, ch, sh, r)</div>
+                    <div class="phonetic-group" style="background: #f5f5f5; padding: 12px 16px; margin: 8px 0; border-radius: 4px; font-size: 16px;">
+                        <div style="font-weight: 700; color: var(--blue); margin-bottom: 4px; font-size: 14px;">Cuốn lưỡi (zh, ch, sh, r)</div>
                         <div style="cursor:default;">zh ch sh r - Đầu lưỡi cong về phía sau</div>
                     </div>
-                    <div class="phonetic-group">
-                        <div class="phonetic-group-title">Âm mặt lưỡi (j, q, x)</div>
+                    <div class="phonetic-group" style="background: #f5f5f5; padding: 12px 16px; margin: 8px 0; border-radius: 4px; font-size: 16px;">
+                        <div style="font-weight: 700; color: var(--blue); margin-bottom: 4px; font-size: 14px;">Âm mặt lưỡi (j, q, x)</div>
                         <div style="cursor:default;">j q x - Lưỡi chạm vòm cứng</div>
                     </div>
                 </div>
@@ -1666,41 +1720,44 @@
                     <table class="phonetic-table latin" style="font-size: 18px; min-width: 600px;">
                         <thead>
                             <tr style="background: var(--cream);">
-                                <th style="width: 20%;" onclick="playPhoneticAudio('an')">an</th>
-                                <th style="width: 20%;" onclick="playPhoneticAudio('en')">en</th>
-                                <th style="width: 20%;" onclick="playPhoneticAudio('ang')">ang</th>
-                                <th style="width: 20%;" onclick="playPhoneticAudio('eng')">eng</th>
-                                <th style="width: 20%;" onclick="playPhoneticAudio('ong')">ong</th>
+                                <th class="phonetic-cell" style="width: 20%;" onclick="playPhoneticAudio('an')">an</th>
+                                <th class="phonetic-cell" style="width: 20%;" onclick="playPhoneticAudio('en')">en</th>
+                                <th class="phonetic-cell" style="width: 20%;" onclick="playPhoneticAudio('ang')">ang</th>
+                                <th class="phonetic-cell" style="width: 20%;" onclick="playPhoneticAudio('eng')">eng</th>
+                                <th class="phonetic-cell" style="width: 20%;" onclick="playPhoneticAudio('ong')">ong</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td onclick="playPhoneticAudio('ia')" style="cursor: pointer; font-weight: 600; color: var(--blue);">ia</td>
-                                <td onclick="playPhoneticAudio('iao')" style="cursor: pointer; font-weight: 600; color: var(--blue);">iao</td>
-                                <td onclick="playPhoneticAudio('ie')" style="cursor: pointer; font-weight: 600; color: var(--blue);">ie</td>
-                                <td onclick="playPhoneticAudio('iu')" style="cursor: pointer; font-weight: 600; color: var(--blue);">iu</td>
-                                <td style="background: #f5f5f5; color: #ccc;">-</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('ia')">ia</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('iao')">iao</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('ie')">ie</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('iu')">iu</td>
+                                <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
                             </tr>
                             <tr>
-                                <td onclick="playPhoneticAudio('ian')" style="cursor: pointer; font-weight: 600; color: var(--green);">ian</td>
-                                <td onclick="playPhoneticAudio('in')" style="cursor: pointer; font-weight: 600; color: var(--green);">in</td>
-                                <td onclick="playPhoneticAudio('iang')" style="cursor: pointer; font-weight: 600; color: var(--green);">iang</td>
-                                <td onclick="playPhoneticAudio('ing')" style="cursor: pointer; font-weight: 600; color: var(--green);">ing</td>
-                                <td onclick="playPhoneticAudio('iong')" style="cursor: pointer; font-weight: 600; color: var(--green);">iong</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('ian')">ian</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('in')">in</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('iang')">iang</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('ing')">ing</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('iong')">iong</td>
                             </tr>
                             <tr>
-                                <td onclick="playPhoneticAudio('i')" style="cursor: pointer; font-weight: 600; color: var(--red);">i</td>
-                                <td onclick="playPhoneticAudio('er')" style="cursor: pointer; font-weight: 600; color: var(--red);">er</td>
-                                <td style="background: #f5f5f5; color: #ccc;">-</td>
-                                <td style="background: #f5f5f5; color: #ccc;">-</td>
-                                <td style="background: #f5f5f5; color: #ccc;">-</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('i')">i</td>
+                                <td class="phonetic-cell" onclick="playPhoneticAudio('er')">er</td>
+                                <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="phonetic-group" style="margin-top: 20px;">
-                    <div class="phonetic-group-title">Phân loại vận mẫu</div>
+                <div class="latin" style="margin-top: 12px; font-size: 14px; color: var(--gray); font-style: italic; text-align: center;">
+                    Click vào các vần để nghe file MP3 (nếu có)
+                </div>
+                <div class="phonetic-group" style="margin-top: 20px; background: #f5f5f5; padding: 12px 16px; margin: 8px 0; border-radius: 4px; font-size: 16px;">
+                    <div style="font-weight: 700; color: var(--blue); margin-bottom: 4px; font-size: 14px;">Phân loại vận mẫu</div>
                     <div style="font-size: 15px; line-height: 2; color: var(--gray);">
                         <div style="margin: 8px 0;"><strong style="color: var(--red);">Hàng 1:</strong> <span class="zh">an, en, ang, eng, ong</span> - Nguyên âm đơn kết hợp với âm cuối -n, -ng</div>
                         <div style="margin: 8px 0;"><strong style="color: var(--blue);">Hàng 2:</strong> <span class="zh">ia, iao, ie, iu</span> - Nguyên âm phức có đầu -i</div>
@@ -1709,8 +1766,8 @@
                     </div>
                 </div>
 
-                <div class="phonetic-group" style="margin-top: 16px; background: #FFF8E1;">
-                    <div class="phonetic-group-title" style="color: var(--orange);">Chú ý đặc biệt</div>
+                <div class="phonetic-group" style="margin-top: 16px; background: #FFF8E1; padding: 12px 16px; margin: 8px 0; border-radius: 4px; font-size: 16px;">
+                    <div style="font-weight: 700; color: var(--orange); margin-bottom: 4px; font-size: 14px;">Chú ý đặc biệt</div>
                     <div style="font-size: 14px; line-height: 1.8;">
                         • <strong>iu</strong> = iou (rút gọn từ iou)<br>
                         • <strong>er</strong> là nguyên âm đơn độc lập, không kết hợp với phụ âm<br>
@@ -1721,104 +1778,222 @@
         </div>
 
         <div id="na-pinyin" class="sub-tab-content">
-            <div class="card">
-                <div class="card-title">
-                    <span class="hanzi-title zh">拼音</span>
-                    <span class="latin">BẢNG GHÉP VẦN</span>
-                </div>
-                <div style="overflow-x: auto;">
-                    <table class="phonetic-table latin" style="font-size: 14px; min-width: 600px;">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th onclick="playPhoneticAudio('i')">i</th>
-                                <th onclick="playPhoneticAudio('u')">u</th>
-                                <th onclick="playPhoneticAudio('ü')">ü</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th onclick="playPhoneticAudio('j')">j</th>
-                                <td onclick="playPhoneticAudio('ji')">ji</td>
-                                <td>-</td>
-                                <td onclick="playPhoneticAudio('ju')">ju (jü)</td>
-                            </tr>
-                            <tr>
-                                <th onclick="playPhoneticAudio('q')">q</th>
-                                <td onclick="playPhoneticAudio('qi')">qi</td>
-                                <td>-</td>
-                                <td onclick="playPhoneticAudio('qu')">qu (qü)</td>
-                            </tr>
-                            <tr>
-                                <th onclick="playPhoneticAudio('x')">x</th>
-                                <td onclick="playPhoneticAudio('xi')">xi</td>
-                                <td>-</td>
-                                <td onclick="playPhoneticAudio('xu')">xu (xü)</td>
-                            </tr>
-                            <tr>
-                                <th onclick="playPhoneticAudio('z')">z</th>
-                                <td onclick="playPhoneticAudio('zi')">zi</td>
-                                <td onclick="playPhoneticAudio('zu')">zu</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <th onclick="playPhoneticAudio('c')">c</th>
-                                <td onclick="playPhoneticAudio('ci')">ci</td>
-                                <td onclick="playPhoneticAudio('cu')">cu</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <th onclick="playPhoneticAudio('s')">s</th>
-                                <td onclick="playPhoneticAudio('si')">si</td>
-                                <td onclick="playPhoneticAudio('su')">su</td>
-                                <td>-</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="sub-tab-bar">
+                <button class="sub-tab-btn active latin" onclick="openPinyinTab(event, 'pinyin-1')">Ghép vần 1 (j, q, x)</button>
+                <button class="sub-tab-btn latin" onclick="openPinyinTab(event, 'pinyin-2')">Ghép vần 2 (z, c, s...)</button>
             </div>
-        </div>
 
-        <div id="na-shengdiao" class="sub-tab-content">
-            <div class="card">
-                <div class="card-title">
-                    <span class="hanzi-title zh">声调</span>
-                    <span class="latin">THANH ĐIỆU</span>
-                </div>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0;">
-                    <div class="latin" style="border: 1px solid var(--blue); border-radius: 6px; padding: 20px; text-align: center; background: #f8f9fa;" onclick="speakText('mā')">
-                        <div style="font-size: 32px; color: var(--blue); font-family: Arial, sans-serif; margin-bottom: 4px;">mā ˉ</div>
-                        <div style="font-weight: 700; color: var(--blue); font-size: 16px;">Thanh 1 (Âm bằng)</div>
+            <!-- Bảng ghép vần 1: j, q, x - Chỉ giữ âm có file MP3 -->
+            <div id="pinyin-1" class="pinyin-sub-content active" style="display: block;">
+                <div class="card">
+                    <div class="card-title">
+                        <span class="hanzi-title zh">拼音表一</span>
+                        <span class="latin">BẢNG GHÉP VẦN 1 (j, q, x + i...)</span>
                     </div>
-                    <div class="latin" style="border: 1px solid var(--green); border-radius: 6px; padding: 20px; text-align: center; background: #f8f9fa;" onclick="speakText('má')">
-                        <div style="font-size: 32px; color: var(--green); font-family: Arial, sans-serif; margin-bottom: 4px;">má ˊ</div>
-                        <div style="font-weight: 700; color: var(--green); font-size: 16px;">Thanh 2 (Âm lên)</div>
+                    <div style="overflow-x: auto;">
+                        <table class="phonetic-table latin" style="font-size: 14px; min-width: 800px;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 8%;"></th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('i')">i</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('ia')">ia</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('iao')">iao</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('ie')">ie</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('iu')">iu/iou</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('ian')">ian</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('in')">in</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('iang')">iang</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('ing')">ing</th>
+                                    <th class="phonetic-cell" style="width: 9%;" onclick="playPhoneticAudio('iong')">iong</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('j')">j</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ji')">ji</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jia')">jia</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jiao')">jiao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jie')">jie</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jiu')">jiu</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jian')">jian</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jin')">jin</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jiang')">jiang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jing')">jing</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('jiong')">jiong</td>
+                                </tr>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('q')">q</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qi')">qi</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qia')">qia</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qiao')">qiao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qie')">qie</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qiu')">qiu</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qian')">qian</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qin')">qin</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qiang')">qiang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qing')">qing</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('qiong')">qiong</td>
+                                </tr>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('x')">x</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xi')">xi</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xia')">xia</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xiao')">xiao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xie')">xie</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xiu')">xiu</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xian')">xian</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xin')">xin</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xiang')">xiang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xing')">xing</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('xiong')">xiong</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="latin" style="border: 1px solid var(--orange); border-radius: 6px; padding: 20px; text-align: center; background: #f8f9fa;" onclick="speakText('mǎ')">
-                        <div style="font-size: 32px; color: var(--orange); font-family: Arial, sans-serif; margin-bottom: 4px;">mǎ ˇ</div>
-                        <div style="font-weight: 700; color: var(--orange); font-size: 16px;">Thanh 3 (Âm xuống lên)</div>
-                    </div>
-                    <div class="latin" style="border: 1px solid var(--red); border-radius: 6px; padding: 20px; text-align: center; background: #f8f9fa;" onclick="speakText('mà')">
-                        <div style="font-size: 32px; color: var(--red); font-family: Arial, sans-serif; margin-bottom: 4px;">mà ˋ</div>
-                        <div style="font-weight: 700; color: var(--red); font-size: 16px;">Thanh 4 (Âm xuống)</div>
+                    <div class="latin" style="margin-top: 12px; font-size: 14px; color: var(--gray); font-style: italic; text-align: center;">
+                        Chú ý: Click vào ô để nghe file MP3 tương ứng (ví dụ: ji.mp3, jia.mp3...)
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="na-biandiao" class="sub-tab-content">
-            <div class="card">
-                <div class="card-title">
-                    <span class="hanzi-title zh">变调</span>
-                    <span class="latin">BIẾN ĐIỆU THANH 3</span>
-                </div>
-                <div class="latin" style="background: #fafafa; padding: 20px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.8; border-left: 3px solid var(--orange);" onclick="speakText('你好')">
-                    <strong style="color: var(--orange);">1.</strong> Hai thanh 3 liền nhau, âm đầu biến thành thanh 2:<br>
-                    <span style="color: var(--red); font-size: 22px; font-weight: 600;">Nǐ hǎo → Ní hǎo</span>
-                </div>
-                <div class="latin" style="background: #fafafa; padding: 20px; margin: 12px 0; border-radius: 6px; font-size: 16px; line-height: 1.8; border-left: 3px solid var(--orange);" onclick="speakText('我也很好')">
-                    <strong style="color: var(--orange);">2.</strong> Ba thanh 3 liền nhau: 2 âm đầu đều biến thành thanh 2<br>
-                    <span style="color: var(--red); font-size: 22px; font-weight: 600;">Wǒ yě hěn hǎo → Wó yé hěn hǎo</span>
+            <!-- Bảng ghép vần 2: z, c, s, zh, ch, sh, r - Đã xóa các ô không có file MP3 -->
+            <div id="pinyin-2" class="pinyin-sub-content" style="display: none;">
+                <div class="card">
+                    <div class="card-title">
+                        <span class="hanzi-title zh">拼音表二</span>
+                        <span class="latin">BẢNG GHÉP VẦN 2 (z, c, s, zh, ch, sh, r)</span>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table class="phonetic-table latin" style="font-size: 13px; min-width: 900px;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 7%;"></th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('a')">a</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('e')">e</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('zi')">-i</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('ai')">ai</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('ei')">ei</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('ao')">ao</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('ou')">ou</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('an')">an</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('en')">en</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('ang')">ang</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('eng')">eng</th>
+                                    <th class="phonetic-cell" style="width: 7%;" onclick="playPhoneticAudio('ong')">ong</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('z')">z</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('za')">za</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ze')">ze</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zi')">zi</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zai')">zai</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zei')">zei</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zao')">zao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zou')">zou</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zan')">zan</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zen')">zen</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zang')">zang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zeng')">zeng</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zong')">zong</td>
+                                </tr>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('c')">c</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ca')">ca</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ce')">ce</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ci')">ci</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('cai')">cai</td>
+                                    <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('cao')">cao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('cou')">cou</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('can')">can</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('cen')">cen</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('cang')">cang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ceng')">ceng</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('cong')">cong</td>
+                                </tr>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('s')">s</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('sa')">sa</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('se')">se</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('si')">si</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('sai')">sai</td>
+                                    <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('sao')">sao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('sou')">sou</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('san')">san</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('sen')">sen</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('sang')">sang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('seng')">seng</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('song')">song</td>
+                                </tr>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('zh')">zh</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zha')">zha</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhe')">zhe</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhi')">zhi</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhai')">zhai</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhei')">zhei</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhao')">zhao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhou')">zhou</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhan')">zhan</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhen')">zhen</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhang')">zhang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zheng')">zheng</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('zhong')">zhong</td>
+                                </tr>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('ch')">ch</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('cha')">cha</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('che')">che</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('chi')">chi</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('chai')">chai</td>
+                                    <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('chao')">chao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('chou')">chou</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('chan')">chan</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('chen')">chen</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('chang')">chang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('cheng')">cheng</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('chong')">chong</td>
+                                </tr>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('sh')">sh</th>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('sha')">sha</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('she')">she</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('shi')">shi</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('shai')">shai</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('shei')">shei</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('shao')">shao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('shou')">shou</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('shan')">shan</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('shen')">shen</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('shang')">shang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('sheng')">sheng</td>
+                                    <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                </tr>
+                                <tr>
+                                    <th class="phonetic-cell" onclick="playPhoneticAudio('r')">r</th>
+                                    <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('re')">re</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ri')">ri</td>
+                                    <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                    <td class="phonetic-cell" style="cursor: default; pointer-events: none;">-</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('rao')">rao</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('rou')">rou</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ran')">ran</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('ren')">ren</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('rang')">rang</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('reng')">reng</td>
+                                    <td class="phonetic-cell" onclick="playPhoneticAudio('rong')">rong</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="latin" style="margin-top: 12px; font-size: 14px; color: var(--gray); font-style: italic; text-align: center;">
+                        Chú ý: -i trong zi, ci, si, zhi, chi, shi, ri là nguyên âm đặc biệt (âm huỷ), phát âm khác với i thông thường. Các ô "-" đã được xóa khỏi bảng vì không có file MP3.
+                    </div>
                 </div>
             </div>
         </div>
@@ -1849,11 +2024,11 @@
                     <span class="hanzi-title zh">越汉翻译</span>
                     <span class="latin">LUYỆN DỊCH VIỆT-HOA</span>
                 </div>
-                
-                <div class="exercise-item" data-answer="你好吗？">
+
+                <div class="exercise-item" data-answer="张老师，您好！">
                     <div style="display:flex; align-items:center; margin-bottom:12px;">
                         <span class="exercise-num">1</span>
-                        <div class="question-text">Bạn khỏe không?</div>
+                        <div class="question-text">Chào Thầy Trương!</div>
                     </div>
                     <div class="input-row">
                         <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
@@ -1862,10 +2037,10 @@
                     <div class="result-msg"></div>
                 </div>
 
-                <div class="exercise-item" data-answer="我很好。">
+                <div class="exercise-item" data-answer="王老师身体很好。">
                     <div style="display:flex; align-items:center; margin-bottom:12px;">
                         <span class="exercise-num">2</span>
-                        <div class="question-text">Tôi rất khỏe.</div>
+                        <div class="question-text">Sức khỏe của Thầy Vương rất tốt.</div>
                     </div>
                     <div class="input-row">
                         <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
@@ -1874,10 +2049,10 @@
                     <div class="result-msg"></div>
                 </div>
 
-                <div class="exercise-item" data-answer="谢谢！">
+                <div class="exercise-item" data-answer="今天十六号。">
                     <div style="display:flex; align-items:center; margin-bottom:12px;">
                         <span class="exercise-num">3</span>
-                        <div class="question-text">Cảm ơn!</div>
+                        <div class="question-text">Hôm nay ngày 16.</div>
                     </div>
                     <div class="input-row">
                         <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
@@ -1886,10 +2061,10 @@
                     <div class="result-msg"></div>
                 </div>
 
-                <div class="exercise-item" data-answer="你家有几口人？">
+                <div class="exercise-item" data-answer="谢谢你们！">
                     <div style="display:flex; align-items:center; margin-bottom:12px;">
                         <span class="exercise-num">4</span>
-                        <div class="question-text">Nhà bạn có mấy nhân khẩu?</div>
+                        <div class="question-text">Cảm ơn các bạn!</div>
                     </div>
                     <div class="input-row">
                         <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
@@ -1898,10 +2073,10 @@
                     <div class="result-msg"></div>
                 </div>
 
-                <div class="exercise-item" data-answer="我家有五口人。">
+                <div class="exercise-item" data-answer="刘京，再见！">
                     <div style="display:flex; align-items:center; margin-bottom:12px;">
                         <span class="exercise-num">5</span>
-                        <div class="question-text">Nhà tôi có năm nhân khẩu.</div>
+                        <div class="question-text">Tạm biệt Lưu Kinh!</div>
                     </div>
                     <div class="input-row">
                         <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
@@ -1910,10 +2085,10 @@
                     <div class="result-msg"></div>
                 </div>
 
-                <div class="exercise-item" data-answer="这是我哥哥。">
+                <div class="exercise-item" data-answer="你早！">
                     <div style="display:flex; align-items:center; margin-bottom:12px;">
                         <span class="exercise-num">6</span>
-                        <div class="question-text">Đây là anh trai tôi.</div>
+                        <div class="question-text">Chào bà buổi sáng!</div>
                     </div>
                     <div class="input-row">
                         <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
@@ -1922,10 +2097,10 @@
                     <div class="result-msg"></div>
                 </div>
 
-                <div class="exercise-item" data-answer="你爸爸身体好吗？">
+                <div class="exercise-item" data-answer="今天他来吗？">
                     <div style="display:flex; align-items:center; margin-bottom:12px;">
                         <span class="exercise-num">7</span>
-                        <div class="question-text">Ba bạn khỏe không?</div>
+                        <div class="question-text">Hôm nay anh ấy có đến không?</div>
                     </div>
                     <div class="input-row">
                         <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
@@ -1934,10 +2109,10 @@
                     <div class="result-msg"></div>
                 </div>
 
-                <div class="exercise-item" data-answer="他身体很好。">
+                <div class="exercise-item" data-answer="玛丽，你好吗？">
                     <div style="display:flex; align-items:center; margin-bottom:12px;">
                         <span class="exercise-num">8</span>
-                        <div class="question-text">Ông ấy rất khỏe.</div>
+                        <div class="question-text">Mary, cậu khỏe không?</div>
                     </div>
                     <div class="input-row">
                         <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
@@ -1945,6 +2120,19 @@
                     </div>
                     <div class="result-msg"></div>
                 </div>
+
+                <div class="exercise-item" data-answer="再见！">
+                    <div style="display:flex; align-items:center; margin-bottom:12px;">
+                        <span class="exercise-num">9</span>
+                        <div class="question-text">Hẹn gặp lại.</div>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" class="translation-input" placeholder="Nhập tiếng Hán..." onkeypress="if(event.key==='Enter') checkAnswer(this)">
+                        <button class="check-btn" onclick="checkAnswer(this)">Kiểm tra</button>
+                    </div>
+                    <div class="result-msg"></div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -1956,54 +2144,46 @@
                 <span class="hanzi-title zh">偏旁</span>
                 <span class="latin">BỘ THỦ (8 BỘ)</span>
             </div>
-            
             <div class="radical-grid">
                 <div class="radical-box">
-                    <div class="radical-char zh">宀</div>
-                    <div class="radical-name latin">Bộ miên</div>
-                    <div class="radical-desc latin">Liên quan đến nhà cửa</div>
+                    <div class="radical-char zh">匕</div>
+                    <div class="radical-name latin">Bộ chủy</div>
+                    <div class="radical-desc latin">Liên quan đến các công cụ hoặc con người</div>
                 </div>
-                
                 <div class="radical-box">
-                    <div class="radical-char zh">亻</div>
-                    <div class="radical-name latin">Bộ nhân đứng</div>
-                    <div class="radical-desc latin">Liên quan đến người</div>
+                    <div class="radical-char zh">人</div>
+                    <div class="radical-name latin">Bộ nhân</div>
+                    <div class="radical-desc latin">Liên quan đến con người</div>
                 </div>
-                
+                <div class="radical-box">
+                    <div class="radical-char zh">寸</div>
+                    <div class="radical-name latin">Bộ thốn</div>
+                    <div class="radical-desc latin">Liên quan đến tay</div>
+                </div>
+                <div class="radical-box">
+                    <div class="radical-char zh">巾</div>
+                    <div class="radical-name latin">Bộ cân</div>
+                    <div class="radical-desc latin">Liên quan đến vải, dệt vải</div>
+                </div>
+                <div class="radical-box">
+                    <div class="radical-char zh">身</div>
+                    <div class="radical-name latin">Bộ thân</div>
+                    <div class="radical-desc latin">Liên quan thân thể</div>
+                </div>
                 <div class="radical-box">
                     <div class="radical-char zh">讠</div>
                     <div class="radical-name latin">Bộ ngôn</div>
-                    <div class="radical-desc latin">Liên quan đến nói, lời</div>
+                    <div class="radical-desc latin">Liên quan đến ngôn ngữ</div>
                 </div>
-                
                 <div class="radical-box">
-                    <div class="radical-char zh">女</div>
-                    <div class="radical-name latin">Bộ nữ</div>
-                    <div class="radical-desc latin">Liên quan đến phụ nữ</div>
+                    <div class="radical-char zh">见</div>
+                    <div class="radical-name latin">Bộ kiến</div>
+                    <div class="radical-desc latin">Liên quan đến ánh mắt</div>
                 </div>
-                
                 <div class="radical-box">
-                    <div class="radical-char zh">子</div>
-                    <div class="radical-name latin">Bộ tử</div>
-                    <div class="radical-desc latin">Liên quan đến con cái</div>
-                </div>
-                
-                <div class="radical-box">
-                    <div class="radical-char zh">口</div>
-                    <div class="radical-name latin">Bộ khẩu</div>
-                    <div class="radical-desc latin">Liên quan đến miệng</div>
-                </div>
-                
-                <div class="radical-box">
-                    <div class="radical-char zh">扌</div>
-                    <div class="radical-name latin">Bộ thủ</div>
-                    <div class="radical-desc latin">Liên quan đến tay</div>
-                </div>
-                
-                <div class="radical-box">
-                    <div class="radical-char zh">日</div>
-                    <div class="radical-name latin">Bộ nhật</div>
-                    <div class="radical-desc latin">Liên quan đến mặt trời, thời gian</div>
+                    <div class="radical-char zh">心</div>
+                    <div class="radical-name latin">Bộ tâm</div>
+                    <div class="radical-desc latin">Liên quan hoạt động tâm lý</div>
                 </div>
             </div>
         </div>
@@ -2020,6 +2200,7 @@
     const writers = {};
     let isSpeaking = false;
     let audioContext = null;
+    let currentPhoneticAudio = null;
     
     function initAudioContext() {
         if (!audioContext) {
@@ -2028,6 +2209,65 @@
         if (audioContext.state === 'suspended') {
             audioContext.resume();
         }
+    }
+
+    function playPhoneticAudio(phonetic) {
+        initAudioContext();
+        
+        // Dừng âm thanh hiện tại nếu có
+        if (currentPhoneticAudio) {
+            currentPhoneticAudio.pause();
+            currentPhoneticAudio = null;
+        }
+        
+        // Xóa trạng thái playing cũ
+        document.querySelectorAll('.phonetic-cell.playing').forEach(el => el.classList.remove('playing'));
+        
+        // Tìm và đánh dấu cell đang phát
+        const cells = document.querySelectorAll('.phonetic-cell');
+        let targetCell = null;
+        cells.forEach(cell => {
+            if (cell.textContent.trim() === phonetic) {
+                targetCell = cell;
+            }
+        });
+        
+        if (targetCell) {
+            targetCell.classList.add('playing');
+        }
+        
+        // Thử phát file MP3 trước
+        const audio = new Audio(phonetic + '.mp3');
+        currentPhoneticAudio = audio;
+        
+        showToast('Đang phát: ' + phonetic);
+        
+        audio.onended = function() {
+            hideToast();
+            if (targetCell) {
+                targetCell.classList.remove('playing');
+            }
+            currentPhoneticAudio = null;
+        };
+        
+        audio.onerror = function() {
+            hideToast();
+            showToast('Không tìm thấy file MP3: ' + phonetic + '.mp3');
+            if (targetCell) {
+                targetCell.classList.remove('playing');
+            }
+            currentPhoneticAudio = null;
+        };
+        
+        audio.play().catch(error => {
+            console.error('Lỗi phát âm thanh MP3:', error);
+            hideToast();
+            showToast('Lỗi phát file MP3: ' + phonetic + '.mp3');
+            if (targetCell) {
+                targetCell.classList.remove('playing');
+            }
+            currentPhoneticAudio = null;
+        });
     }
 
     function speakText(text, isSequential = false) {
@@ -2051,40 +2291,6 @@
         } else {
             speakSingle(text);
         }
-    }
-
-    function playPhoneticAudio(phonetic) {
-        initAudioContext();
-        
-        // Stop any current speech synthesis
-        window.speechSynthesis.cancel();
-        document.querySelectorAll('.playing').forEach(el => el.classList.remove('playing'));
-        
-        // Create audio element for MP3 file
-        const audio = new Audio(phonetic + '.mp3');
-        audio.volume = 1;
-        
-        audio.onplay = function() {
-            showToast('Đang phát: ' + phonetic);
-        };
-        
-        audio.onended = function() {
-            hideToast();
-        };
-        
-        audio.onerror = function(e) {
-            console.error('Audio error:', e);
-            showToast('Không thể tải file âm thanh');
-            // Fallback to speech synthesis if MP3 fails
-            speakSingle(phonetic);
-        };
-        
-        audio.play().catch(error => {
-            console.error('Play error:', error);
-            showToast('Không thể phát âm thanh');
-            // Fallback to speech synthesis
-            speakSingle(phonetic);
-        });
     }
 
     function speakSingle(text) {
@@ -2224,6 +2430,26 @@
         parent.querySelectorAll('.sub-tab-content').forEach(el => el.classList.remove('active'));
         parent.querySelectorAll('.sub-tab-btn').forEach(el => el.classList.remove('active'));
         document.getElementById(tabName).classList.add('active');
+        evt.currentTarget.classList.add('active');
+    }
+
+    function openPinyinTab(evt, tabName) {
+        // Hide all pinyin sub-contents
+        document.querySelectorAll('.pinyin-sub-content').forEach(el => {
+            el.style.display = 'none';
+            el.classList.remove('active');
+        });
+        
+        // Show selected
+        const selected = document.getElementById(tabName);
+        if (selected) {
+            selected.style.display = 'block';
+            selected.classList.add('active');
+        }
+        
+        // Update button states
+        const parent = evt.currentTarget.closest('.sub-tab-bar');
+        parent.querySelectorAll('.sub-tab-btn').forEach(el => el.classList.remove('active'));
         evt.currentTarget.classList.add('active');
     }
 
