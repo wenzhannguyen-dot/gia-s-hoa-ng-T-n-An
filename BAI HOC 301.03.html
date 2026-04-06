@@ -1073,7 +1073,7 @@
         <button class="tab-btn" onclick="openTab(event,'tuvung')">Từ vựng</button>
         <button class="tab-btn" onclick="openTab(event,'maucau')">Mẫu câu</button>
         <button class="tab-btn" onclick="openTab(event,'damthoai')">Đàm thoại</button>
-        <button class="tab-btn" onclick="openTab(event,'nguphap')">Ngữ pháp</button>
+        <button class="tab-btn" onclick="openTab(event,'nguphap')">Ngữ âm</button>
         <button class="tab-btn" onclick="openTab(event,'baitap')">Bài tập</button>
         <button class="tab-btn" onclick="openTab(event,'bothu')">Bộ thủ</button>
     </div>
@@ -1600,7 +1600,7 @@
         </div>
     </div>
 
-    <!-- NGỮ PHÁP -->
+    <!-- NGỮ ÂM -->
     <div id="nguphap" class="tab-content">
         <div class="sub-tab-bar">
             <button class="sub-tab-btn active latin" onclick="openSubTab(event, 'np-yunmu')">Vận mẫu</button>
@@ -1615,9 +1615,18 @@
                     <span class="hanzi-title zh">韵母</span>
                     <span class="latin">VẬN MẪU (NGUYÊN ÂM) - 11 ÂM</span>
                 </div>
-                <div class="latin" style="background: var(--ink); color: #fff; padding: 16px; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; font-size: 20px; letter-spacing: 4px; margin: 16px 0;" onclick="speakText('ua uo uai ui uan un uang ueng ue uan un', true)">
-                    ua &nbsp; uo &nbsp; uai &nbsp; ui/uei &nbsp; uan &nbsp; un/uen<br>
-                    uang &nbsp; ueng &nbsp; üe &nbsp; üan &nbsp; ün
+                <div class="latin" style="background: var(--ink); color: #fff; padding: 16px; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; font-size: 20px; letter-spacing: 4px; margin: 16px 0;">
+                    <span onclick="speakText('ua')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">ua</span> &nbsp; 
+                    <span onclick="speakText('uo')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">uo</span> &nbsp; 
+                    <span onclick="speakText('uai')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">uai</span> &nbsp; 
+                    <span onclick="speakText('ui')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">ui/uei</span> &nbsp; 
+                    <span onclick="speakText('uan')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">uan</span> &nbsp; 
+                    <span onclick="speakText('un')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">un/uen</span><br>
+                    <span onclick="speakText('uang')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">uang</span> &nbsp; 
+                    <span onclick="speakText('ueng')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">ueng</span> &nbsp; 
+                    <span onclick="speakText('üe')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">üe</span> &nbsp; 
+                    <span onclick="speakText('üan')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">üan</span> &nbsp; 
+                    <span onclick="speakText('ün')" style="cursor: pointer; padding: 4px 8px; border-radius: 3px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">ün</span>
                 </div>
             </div>
         </div>
@@ -1628,7 +1637,14 @@
                     <span class="hanzi-title zh">拼音</span>
                     <span class="latin">BẢNG GHÉP VẦN</span>
                 </div>
-                <div style="overflow-x: auto;">
+
+                <!-- Inner tab bar for Bảng 1 / Bảng 2 -->
+                <div style="display:flex; gap:0; margin-bottom:16px; border-bottom:2px solid #ddd;">
+                    <button id="pinyin-tab1-btn" class="latin" onclick="switchPinyinTab(1)" style="padding:10px 20px; background:var(--red); color:#fff; border:none; border-bottom:2px solid var(--red); margin-bottom:-2px; cursor:pointer; font-size:14px; font-weight:600; border-radius:4px 4px 0 0;">Bảng 1</button>
+                    <button id="pinyin-tab2-btn" class="latin" onclick="switchPinyinTab(2)" style="padding:10px 20px; background:transparent; color:var(--gray); border:none; border-bottom:2px solid transparent; margin-bottom:-2px; cursor:pointer; font-size:14px; font-weight:500; border-radius:4px 4px 0 0;">Bảng 2</button>
+                </div>
+
+                <div id="pinyin-tab1" style="display:block; overflow-x: auto;">
                     <table class="phonetic-table latin" style="font-size: 13px; min-width: 800px;">
                         <thead>
                             <tr>
@@ -1646,8 +1662,8 @@
                         </tbody>
                     </table>
                 </div>
-                
-                <div style="margin-top: 20px; overflow-x: auto;">
+
+                <div id="pinyin-tab2" style="display:none; overflow-x: auto;">
                     <table class="phonetic-table latin" style="font-size: 13px; min-width: 600px;">
                         <thead>
                             <tr>
@@ -1693,21 +1709,15 @@
                     <span class="hanzi-title zh">变调</span>
                     <span class="latin">BIẾN ĐIỆU CỦA BÙ (不) VÀ YĪ (一)</span>
                 </div>
-                
-                <div style="margin-bottom: 20px;">
-                    <h3 style="color: var(--red); margin-bottom: 12px; font-size: 18px;" class="latin">1. 不 (Bù)</h3>
-                    <div class="latin" style="background: #fafafa; padding: 16px; margin: 8px 0; border-radius: 6px; font-size: 15px; line-height: 1.6;">
-                        • Bù đứng trước thanh 1, 2, 3 và thanh nhẹ có gốc thanh 4 đọc thành <strong>bù</strong> (không đổi)<br>
-                        <span style="color: var(--blue);">Ví dụ: bù xīn (不新), bù lái (不来), bù hǎo (不好)</span>
-                    </div>
-                    <div class="latin" style="background: #fafafa; padding: 16px; margin: 8px 0; border-radius: 6px; font-size: 15px; line-height: 1.6;">
-                        • Bù đứng trước thanh 4 đọc thành <strong>bú</strong> (thanh 2)<br>
-                        <span style="color: var(--blue);">Ví dụ: bú lèi (不累), bú tài (不太), bú shì (不是)</span>
-                    </div>
+
+                <!-- Inner tab bar for Yi / Bu -->
+                <div style="display:flex; gap:0; margin-bottom:16px; border-bottom:2px solid #ddd;">
+                    <button id="biendau-tab-yi-btn" class="latin" onclick="switchBiendauTab('yi')" style="padding:10px 20px; background:var(--red); color:#fff; border:none; border-bottom:2px solid var(--red); margin-bottom:-2px; cursor:pointer; font-size:14px; font-weight:600; border-radius:4px 4px 0 0;"><span style="font-family:SimSun,serif;font-size:16px;">一</span>&nbsp; Yī</button>
+                    <button id="biendau-tab-bu-btn" class="latin" onclick="switchBiendauTab('bu')" style="padding:10px 20px; background:transparent; color:var(--gray); border:none; border-bottom:2px solid transparent; margin-bottom:-2px; cursor:pointer; font-size:14px; font-weight:500; border-radius:4px 4px 0 0;"><span style="font-family:SimSun,serif;font-size:16px;">不</span>&nbsp; Bù</button>
                 </div>
 
-                <div>
-                    <h3 style="color: var(--red); margin-bottom: 12px; font-size: 18px;" class="latin">2. 一 (Yī)</h3>
+                <!-- Tab Yi (一) -->
+                <div id="biendau-tab-yi" style="display:block;">
                     <div class="latin" style="background: #fafafa; padding: 16px; margin: 8px 0; border-radius: 6px; font-size: 15px; line-height: 1.6;">
                         • Yī đứng trước thanh 1, 2, 3 và thanh nhẹ có gốc thanh 4 đọc thành <strong>yì</strong> (thanh 4)<br>
                         <span style="color: var(--blue);">Ví dụ: yì tiān (一天), yì nián (一年), yì qǐ (一起)</span>
@@ -1716,8 +1726,20 @@
                         • Yī đứng trước thanh 4 đọc thành <strong>yí</strong> (thanh 2)<br>
                         <span style="color: var(--blue);">Ví dụ: yí kuài (一块), yí ge (一个)</span>
                     </div>
-                    <div class="latin" style="background: #FFF8E1; padding: 16px; margin: 8px 0; border-radius: 6px; font-size: 15px; line-height: 1.6; border-left: 3px solid var(--gold);">
+                    <div class="latin" style="background: #FFF8E1; padding: 16px; margin: 8px 0; border-radius: 6px; font-size: 15px; line-height: 1.6;">
                         <strong>Lưu ý:</strong> Số 1 đọc <strong>yī</strong>. Để tránh nhầm lẫn, đối với số điện thoại, số nhà... TQ đọc số 1 thành <strong>yāo</strong> (幺)
+                    </div>
+                </div>
+
+                <!-- Tab Bu (不) -->
+                <div id="biendau-tab-bu" style="display:none;">
+                    <div class="latin" style="background: #fafafa; padding: 16px; margin: 8px 0; border-radius: 6px; font-size: 15px; line-height: 1.6;">
+                        • Bù đứng trước thanh 1, 2, 3 và thanh nhẹ có gốc thanh 4 đọc thành <strong>bù</strong> (không đổi)<br>
+                        <span style="color: var(--blue);">Ví dụ: bù xīn (不新), bù lái (不来), bù hǎo (不好)</span>
+                    </div>
+                    <div class="latin" style="background: #fafafa; padding: 16px; margin: 8px 0; border-radius: 6px; font-size: 15px; line-height: 1.6;">
+                        • Bù đứng trước thanh 4 đọc thành <strong>bú</strong> (thanh 2)<br>
+                        <span style="color: var(--blue);">Ví dụ: bú lèi (不累), bú tài (不太), bú shì (不是)</span>
                     </div>
                 </div>
             </div>
@@ -1944,6 +1966,60 @@
     const writers = {};
     let isSpeaking = false;
     let audioContext = null;
+    let currentAudio = null;
+    
+    // MP3 file paths - chỉ áp dụng cho phần NGỮ ÂM, đặt trong cùng thư mục
+    const mp3Files = {
+        // Chỉ giữ vận mẫu đơn có âm thanh
+        'ua': './ua.mp3',
+        'uo': './uo.mp3', 
+        'uai': './uai.mp3',
+        'ui': './ui.mp3',
+        'uei': './uei.mp3',
+        'uan': './uan.mp3',
+        'un': './un.mp3',
+        'uen': './uen.mp3',
+        'uang': './uang.mp3',
+        'ueng': './ueng.mp3',
+        'ue': './ue.mp3',
+        'üe': './üe.mp3',
+        'üan': './üan.mp3',
+        'ün': './ün.mp3',
+        'ü': './ü.mp3',
+        
+        // Phụ âm trong bảng ghép vần
+        'd': './d.mp3',
+        't': './t.mp3',
+        'n': './n.mp3',
+        'l': './l.mp3',
+        'g': './g.mp3',
+        'k': './k.mp3',
+        'h': './h.mp3',
+        'j': './j.mp3',
+        'q': './q.mp3',
+        'x': './x.mp3'
+    };
+    
+    // Kiểm tra xem có phải vận mẫu đơn trong NGỮ ÂM không
+    function isPhoneticSection(text) {
+        // Chỉ áp dụng MP3 cho các vận mẫu đơn chính xác
+        const phoneticTexts = [
+            // Vận mẫu đơn - phân biệt rõ ràng
+            'ua', 'uo', 'uai', 'ui', 'uei', 'uan', 'un', 'uen', 'uang', 'ueng', 
+            'ue', 'üe', 'üan', 'ün', 'ü',
+            // Phụ âm trong bảng ghép vần
+            'd', 't', 'n', 'l', 'g', 'k', 'h', 'j', 'q', 'x'
+        ];
+        
+        // Kiểm tra nếu text là một vận mẫu đơn
+        if (phoneticTexts.includes(text)) {
+            return true;
+        }
+        
+        // Kiểm tra nếu text chứa các vận mẫu (chuỗi nhiều vận mẫu)
+        const words = text.split(/\s+/);
+        return words.some(word => phoneticTexts.includes(word));
+    }
     
     function initAudioContext() {
         if (!audioContext) {
@@ -1953,20 +2029,89 @@
             audioContext.resume();
         }
     }
+    
+    // Thử phát MP3, nếu không có thì trả về false
+    async function tryPlayMP3(text) {
+        const filePath = mp3Files[text];
+        if (!filePath) return false;
+        
+        try {
+            // Dừng audio hiện tại
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            
+            const audio = new Audio(filePath);
+            currentAudio = audio;
+            
+            return new Promise((resolve) => {
+                audio.onplay = () => {
+                    isSpeaking = true;
+                    showToast('Đang phát MP3: ' + text);
+                };
+                
+                audio.onended = () => {
+                    isSpeaking = false;
+                    hideToast();
+                    currentAudio = null;
+                    resolve(true);
+                };
+                
+                audio.onerror = () => {
+                    isSpeaking = false;
+                    hideToast();
+                    currentAudio = null;
+                    resolve(false); // MP3 không tồn tại
+                };
+                
+                audio.play().catch(() => {
+                    isSpeaking = false;
+                    hideToast();
+                    currentAudio = null;
+                    resolve(false); // Lỗi phát
+                });
+            });
+        } catch (error) {
+            return false;
+        }
+    }
 
     function speakText(text, isSequential = false) {
         initAudioContext();
         
+        if (!text || text.trim() === '') return;
+        
+        // Dừng mọi phát âm hiện tại
+        window.speechSynthesis.cancel();
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            currentAudio = null;
+        }
+        
+        document.querySelectorAll('.playing').forEach(el => el.classList.remove('playing'));
+        
+        // Kiểm tra xem có phải vận mẫu đơn trong NGỮ ÂM không
+        if (isPhoneticSection(text)) {
+            // Phần NGỮ ÂM - ưu tiên MP3
+            if (isSequential) {
+                speakSequentialPhonetic(text);
+            } else {
+                speakSinglePhonetic(text);
+            }
+        } else {
+            // Các phần khác - dùng speechSynthesis
+            speakTextGeneral(text, isSequential);
+        }
+    }
+    
+    // Hàm riêng cho các phần không phải NGỮ ÂM
+    function speakTextGeneral(text, isSequential = false) {
         if (!('speechSynthesis' in window)) {
             showToast('Trình duyệt không hỗ trợ phát âm');
             return;
         }
-
-        window.speechSynthesis.cancel();
-        
-        document.querySelectorAll('.playing').forEach(el => el.classList.remove('playing'));
-        
-        if (!text || text.trim() === '') return;
         
         const texts = isSequential ? text.split(/\s+/) : [text];
         
@@ -1975,6 +2120,43 @@
         } else {
             speakSingle(text);
         }
+    }
+    
+    // Chỉ phát MP3 cho phần NGỮ ÂM, không có thì không phát gì
+    async function speakSinglePhonetic(text) {
+        const mp3Success = await tryPlayMP3(text);
+        
+        if (!mp3Success) {
+            // MP3 không có - không phát gì cả
+            console.log('MP3 NGỮ ÂM không tồn tại:', text);
+        }
+    }
+    
+    // Phát tuần tự chỉ với MP3 cho phần NGỮ ÂM
+    async function speakSequentialPhonetic(text) {
+        showToast('Đang phát âm NGỮ ÂM...');
+        
+        const texts = text.split(/\s+/).filter(t => t.trim());
+        
+        for (let i = 0; i < texts.length; i++) {
+            const currentText = texts[i];
+            
+            // Chỉ phát nếu có MP3 và là vận mẫu
+            if (isPhoneticSection(currentText)) {
+                const mp3Success = await tryPlayMP3(currentText);
+                
+                if (!mp3Success) {
+                    console.log('MP3 NGỮ ÂM không tồn tại:', currentText);
+                }
+            }
+            
+            // Delay giữa các từ
+            if (i < texts.length - 1) {
+                await new Promise(r => setTimeout(r, 600));
+            }
+        }
+        
+        hideToast();
     }
 
     function speakSingle(text) {
@@ -2242,6 +2424,34 @@
             input.classList.remove('correct');
             resultDiv.innerHTML = '<strong>✗ Sai.</strong> Đáp án: ' + correctAnswer;
             resultDiv.className = 'result-msg show wrong';
+        }
+    }
+
+    function switchPinyinTab(num) {
+        document.getElementById('pinyin-tab1').style.display = num === 1 ? 'block' : 'none';
+        document.getElementById('pinyin-tab2').style.display = num === 2 ? 'block' : 'none';
+        const btn1 = document.getElementById('pinyin-tab1-btn');
+        const btn2 = document.getElementById('pinyin-tab2-btn');
+        if (num === 1) {
+            btn1.style.background = 'var(--red)'; btn1.style.color = '#fff'; btn1.style.fontWeight = '600'; btn1.style.borderBottom = '2px solid var(--red)';
+            btn2.style.background = 'transparent'; btn2.style.color = 'var(--gray)'; btn2.style.fontWeight = '500'; btn2.style.borderBottom = '2px solid transparent';
+        } else {
+            btn2.style.background = 'var(--red)'; btn2.style.color = '#fff'; btn2.style.fontWeight = '600'; btn2.style.borderBottom = '2px solid var(--red)';
+            btn1.style.background = 'transparent'; btn1.style.color = 'var(--gray)'; btn1.style.fontWeight = '500'; btn1.style.borderBottom = '2px solid transparent';
+        }
+    }
+
+    function switchBiendauTab(name) {
+        document.getElementById('biendau-tab-yi').style.display = name === 'yi' ? 'block' : 'none';
+        document.getElementById('biendau-tab-bu').style.display = name === 'bu' ? 'block' : 'none';
+        const btnYi = document.getElementById('biendau-tab-yi-btn');
+        const btnBu = document.getElementById('biendau-tab-bu-btn');
+        if (name === 'yi') {
+            btnYi.style.background = 'var(--red)'; btnYi.style.color = '#fff'; btnYi.style.fontWeight = '600'; btnYi.style.borderBottom = '2px solid var(--red)';
+            btnBu.style.background = 'transparent'; btnBu.style.color = 'var(--gray)'; btnBu.style.fontWeight = '500'; btnBu.style.borderBottom = '2px solid transparent';
+        } else {
+            btnBu.style.background = 'var(--red)'; btnBu.style.color = '#fff'; btnBu.style.fontWeight = '600'; btnBu.style.borderBottom = '2px solid var(--red)';
+            btnYi.style.background = 'transparent'; btnYi.style.color = 'var(--gray)'; btnYi.style.fontWeight = '500'; btnYi.style.borderBottom = '2px solid transparent';
         }
     }
 
