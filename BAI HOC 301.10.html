@@ -108,6 +108,37 @@
             border-color: var(--red);
         }
 
+        .home-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            margin-left: 8px;
+            -webkit-touch-callout: none;
+            user-select: none;
+        }
+
+        .home-btn:hover, .home-btn:active {
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        @media (max-width: 768px) {
+            .home-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
+
         .lesson-info {
             display: flex;
             align-items: center;
@@ -956,6 +987,37 @@
             }
             
             .lesson-info { font-size: 14px; gap: 6px; }
+
+        .home-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            margin-left: 8px;
+            -webkit-touch-callout: none;
+            user-select: none;
+        }
+
+        .home-btn:hover, .home-btn:active {
+            background: var(--green);
+            border-color: var(--green);
+        }
+
+        @media (max-width: 768px) {
+            .home-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
             .lesson-info .zh { font-size: 18px; }
             .lesson-info .latin { font-size: 12px; }
             
@@ -1035,6 +1097,7 @@
         }
     </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -1048,6 +1111,7 @@
                 <div class="brand-name">GIA SƯ HOA NGỮ TÂN AN</div>
                 <div class="brand-sub">Giáo trình 301 Câu</div>
             </div>
+            <button class="home-btn" onclick="goHome()" title="Quay về trang chủ">🏠</button>
             <button class="editor-btn" onclick="openEditor()" title="Mở trình soạn thảo">✎</button>
         </div>
         
@@ -1069,6 +1133,7 @@
         <button class="tab-btn" onclick="openTab(event,'nguphap')">Ngữ pháp</button>
         <button class="tab-btn" onclick="openTab(event,'baitap')">Bài tập</button>
         <button class="tab-btn" onclick="openTab(event,'bothu')">Bộ thủ</button>
+        <button class="home-btn" onclick="goHome()" title="Quay về trang chủ">🏠</button>
     </div>
 </div>
 
@@ -2123,6 +2188,10 @@
 
     window.speechSynthesis.getVoices();
     
+    function goHome() {
+        window.location.href = \'301.html\';
+    }
+
     window.onload = function() {
         if (document.getElementById('tuvung').classList.contains('active')) {
             initVocabStrokes();
