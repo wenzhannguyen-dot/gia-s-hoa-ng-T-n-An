@@ -1098,15 +1098,54 @@
 
         function speakText(text) {
             if ('speechSynthesis' in window) {
+                // Hét tất cả cuộc gọi phát âm đang chạy
                 window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'zh-CN';
-                utterance.rate = 0.8;
-                utterance.pitch = 1;
-                utterance.volume = 1;
-                window.speechSynthesis.speak(utterance);
+                
+                // Delay để khởi phục speech synthesis trên iOS
+                setTimeout(() => {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    
+                    // Các setting tôi ưu cho phát âm Tiếng Trung
+                    utterance.lang = 'zh-CN';
+                    utterance.rate = 0.7;  // Chậm hơn để nghe rõ
+                    utterance.pitch = 1.0;
+                    utterance.volume = 1.0;
+                    
+                    // Thêm các setting khác cho iOS
+                    utterance.voiceURI = 'zh-CN-XiaoxiaoNeural'; // Voice Google Neural
+                    utterance.maxDuration = 10000; // 10 giây tối đa
+                    
+                    // Xử lý lỗi và thông báo
+                    utterance.onstart = () => {
+                        console.log('Bắt đầu phát âm:', text);
+                    };
+                    
+                    utterance.onerror = (event) => {
+                        console.error('Lỗi phát âm:', event.error);
+                        if (event.error === 'network') {
+                            alert('Lỗi kết nối! Vui lòng kiểm tra internet và thử lại.');
+                        } else if (event.error === 'synthesis-unavailable') {
+                            alert('Phát âm không sẵn dùng trên thiết bị này. Vui lòng dùng trình duyệt khác.');
+                        } else {
+                            alert('Không thể phát âm. Vui lòng thử lại.');
+                        }
+                    };
+                    
+                    utterance.onend = () => {
+                        console.log('Hoàn thành phát âm');
+                    };
+                    
+                    // Thử phát âm
+                    try {
+                        window.speechSynthesis.speak(utterance);
+                    } catch (error) {
+                        console.error('Lỗi khi gọi speak:', error);
+                        alert('Lỗi phát âm! Vui lòng thử lại.');
+                    }
+                }, 100); // 100ms delay cho iOS
+                
             } else {
-                alert('Trình duyệt không hỗ trợ phát âm!');
+                alert('Trình duyệt không hỗ trợ phát âm! Vui lòng dùng Chrome, Safari hoặc Edge.');
             }
         }
 
