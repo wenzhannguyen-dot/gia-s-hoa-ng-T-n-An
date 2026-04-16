@@ -97,8 +97,8 @@
         }
 
         .tab-button {
-            padding: 14px 28px;
-            font-size: 16px;
+            padding: 14px 24px;
+            font-size: 15px;
             font-weight: 600;
             color: rgba(255,255,255,0.85);
             background: transparent;
@@ -191,7 +191,7 @@
         }
 
         .nav-title-cn {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 500;
             color: #fff;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -199,7 +199,7 @@
         }
 
         .nav-title-vi {
-            font-size: 14px;
+            font-size: 13px;
             color: #B0BEC5;
             margin-top: 4px;
             line-height: 1.4;
@@ -239,10 +239,6 @@
             align-items: center;
             height: 60px;
             flex-shrink: 0;
-        }
-
-        .page-title {
-            display: none;
         }
 
         .controls-group {
@@ -332,7 +328,7 @@
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 18px;
+            font-size: 17px;
             min-width: 400px;
         }
 
@@ -379,23 +375,23 @@
         }
 
         .col-num {
-            width: 60px;
+            width: 50px;
             text-align: center !important;
             font-weight: 600;
             color: #2196F3;
-            font-size: 15px;
+            font-size: 14px;
             background: #E3F2FD !important;
         }
 
         .col-audio {
-            width: 60px;
+            width: 55px;
             padding: 10px !important;
             text-align: center;
         }
 
         .audio-btn {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             border: none;
             background: #4CAF50;
@@ -427,14 +423,14 @@
         }
 
         .vi-text {
-            font-size: 18px;
+            font-size: 17px;
             color: #333;
             font-weight: 500;
             line-height: 1.5;
         }
 
         .cn-text {
-            font-size: 18px;
+            font-size: 17px;
             color: #D32F2F;
             font-weight: 600;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -448,15 +444,15 @@
             .brand-name { font-size: 16px; }
             .brand-address, .brand-contact { font-size: 11px; }
             .tab-container { padding: 0 8px; }
-            .tab-button { padding: 12px 16px; font-size: 14px; }
+            .tab-button { padding: 12px 14px; font-size: 13px; }
             .tab-panel { flex-direction: column; }
             .sidebar { width: 100%; height: auto; max-height: 160px; border-right: none; border-bottom: 1px solid #455A64; flex-shrink: 0; }
             .sidebar-header { padding: 12px 16px; }
             .sidebar-title { font-size: 16px; }
             .nav-list { padding: 8px; display: flex; gap: 8px; overflow-x: auto; overflow-y: hidden; flex-direction: row; white-space: nowrap; height: auto; }
-            .nav-item { padding: 10px 14px; margin-bottom: 0; flex-shrink: 0; min-width: 120px; max-width: 160px; }
-            .nav-title-cn { font-size: 15px; }
-            .nav-title-vi { font-size: 12px; }
+            .nav-item { padding: 10px 12px; margin-bottom: 0; flex-shrink: 0; min-width: 140px; max-width: 180px; }
+            .nav-title-cn { font-size: 14px; }
+            .nav-title-vi { font-size: 11px; }
             .sidebar-footer { display: none; }
             .main-content { flex: 1; min-height: 0; overflow: hidden; }
             .top-bar { padding: 10px 16px; height: auto; min-height: 55px; }
@@ -468,19 +464,19 @@
             .data-table th { padding: 12px 8px; font-size: 12px; position: static; }
             .data-table th:first-child, .data-table th:last-child { border-radius: 8px 8px 0 0; }
             .data-table td { padding: 10px 8px; }
-            .col-num { width: 45px; font-size: 13px; }
-            .col-audio { width: 45px; }
-            .audio-btn { width: 32px; height: 32px; font-size: 11px; }
-            .vi-text, .cn-text { font-size: 15px; }
+            .col-num { width: 40px; font-size: 12px; }
+            .col-audio { width: 40px; }
+            .audio-btn { width: 30px; height: 30px; font-size: 10px; }
+            .vi-text, .cn-text { font-size: 14px; }
         }
 
         @media (max-width: 480px) {
             .app-header { flex-direction: column; align-items: flex-start; gap: 8px; }
-            .tab-button { padding: 10px 12px; font-size: 13px; }
+            .tab-button { padding: 10px 12px; font-size: 12px; }
             .sidebar { max-height: 140px; }
-            .nav-item { min-width: 100px; padding: 8px 12px; }
+            .nav-item { min-width: 120px; padding: 8px 10px; }
             .data-table { font-size: 14px; }
-            .vi-text, .cn-text { font-size: 14px; }
+            .vi-text, .cn-text { font-size: 13px; }
         }
     </style>
 <base target="_blank">
@@ -504,7 +500,7 @@
             <div class="tab-nav">
                 <button class="tab-button active" data-tab="dulich">旅游 Du Lịch</button>
                 <button class="tab-button" data-tab="mausam">购物 Mua Sắm</button>
-                <button class="tab-button" data-tab="coban">基础 Cơ Bản</button>
+                <button class="tab-button" data-tab="nhao">住房 Nhà Ở</button>
                 <button class="tab-button" data-tab="thuongdung">常用 Thường Dùng</button>
             </div>
         </div>
@@ -589,14 +585,14 @@
                 </div>
             </div>
 
-            <!-- Co Ban Tab - CHỦ ĐỀ MỚI -->
-            <div id="tab-coban" class="tab-panel">
+            <!-- NHA O TAB - CÓ THÊM PHẦN CƠ BẢN -->
+            <div id="tab-nhao" class="tab-panel">
                 <div class="sidebar">
                     <div class="sidebar-header">
-                        <div class="sidebar-title">基础越南语</div>
-                        <div class="sidebar-subtitle">Cơ Bản</div>
+                        <div class="sidebar-title">房地产与法律</div>
+                        <div class="sidebar-subtitle">BĐS & PHÁP LÝ</div>
                     </div>
-                    <div class="nav-list" id="navList-coban"></div>
+                    <div class="nav-list" id="navList-nhao"></div>
                     <div class="sidebar-footer">© 2026 Gia Sư Hoa Ngữ Tân An</div>
                 </div>
 
@@ -604,12 +600,12 @@
                     <div class="top-bar">
                         <div class="controls-group">
                             <div class="control-item">
-                                <button class="btn-icon active" id="voiceF-coban" onclick="setVoice('coban', 'female')">♀</button>
-                                <button class="btn-icon" id="voiceM-coban" onclick="setVoice('coban', 'male')">♂</button>
+                                <button class="btn-icon active" id="voiceF-nhao" onclick="setVoice('nhao', 'female')">♀</button>
+                                <button class="btn-icon" id="voiceM-nhao" onclick="setVoice('nhao', 'male')">♂</button>
                             </div>
                             <div class="control-item">
                                 <span>语速</span>
-                                <select onchange="updateSpeed('coban', this.value)">
+                                <select onchange="updateSpeed('nhao', this.value)">
                                     <option value="0.7">慢速</option>
                                     <option value="0.9" selected>正常</option>
                                     <option value="1.2">快速</option>
@@ -621,7 +617,7 @@
                     <div class="content-scroll">
                         <div class="content-card">
                             <div class="card-body">
-                                <div id="lessonContent-coban"></div>
+                                <div id="lessonContent-nhao"></div>
                             </div>
                         </div>
                     </div>
@@ -671,7 +667,7 @@
 
     <script>
         // ==========================================
-        // DATA DU LICH
+        // DATA DU LICH (giữ nguyên)
         // ==========================================
         const lessonsDuLich = {
             nhatrang: {
@@ -728,7 +724,7 @@
                 data: [
                     {vi: "Bùi Viện có nhiều quán bar không?", cn: "裴援街有很多酒吧吗？"},
                     {vi: "Landmark 81 cao nhất Việt Nam phải không?", cn: "地标81是越南最高的吗？"},
-                    {vi: "Ở đây đông ngườ i quá!", cn: "这里人太多了！"},
+                    {vi: "Ở đây đông ngườiquá!", cn: "这里人太多了！"},
                     {vi: "Tôi muốn ăn đặc sản Sài Gòn.", cn: "我想吃西贡特产。"},
                     {vi: "Chợ Bến Thành ở đâu?", cn: "边青市场在哪里？"},
                     {vi: "Phố đi bộ Nguyễn Huệ có gì?", cn: "阮惠步行街有什么？"},
@@ -789,7 +785,7 @@
         };
 
         // ==========================================
-        // DATA MUA SẮM
+        // DATA MUA SẮM (giữ nguyên)
         // ==========================================
         const lessonsMauSam = {
             traicay: {
@@ -923,103 +919,182 @@
         };
 
         // ==========================================
-        // DATA CƠ BẢN - 5 CHỦ ĐỀ MỚI
+        // DATA NHÀ Ở - CÓ THÊM PHẦN CƠ BẢN ĐẦU TIÊN
         // ==========================================
-        const lessonsCoBan = {
-            mausac: {
-                title: '颜色',
-                titleVi: 'Màu Sắc',
+        const lessonsNhaO = {
+            // PHẦN CƠ BẢN MỚI
+            coban: {
+                title: '基本信息',
+                titleVi: 'Thông tin cơ bản',
                 data: [
-                    {vi: "Màu đỏ", cn: "红色"},
-                    {vi: "Màu xanh dương", cn: "蓝色"},
-                    {vi: "Màu xanh lá", cn: "绿色"},
-                    {vi: "Màu vàng", cn: "黄色"},
-                    {vi: "Màu trắng", cn: "白色"},
-                    {vi: "Màu đen", cn: "黑色"},
-                    {vi: "Màu hồng", cn: "粉色"},
-                    {vi: "Màu tím", cn: "紫色"},
-                    {vi: "Màu cam", cn: "橙色"},
-                    {vi: "Màu nâu", cn: "棕色"},
-                    {vi: "Màu xám", cn: "灰色"},
-                    {vi: "Màu be", cn: "米色"}
+                    {vi: "Diện tích căn nhà bao nhiêu mét vuông?", cn: "房子面积多少平方米？"},
+                    {vi: "Diện tích đất và diện tích sử dụng khác nhau thế nào?", cn: "土地面积和使用面积有什么不同？"},
+                    {vi: "Giá bán là bao nhiêu một mét vuông?", cn: "售价每平方米多少钱？"},
+                    {vi: "Tổng giá trị căn nhà là bao nhiêu?", cn: "房子总价是多少？"},
+                    {vi: "Giá này đã bao gồm thuế phí chưa?", cn: "这个价格已经含税了吗？"},
+                    {vi: "Có thể thương lượng giá không?", cn: "可以讲价吗？"},
+                    {vi: "Giảm bao nhiêu phần trăm được?", cn: "可以降百分之多少？"},
+                    {vi: "Cần đặt cọc bao nhiêu tiền?", cn: "需要付多少定金？"},
+                    {vi: "Thủ tục mua bán mất bao lâu?", cn: "买卖手续需要多久？"},
+                    {vi: "Cần chuẩn bị những giấy tờ gì?", cn: "需要准备什么证件？"},
+                    {vi: "Sổ đỏ sổ hồng có sẵn không?", cn: "红皮书房产证齐全吗？"},
+                    {vi: "Có cần công chứng hợp đồng không?", cn: "需要公证合同吗？"},
+                    {vi: "Phí sang tên bao nhiêu tiền?", cn: "过户费多少钱？"},
+                    {vi: "Thuế thu nhập cá nhân ai đóng?", cn: "个人所得税谁交？"},
+                    {vi: "Thời gian bàn giao nhà là khi nào?", cn: "什么时候交房？"}
                 ]
             },
-            tien: {
-                title: '货币',
-                titleVi: 'Tiền Tệ',
+            loaiphong: {
+                title: '房型与结构',
+                titleVi: 'Loại phòng & Cấu trúc',
                 data: [
-                    {vi: "Một nghìn đồng", cn: "一千盾"},
-                    {vi: "Hai nghìn đồng", cn: "两千盾"},
-                    {vi: "Năm nghìn đồng", cn: "五千盾"},
-                    {vi: "Mườ i nghìn đồng", cn: "一万盾"},
-                    {vi: "Hai mươi nghìn đồng", cn: "两万盾"},
-                    {vi: "Năm mươi nghìn đồng", cn: "五万盾"},
-                    {vi: "Một trăm nghìn đồng", cn: "十万盾"},
-                    {vi: "Hai trăm nghìn đồng", cn: "二十万盾"},
-                    {vi: "Năm trăm nghìn đồng", cn: "五十万盾"},
-                    {vi: "Đổi tiền ở đâu?", cn: "在哪里换钱？"},
-                    {vi: "Tỷ giá hôm nay bao nhiêu?", cn: "今天汇率多少？"},
-                    {vi: "Tôi muốn đổi một trăm đô la.", cn: "我想换一百美元。"}
+                    {vi: "Căn hộ này có mấy phòng ngủ?", cn: "这个公寓有几间卧室？"},
+                    {vi: "Phòng khách rộng bao nhiêu mét vuông?", cn: "客厅多少平方米？"},
+                    {vi: "Có phòng đa năng không?", cn: "有多功能房吗？"},
+                    {vi: "Phòng master có vệ sinh khép kín không?", cn: "主卧带独立卫生间吗？"},
+                    {vi: "Logia có rộng không?", cn: "阳台大吗？"},
+                    {vi: "Nhà có gác lửng không?", cn: "房子有阁楼吗？"},
+                    {vi: "Tường chung hay tường riêng?", cn: "共墙还是独立墙？"},
+                    {vi: "Trần nhà cao bao nhiêu mét?", cn: "天花板高几米？"},
+                    {vi: "Có tầng hầm để xe không?", cn: "有地下停车场吗？"},
+                    {vi: "Sân thượng có sở hữu chung không?", cn: "天台是共有产权吗？"},
+                    {vi: "Cửa chính hướng Đông Nam phải không?", cn: "大门是朝东南吗？"},
+                    {vi: "Nhà ống hay nhà vườn?", cn: "排屋还是别墅？"},
+                    {vi: "Có kho để đồ không?", cn: "有储藏室吗？"},
+                    {vi: "Phòng ngủ có cửa sổ ban công không?", cn: "卧室有落地窗吗？"},
+                    {vi: "Nhà xây thô hay bàn giao thô?", cn: "是毛坯房还是交付毛坯？"}
                 ]
             },
-            phuongtien: {
-                title: '交通工具',
-                titleVi: 'Phương Tiện',
+            noithatchitiet: {
+                title: '家具与装修',
+                titleVi: 'Nội thất chi tiết',
                 data: [
-                    {vi: "Xe máy", cn: "摩托车"},
-                    {vi: "Xe đạp", cn: "自行车"},
-                    {vi: "Xe ô tô", cn: "汽车"},
-                    {vi: "Xe bus", cn: "公交车"},
-                    {vi: "Xe taxi", cn: "出租车"},
-                    {vi: "Xe tuk tuk", cn: "嘟嘟车"},
-                    {vi: "Xe lửa / Tàu hỏa", cn: "火车"},
-                    {vi: "Máy bay", cn: "飞机"},
-                    {vi: "Tàu thuyền", cn: "船"},
-                    {vi: "Xe điện", cn: "电动车"},
-                    {vi: "Grab xe máy", cn: "Grab摩托车"},
-                    {vi: "Thuê xe máy bao nhiêu một ngày?", cn: "租摩托车一天多少钱？"}
+                    {vi: "Sàn nhà lát gạch men hay gỗ công nghiệp?", cn: "地板铺瓷砖还是复合木地板？"},
+                    {vi: "Trần thạch cao có đèn âm trần không?", cn: "石膏吊顶有筒灯吗？"},
+                    {vi: "Tủ bếp làm bằng gỗ tự nhiên hay acrylic?", cn: "橱柜是实木还是亚克力？"},
+                    {vi: "Có máy hút mùi kính cong không?", cn: "有弧形玻璃抽油烟机吗？"},
+                    {vi: "Bồn rửa mặt lavabo đặt bàn hay âm bàn?", cn: "洗手盆是台上盆还是台下盆？"},
+                    {vi: "Vòi sen tắm có nhiệt độ hiển thị không?", cn: "花洒有温度显示吗？"},
+                    {vi: "Bồn cầu một khối hay hai khối?", cn: "马桶是一体式还是分体式？"},
+                    {vi: "Cửa gỗ tự nhiên hay cửa nhựa composite?", cn: "门是实木门还是复合塑料门？"},
+                    {vi: "Khóa cửa vân tay hay khóa cơ?", cn: "门锁是指纹锁还是机械锁？"},
+                    {vi: "Rèm cửa điện hay rèm thủ công?", cn: "窗帘是电动还是手动？"},
+                    {vi: "Giường ngủ có ngăn kéo đựng đồ không?", cn: "床有储物抽屉吗？"},
+                    {vi: "Tủ quần áo âm tường hay tủ đứng?", cn: "衣柜是嵌入式还是立式？"},
+                    {vi: "Kệ tivi treo tường hay kệ để sàn?", cn: "电视柜是挂墙还是落地？"},
+                    {vi: "Điều hòa multi hay điều hòa thường?", cn: "空调是多联机还是普通分体？"},
+                    {vi: "Có bình nóng lạnh gián tiếp không?", cn: "有间接加热热水器吗？"}
                 ]
             },
-            thoitiet: {
-                title: '天气',
-                titleVi: 'Thờ i Tiết',
+            thutucgiayto: {
+                title: '法律与手续',
+                titleVi: 'Thủ tục pháp lý',
                 data: [
-                    {vi: "Nắng", cn: "晴天"},
-                    {vi: "Mưa", cn: "下雨"},
-                    {vi: "Nhiều mây", cn: "多云"},
-                    {vi: "Âm u", cn: "阴天"},
-                    {vi: "Nóng", cn: "热"},
-                    {vi: "Lạnh", cn: "冷"},
-                    {vi: "Ẩm ướt", cn: "潮湿"},
-                    {vi: "Gió", cn: "刮风"},
-                    {vi: "Sấm chớp", cn: "打雷闪电"},
-                    {vi: "Mưa rào", cn: "阵雨"},
-                    {vi: "Hôm nay trờ i nóng quá!", cn: "今天天气真热！"},
-                    {vi: "Nhiệt độ bao nhiêu độ?", cn: "温度多少度？"}
+                    {vi: "Sổ hồng chính chủ đứng tên ai?", cn: "房产证正主写谁的名字？"},
+                    {vi: "Sổ đỏ đã sang tên chưa?", cn: "红皮书已经过户了吗？"},
+                    {vi: "Đất có quy hoạch treo không?", cn: "土地有规划冻结吗？"},
+                    {vi: "Nhà có đang thế chấp ngân hàng không?", cn: "房子正在银行抵押吗？"},
+                    {vi: "Thuế thu nhập cá nhân là 2% phải không?", cn: "个人所得税是2%对吗？"},
+                    {vi: "Lệ phí trước bạ đất ở là 0.5%?", cn: "住宅用地过户费是0.5%？"},
+                    {vi: "Cần công chứng hợp đồng mua bán ở đâu?", cn: "在哪里公证买卖合同？"},
+                    {vi: "Thủ tục sang tên mất bao lâu?", cn: "过户手续需要多久？"},
+                    {vi: "Có cần chứng minh tài chính không?", cn: "需要资金证明吗？"},
+                    {vi: "Hợp đồng đặt cọc có hiệu lực pháp lý không?", cn: "定金合同有法律效力吗？"},
+                    {vi: "Luật sư kiểm tra pháp lý ở đâu uy tín?", cn: "哪里找信誉好的律师查法律手续？"},
+                    {vi: "Phí công chứng bao nhiêu tiền?", cn: "公证费多少钱？"},
+                    {vi: "Cần chuẩn bị bản sao hộ chiếu không?", cn: "需要准备护照复印件吗？"},
+                    {vi: "Hợp đồng song ngữ Trung-Việt có giá trị không?", cn: "中越双语合同有效吗？"},
+                    {vi: "Bảo hiểm cháy nổ bắt buộc hay tự nguyện?", cn: "火灾保险是强制还是自愿？"}
                 ]
             },
-            chuc: {
-                title: '祝福语',
-                titleVi: 'Câu Chúc',
+            nguoinuocngoai: {
+                title: '外国人购房条件',
+                titleVi: 'Điều kiện người nước ngoài',
                 data: [
-                    {vi: "Chúc mừng năm mớ i!", cn: "新年快乐！"},
-                    {vi: "Chúc sức khỏe!", cn: "祝你健康！"},
-                    {vi: "Chúc thành công!", cn: "祝你成功！"},
-                    {vi: "Chúc may mắn!", cn: "祝你好运！"},
-                    {vi: "Chúc vui vẻ!", cn: "祝你快乐！"},
-                    {vi: "Chúc sinh nhật vui vẻ!", cn: "生日快乐！"},
-                    {vi: "Chúc mừng khai trương!", cn: "开业大吉！"},
-                    {vi: "Chúc mừng tốt nghiệp!", cn: "毕业快乐！"},
-                    {vi: "Chúc một ngày tốt lành!", cn: "祝你有美好的一天！"},
-                    {vi: "Vạn sự như ý!", cn: "万事如意！"},
-                    {vi: "An khang thịnh vượng!", cn: "安康兴旺！"},
-                    {vi: "Sức khỏe dồi dào!", cn: "身体健康！"}
+                    {vi: "Người Trung Quốc có được mua nhà ở Việt Nam không?", cn: "中国人可以在越南买房吗？"},
+                    {vi: "Cần thị thực ít nhất 3 tháng mới được mua phải không?", cn: "需要至少3个月签证才能购买对吗？"},
+                    {vi: "Người nước ngoài chỉ được sở hữu 30% căn hộ trong dự án?", cn: "外国人只能拥有项目的30%公寓？"},
+                    {vi: "Thời hạn sở hữu là 50 năm đúng không?", cn: "产权期限是50年对吗？"},
+                    {vi: "Có được gia hạn thêm 50 năm nữa không?", cn: "可以再续50年吗？"},
+                    {vi: "Người Trung Quốc có được mua đất nông nghiệp không?", cn: "中国人可以买农业用地吗？"},
+                    {vi: "Chỉ được mua căn hộ chung cư, không được mua đất thổ cư phải không?", cn: "只能买公寓，不能买住宅用地对吗？"},
+                    {vi: "Cần kết hôn với người Việt mới được mua đất đúng không?", cn: "需要和越南人结婚才能买地对吗？"},
+                    {vi: "Nếu đầu tư doanh nghiệp thì được quyền gì?", cn: "如果投资企业有什么权利？"},
+                    {vi: "Giấy chứng nhận quyền sử dụng đất có ghi tên nước ngoài không?", cn: "土地使用权证会写外国人名字吗？"},
+                    {vi: "Có cần chứng minh đang sinh sống hợp pháp tại Việt Nam không?", cn: "需要证明在越南合法居住吗？"},
+                    {vi: "Người nước ngoài có được thế chấp nhà để vay ngân hàng không?", cn: "外国人可以抵押房子向银行贷款吗？"},
+                    {vi: "Thủ tục xin cấp sổ hồng cho người nước ngoài khác gì?", cn: "外国人申请房产证的程序有什么不同？"},
+                    {vi: "Nếu hết hạn 50 năm nhà thuộc về ai?", cn: "如果50年到期房子归谁？"},
+                    {vi: "Có được ủy quyền cho người Việt đứng tên mua hộ không?", cn: "可以委托越南人代持购买吗？"}
+                ]
+            },
+            xaydung: {
+                title: '建房与施工',
+                titleVi: 'Xây dựng & Thi công',
+                data: [
+                    {vi: "Xin giấy phép xây dựng mất bao lâu?", cn: "申请建筑许可证需要多久？"},
+                    {vi: "Đất có quy hoạch 1/500 mới được xây đúng không?", cn: "土地有1/500规划才能建房对吗？"},
+                    {vi: "Chi phí xây dựng khoảng bao nhiêu một mét vuông?", cn: "建筑成本大约每平方米多少？"},
+                    {vi: "Nhà thầu có giấy phép xây dựng không?", cn: "承包商有建筑资质吗？"},
+                    {vi: "Hợp đồng xây dựng trọn gói hay nhân công?", cn: "建筑合同是包工包料还是清包工？"},
+                    {vi: "Thời gian thi công dự kiến bao lâu?", cn: "预计施工期多久？"},
+                    {vi: "Có cần giám sát thi công không?", cn: "需要施工监理吗？"},
+                    {vi: "Vật liệu xây dựng do chủ đầu tư mua hay nhà thầu lo?", cn: "建材由业主购买还是承包商负责？"},
+                    {vi: "Nghiệm thu công trình ở giai đoạn nào?", cn: "工程验收分哪些阶段？"},
+                    {vi: "Bảo hành công trình bao nhiêu năm?", cn: "工程保修几年？"},
+                    {vi: "Có được xây tầng hầm không?", cn: "可以建地下室吗？"},
+                    {vi: "Chiều cao tối đa xây được mấy tầng?", cn: "最高可以建几层？"},
+                    {vi: "Lệch khối có được phép không?", cn: "可以错层建筑吗？"},
+                    {vi: "Phí thẩm định thiết kế bao nhiêu?", cn: "设计审核费多少？"},
+                    {vi: "Có cần khảo sát địa chất trước khi xây không?", cn: "建房前需要地质勘察吗？"}
+                ]
+            },
+            thuevamua: {
+                title: '租房与买卖',
+                titleVi: 'Thuê & Mua bán',
+                data: [
+                    {vi: "Tiền cọc thuê nhà thường là mấy tháng?", cn: "租房押金通常是几个月？"},
+                    {vi: "Hợp đồng thuê nhà tối thiểu 6 tháng đúng không?", cn: "租房合同最少6个月对吗？"},
+                    {vi: "Tiền thuê có bao gồm phí quản lý chung cư không?", cn: "租金包含公寓管理费吗？"},
+                    {vi: "Chủ nhà có được tự ý tăng giá không?", cn: "房东可以随意涨价吗？"},
+                    {vi: "Muốn chuyển nhượng hợp đồng thuê có được không?", cn: "想转让租约可以吗？"},
+                    {vi: "Mua nhà trả góp cần trả trước bao nhiêu phần trăm?", cn: "分期买房需要首付百分之多少？"},
+                    {vi: "Lãi suất vay mua nhà hiện tại bao nhiêu?", cn: "现在购房贷款利率多少？"},
+                    {vi: "Thời hạn vay tối đa là bao nhiêu năm?", cn: "最长贷款期限多少年？"},
+                    {vi: "Có thể trả nợ trước hạn không?", cn: "可以提前还款吗？"},
+                    {vi: "Phí trả nợ trước hạn là bao nhiêu?", cn: "提前还款手续费多少？"},
+                    {vi: "Nhà bán có nợ thuế hay phí quản lý gì không?", cn: "出售房屋有欠税或管理费吗？"},
+                    {vi: "Giao dịch qua sàn bất động sản mất phí bao nhiêu?", cn: "通过房产中介交易费用多少？"},
+                    {vi: "Có thể đặt cọc bằng ngoại tệ không?", cn: "可以用外币付定金吗？"},
+                    {vi: "Thời điểm bàn giao nhà là khi nào?", cn: "交房时间是什么时候？"},
+                    {vi: "Nhận nhà cần kiểm tra những gì?", cn: "收房需要检查什么？"}
+                ]
+            },
+            tiennghi: {
+                title: '设施与环境',
+                titleVi: 'Tiện ích & Môi trường',
+                data: [
+                    {vi: "Khu dân cư có điện 3 pha không?", cn: "居民区有三相电吗？"},
+                    {vi: "Nguồn nước máy hay nước giếng khoan?", cn: "是自来水还是井水？"},
+                    {vi: "Hệ thống thoát nước có bị ngập khi mưa không?", cn: "排水系统下雨会淹吗？"},
+                    {vi: "Có trạm biến áp riêng cho khu này không?", cn: "这个区域有专用变电站吗？"},
+                    {vi: "Đường trước nhà rộng bao nhiêu mét?", cn: "门前路宽多少米？"},
+                    {vi: "Vỉa hè có rộng để đậu xe không?", cn: "人行道宽 enough 停车吗？"},
+                    {vi: "Cây xanh trong khu có nhiều không?", cn: "区内绿化多吗？"},
+                    {vi: "Có gần trường học bệnh viện không?", cn: "离学校医院近吗？"},
+                    {vi: "Chợ truyền thống hay siêu thị gần hơn?", cn: "传统市场还是超市更近？"},
+                    {vi: "Khu này có an ninh tốt không?", cn: "这个区域治安好吗？"},
+                    {vi: "Tiếng ồn từ đường lớn có ảnh hưởng không?", cn: "大路噪音有影响吗？"},
+                    {vi: "Hướng nhà có bị nắng chiều không?", cn: "房子朝向会西晒吗？"},
+                    {vi: "Thoáng gió tự nhiên có tốt không?", cn: "自然通风好吗？"},
+                    {vi: "Có khu công viên gần đó không?", cn: "附近有公园吗？"},
+                    {vi: "Mật độ xây dựng của dự án bao nhiêu?", cn: "项目建筑密度多少？"}
                 ]
             }
         };
 
         // ==========================================
-        // DATA THUONG DUNG
+        // DATA THUONG DUNG (giữ nguyên)
         // ==========================================
         const lessonsThuongDung = {
             greetings: {
@@ -1027,8 +1102,8 @@
                 titleVi: 'Chào hỏi',
                 data: [
                     {vi: "Xin chào", cn: "你好"},
-                    {vi: "Chào buổ i sáng", cn: "早上好"},
-                    {vi: "Chào buổ i tối", cn: "晚上好"},
+                    {vi: "Chào buổi sáng", cn: "早上好"},
+                    {vi: "Chào buổi tối", cn: "晚上好"},
                     {vi: "Cảm ơn", cn: "谢谢"},
                     {vi: "Cảm ơn nhiều", cn: "非常感谢"},
                     {vi: "Xin lỗi", cn: "对不起"},
@@ -1043,9 +1118,9 @@
                 titleVi: 'Giới thiệu',
                 data: [
                     {vi: "Tôi tên là...", cn: "我叫..."},
-                    {vi: "Tôi là ngườ i Trung Quốc", cn: "我是中国人"},
+                    {vi: "Tôi là người Trung Quốc", cn: "我是中国人"},
                     {vi: "Tôi sống ở Việt Nam", cn: "我住在越南"},
-                    {vi: "Tôi mớ i đến", cn: "我刚到"},
+                    {vi: "Tôi mới đến", cn: "我刚到"},
                     {vi: "Tôi không biết tiếng Việt", cn: "我不会越南语"},
                     {vi: "Tôi học tiếng Việt", cn: "我学越南语"},
                     {vi: "Tôi làm việc ở đây", cn: "我在这里工作"},
@@ -1114,7 +1189,7 @@
                     {vi: "mua", cn: "买"}, {vi: "bán", cn: "卖"},
                     {vi: "cho", cn: "给"}, {vi: "lấy", cn: "拿"},
                     {vi: "tìm", cn: "找"}, {vi: "hỏi", cn: "问"},
-                    {vi: "trả lờ i", cn: "答"}, {vi: "học", cn: "学"},
+                    {vi: "trả lời", cn: "答"}, {vi: "học", cn: "学"},
                     {vi: "dạy", cn: "教"}, {vi: "viết", cn: "写"}
                 ]
             },
@@ -1141,9 +1216,9 @@
                     {vi: "to - nhỏ", cn: "大 - 小"},
                     {vi: "nhiều - ít", cn: "多 - 少"},
                     {vi: "cao - thấp", cn: "高 - 低"},
-                    {vi: "dà i - ngắn", cn: "长 - 短"},
+                    {vi: "dài - ngắn", cn: "长 - 短"},
                     {vi: "nhanh - chậm", cn: "快 - 慢"},
-                    {vi: "mớ i - cũ", cn: "新 - 旧"},
+                    {vi: "mới - cũ", cn: "新 - 旧"},
                     {vi: "tốt - xấu", cn: "好 - 坏"},
                     {vi: "đúng - sai", cn: "对 - 错"},
                     {vi: "lạnh - nóng", cn: "冷 - 热"},
@@ -1156,15 +1231,15 @@
         // STATE & FUNCTIONS
         // ==========================================
         let currentTab = 'dulich';
-        let currentVoice = { dulich: 'female', mausam: 'female', coban: 'female', thuongdung: 'female' };
-        let speechRate = { dulich: 0.9, mausam: 0.9, coban: 0.9, thuongdung: 0.9 };
-        let currentLesson = { dulich: 'nhatrang', mausam: 'traicay', coban: 'mausac', thuongdung: 'greetings' };
+        let currentVoice = { dulich: 'female', mausam: 'female', nhao: 'female', thuongdung: 'female' };
+        let speechRate = { dulich: 0.9, mausam: 0.9, nhao: 0.9, thuongdung: 0.9 };
+        let currentLesson = { dulich: 'nhatrang', mausam: 'traicay', nhao: 'coban', thuongdung: 'greetings' };
 
         function getLessonsByTab(tab) {
             switch(tab) {
                 case 'dulich': return lessonsDuLich;
                 case 'mausam': return lessonsMauSam;
-                case 'coban': return lessonsCoBan;
+                case 'nhao': return lessonsNhaO;
                 case 'thuongdung': return lessonsThuongDung;
                 default: return lessonsDuLich;
             }
@@ -1191,7 +1266,7 @@
         function init() {
             initTab('dulich', lessonsDuLich, 'nhatrang');
             initTab('mausam', lessonsMauSam, 'traicay');
-            initTab('coban', lessonsCoBan, 'mausac');
+            initTab('nhao', lessonsNhaO, 'coban');
             initTab('thuongdung', lessonsThuongDung, 'greetings');
         }
 
